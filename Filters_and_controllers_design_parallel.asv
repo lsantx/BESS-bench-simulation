@@ -143,11 +143,11 @@ clear;
 clc;
 close all;
 
-fswb = 18000;
+fsw = 18000;
+fc = fsw/20;
 Vdc = 500;
 Rb = 0.55;
 Lb = 4e-3;
-N = 3;              % Number of branches of the dc/dc converter
 Nbseries = 16;
 Nbstrins = 1;
 Rint = 7.1e-3 * Nbseries/Nbstrins;
@@ -175,20 +175,20 @@ Kivbu = 2*pi*fc1*(Kpvbu);      %%MOdelagem no arquivo .m
 disp('____________________________________________________');
 disp('-------------Ganhos do Controle de Corrente do Boost----------------');
 disp('____________________________________________________');
-disp({'Kp =',num2str(Kpb)});
-disp({'Ki =',num2str(Kib)});
+disp({'Kpb =',num2str(KP)});
+disp({'Kib =',num2str(KI)});
 
 disp('____________________________________________________');
 disp('-------------Ganhos do Controle de Corrente do Buck----------------');
 disp('____________________________________________________');
-disp({'Kpibu =',num2str(Kpibu)});
-disp({'Kiibu =',num2str(Kiibu)});
+disp({'Kpibu =',num2str(KP)});
+disp({'Kiibu =',num2str(KI)});
 
 
 disp('____________________________________________________');
 disp('-------------Ganhos do Controle de Tensão do Buck----------------');
 disp('____________________________________________________');
-disp({'Kpvbu =',num2str(Kpvbu)});
-disp({'Kivbu =',num2str(Kivbu)});
+disp({'Kpvbu =',num2str(KP)});
+disp({'Kivbu =',num2str(KI)});
 
 

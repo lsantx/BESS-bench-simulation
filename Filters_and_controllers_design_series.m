@@ -193,37 +193,9 @@ fc2 = fc1/20;
 KP = 2*pi*fc2/(2*pi*Ke*(fc1-fc2));
 KI = 2*pi*fc1*KP;
 
-%MF = (KP*Rint*s^2 + (KI*Rint+KP*Rint*wc)*s + KI*Rint*wc)/(s^2 + (wc+wc*KP*Rint)*s + KI*Rint*wc);
-%pzmap(MF)
-% Tm = 1/(2*pi*60);
-% fc = 1;
-% 
-% KP = 2*pi*fc*Tm/Ke;
-% KI = 2*pi*fc/Ke;
-
 disp('____________________________________________________');
 disp('-------------Ganhos do Controle de Tensão do Buck----------------');
 disp('____________________________________________________');
 disp({'KP =',num2str(KP)});
 disp({'KI =',num2str(KI)});
-
-
-% %% Projeto ganho controle do Vdc quadrado
-% clear; close all; clc;
-% 
-% s = tf('s');
-% Cdc = 2*(4.7e-3);
-% fc1 = 10;
-% fc2 = 1;
-% Vd = 35*sqrt(2/3);
-% Vdc = 80;
-% G = -(3/2)*Vd/Vdc;
-% H = -3/2 * Vd;
-% 
-% Kp = (2*pi/G)*(fc1+fc2)*Cdc
-% Ki = ((4*pi^2)/G)*fc1*fc2*Cdc
-% 
-% Kpq = 2*pi*fc2/(2*pi*H*(fc1-fc2))
-% Kiq = 2*pi*fc1*Kpq
-
 
