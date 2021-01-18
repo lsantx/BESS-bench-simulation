@@ -1,9 +1,9 @@
 Plecs {
-  Name          "BESS_system2_conectado_18khz_battery_parellel_v12"
-  Version       "4.4"
+  Name          "BESS_system2_conectado_18khz_battery_parallel"
+  Version       "4.5"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
-  StopTime      "10"
+  TimeSpan      "10"
   Timeout       ""
   Solver        "FixedStepDiscrete"
   MaxStep       "passo"
@@ -51,26 +51,27 @@ Plecs {
 "yAgICAgICAgICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KCiUlIE1hbGhhIHJlYXRpdm8gICAgIC"
 "AgICAKS2lxID0gMTIuNTY2NDsgICAgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5tCktwcSA"
 "9IC0wLjE2Mjk7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQoKJSUgQmF0dGVyeQpO"
-"Yl9zZXJpZXMgID0gMTI7Ck5iX3N0cmluZ3MgPSAxOwpSaW50ID0gTmJfc2VyaWVzKjcuMWUtMzsgI"
+"Yl9zZXJpZXMgID0gMTY7Ck5iX3N0cmluZ3MgPSAxOwpSaW50ID0gTmJfc2VyaWVzKjcuMWUtMzsgI"
 "CAlJVJlc2lzdMOqbmNpYSBpbnRlcm5hIGRhcyBiYXRlcmlhcwpTb2NfbWluID0gMjA7ICAgICUgU0"
 "9DWyVdClNvY19tYXggPSAxMDA7ClZkY28gPSAxMy42Kk5iX3NlcmllczsgICAgICAgICAgICAgICA"
 "gICAgICAgICAlJSB0ZW5zw6NvIGluaWNpYWwgZGMtbGluawoKJSBEYy9kYyBQYXJhbWV0ZXJzCkxi"
 "ID0gNGUtMzsgICAgICAgICAgICAgICAgJUluZHV0b3IgZG8gQm9vc3QKUmIgPSAwLjU1OyAgICAgI"
-"CAgICAgICAgJVJlc2lzdMOqbmNpYSBzw6lyaWUgZG8gaW5kdXRvcgpOX2VzcGlyYXNfY2MgPSA0MD"
-"M7CkFyZWFfY2MgPSA5ODdlLTY7ICAgICAgIApmc3diID0gMTgwMDA7ClRzYiA9IDEvKGZzd2IpOwo"
-"KJSVHYW5ob3MgZG8gY29udHJvbGFkb3IgZG8gZGMvZGMKJSUgZ2FuaG8gY29udHJvbGUgZGUgY29y"
-"cmVudGUgZG8gYm9vc3QgZSBidWNrCktjID0gVmRjLyhSYitSaW50KTsKVG0gPSBMYi8oUmIrUmlud"
-"Ck7CmZjID0gZnN3Yi8yMDsKS3BiID0gMipwaSpmYypUbS9LYzsgICAgICAgICUlTU9kZWxhZ2VtIG"
-"5vIGFycXVpdm8gLm0KS2liID0gMipwaSpmYy9LYzsgICAgICAgICAgICUlTU9kZWxhZ2VtIG5vIGF"
-"ycXVpdm8gLm0KJSVnYW5obyBjb250cm9sZSBkZSBjb3JyZW50ZSBkbyBidWNrIChNb2RvIGNvcnJl"
-"bnRlIGNvbnN0YW50ZSkKS3BpYnUgPSAyKnBpKmZjKlRtL0tjOyAgICAgICUlTU9kZWxhZ2VtIG5vI"
-"GFycXVpdm8gLm0KS2lpYnUgPSAyKnBpKmZjL0tjOyAgICAgICAgICUlTU9kZWxhZ2VtIG5vIGFycX"
-"Vpdm8gLm0KJSUgZ2FuaG8gY29udHJvbGUgZGUgdGVuc8OjbyBkbyBidWNrIChNb2RvIHRlbnPDo28"
-"gY29uc3RhbnRlKQpLZSA9IFJpbnQ7CmZjMSA9IDEwOwpmYzIgPSBmYzEvMjA7CktwdmJ1ID0gMipw"
-"aSpmYzIvKDIqcGkqS2UqKGZjMS1mYzIpKTsgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5tC"
-"ktpdmJ1ID0gMipwaSpmYzEqKEtwdmJ1KTsgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5tCi"
-"VLcHZidSA9IC01MC8zOyAgICAgICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KJUtpdmJ1ID0gLTI"
-"wMDAvMzsgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5t"
+"CAgICAgICAgJVJlc2lzdMOqbmNpYSBzw6lyaWUgZG8gaW5kdXRvcgpOID0gMzsgICAgICAgICAgIC"
+"AgICAgICVOw7ptZXJvIGRlIGJyYcOnb3MgZG8gaW50ZXJsZWF2ZWQKTl9lc3BpcmFzX2NjID0gNDA"
+"zOwpBcmVhX2NjID0gOTg3ZS02OyAgICAgICAKZnN3YiA9IDE4MDAwOwpUc2IgPSAxLyhmc3diKTsK"
+"CiUlR2FuaG9zIGRvIGNvbnRyb2xhZG9yIGRvIGRjL2RjCiUlIGdhbmhvIGNvbnRyb2xlIGRlIGNvc"
+"nJlbnRlIGRvIGJvb3N0IGUgYnVjawpLYyA9IFZkYy8oUmIrTipSaW50KTsKVG0gPSBMYi8oUmIrTi"
+"pSaW50KTsKZmMgPSBmc3diLzIwOwpLcGIgPSAyKnBpKmZjKlRtL0tjOyAgICAgICAgJSVNT2RlbGF"
+"nZW0gbm8gYXJxdWl2byAubQpLaWIgPSAyKnBpKmZjL0tjOyAgICAgICAgICAgJSVNT2RlbGFnZW0g"
+"bm8gYXJxdWl2byAubQolJWdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlbnRlIGRvIGJ1Y2sgKE1vZG8gY"
+"29ycmVudGUgY29uc3RhbnRlKQpLcGlidSA9IDIqcGkqZmMqVG0vS2M7ICAgICAgJSVNT2RlbGFnZW"
+"0gbm8gYXJxdWl2byAubQpLaWlidSA9IDIqcGkqZmMvS2M7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8"
+"gYXJxdWl2byAubQolJSBnYW5obyBjb250cm9sZSBkZSB0ZW5zw6NvIGRvIGJ1Y2sgKE1vZG8gdGVu"
+"c8OjbyBjb25zdGFudGUpCktlID0gTipSaW50OwpmYzEgPSAxMDsKZmMyID0gZmMxLzIwOwpLcHZid"
+"SA9IDIqcGkqZmMyLygyKnBpKktlKihmYzEtZmMyKSk7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdW"
+"l2byAubQpLaXZidSA9IDIqcGkqZmMxKihLcHZidSk7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl"
+"2byAubQolS3B2YnUgPSAtNTAvMzsgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5tCiVLaXZi"
+"dSA9IC0yMDAwLzM7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQ=="
   InitialState  "1"
   SystemState   "AAAACAAAAAADAAAAEgBUAGkAbQBlAFMAdABhAG0AcAAAABAAACWFAgOHlFj/A"
 "AAAFgBTAHQAYQB0AGUAVgBlAGMAdABvAHIAAAB/AAAAABlQbGVjc0FycmF5OjpEb3VibGVWZWN0b3"
@@ -120,8 +121,8 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 27; 1366, 691]
-    ZoomFactor    1
+    Location      [0, 64; 1366, 719]
+    ZoomFactor    0.873846
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
@@ -1564,6 +1565,11 @@ Plecs {
                 Show          off
               }
               Parameter {
+                Variable      "EnableWrapping"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
                 Variable      "UpperLimit"
                 Value         "Q*r*Tsc"
                 Show          off
@@ -1969,8 +1975,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -1980,8 +1987,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -1996,6 +2004,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -2468,6 +2486,11 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "EnableWrapping"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "UpperLimit"
                     Value         "inf"
                     Show          off
@@ -2547,8 +2570,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -2558,8 +2582,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -2574,6 +2599,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -10434,6 +10469,16 @@ Plecs {
         Value         ""
         Show          off
       }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
     }
     Component {
       Type          SignalDemux
@@ -12385,6 +12430,11 @@ Plecs {
                 Show          off
               }
               Parameter {
+                Variable      "EnableWrapping"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
                 Variable      "UpperLimit"
                 Value         "Q*r*Tsc"
                 Show          off
@@ -12790,8 +12840,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -12801,8 +12852,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -12817,6 +12869,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -13289,6 +13351,11 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "EnableWrapping"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "UpperLimit"
                     Value         "inf"
                     Show          off
@@ -13368,8 +13435,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -13379,8 +13447,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -13395,6 +13464,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -17103,6 +17182,16 @@ Plecs {
         Value         ""
         Show          off
       }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
     }
     Component {
       Type          SignalDemux
@@ -17556,6 +17645,16 @@ Plecs {
       }
       Parameter {
         Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
         Value         ""
         Show          off
       }
@@ -19578,8 +19677,8 @@ Plecs {
     } 
   }
   ProbeBlock {
-    Tag           "BESS_system2_conectado_18khz_battery_parellel_v12/Interleav"
-"ed Currents3"
+    Tag           "BESS_system2_conectado_18khz_battery_parallel/Interleaved C"
+"urrents3"
     Probe {
       Component     "L9"
       Path          ""
@@ -19597,8 +19696,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "BESS_system2_conectado_18khz_battery_parellel_v12/PCC Volta"
-"ge"
+    Tag           "BESS_system2_conectado_18khz_battery_parallel/PCC Voltage"
     Probe {
       Component     "3ph Meter"
       Path          ""
@@ -19606,8 +19704,8 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "BESS_system2_conectado_18khz_battery_parellel_v12/Injected "
-"Current"
+    Tag           "BESS_system2_conectado_18khz_battery_parallel/Injected Curr"
+"ent"
     Probe {
       Component     "3ph Meter"
       Path          ""
@@ -19615,8 +19713,8 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "BESS_system2_conectado_18khz_battery_parellel_v12/Interleav"
-"ed Currents4"
+    Tag           "BESS_system2_conectado_18khz_battery_parallel/Interleaved C"
+"urrents4"
     Probe {
       Component     "L12"
       Path          ""
