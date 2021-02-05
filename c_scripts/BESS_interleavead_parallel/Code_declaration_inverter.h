@@ -26,14 +26,15 @@
 #define PRD_div2  PRD/2              						 // PRD_div2 = PRD/2;
 #define pi    3.141592653589793   
 #define wn    2*pi*fn                 						 //Frequência angular fundamental 
-#define N     300               						   
+#define N     150               						   
 //...............Variáveis do Controle da tensão do link cc
 float psat = 10e3;
 
 //...............Variáveis do Controle de corrente do inversor
-float Ir = 15;
+float Ir = 30;
 float Pc = 0;
 float Qc = 0;
+float Q_control = 0;
 float Vpwm_norm_a = 0;
 float Vpwm_norm_b = 0;
 float Vpwm_norm_c = 0;
@@ -86,32 +87,32 @@ double c3;
 double c4;
 } sPR;
 
-#define PR_default  {0,0,0,0,0,0,0,0,0,0.00002777574703951879,-0.00002777574703951879,-1.999561366949691,1.000000000000000}
+#define PR_default  {0,0,0,0,0,0,0,0,0,0.00005553931071838902,-0.00005553931071838902,-1.99824566019771654446,0.99999999999999977796}
 
 sPR PRf_alfa = PR_default;
 sPR PRf_beta = PR_default;
 
 typedef struct {
-	float x;
-	float y;
-	float W;
-	float b0;
-	float b1;
-	float b2;
-	float b3;
-	float a1;
-	float a2;
-	float V_sogi;
-	float V_sogi1;
-	float V_sogi2;
-	float V_sogi_q;
-	float V_sogi_q1;
-	float V_sogi_q2;
-	float Vm;
-	float Vm1;
-	float Vm2;
-	float K_damp;
-	float freq_res;
+float x;
+float y;
+float W;
+float b0;
+float b1;
+float b2;
+float b3;
+float a1;
+float a2;
+float V_sogi;
+float V_sogi1;
+float V_sogi2;
+float V_sogi_q;
+float V_sogi_q1;
+float V_sogi_q2;
+float Vm;
+float Vm1;
+float Vm2;
+float K_damp;
+float freq_res;
 } sSOGI;
 
 #define SOGI_default {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1.414213562373095,60}
@@ -166,7 +167,7 @@ float wf;
 spll PLL = pll_default;
 
 typedef struct{
-float array[300];
+float array[150];
 float x;
 float y;
 float y_ant;
@@ -192,8 +193,10 @@ double c3;
 double c4;
 } sFilter2nd;
  
-#define  FILTER2ND_DEFAULTS {0,0,0,0,0,0,0.0001080504782871418,0.0002161009565742836,0.0001080504782871418,-1.970388322614733,0.970820524527881} //60Hz         
+#define  FILTER2ND_DEFAULTS {0,0,0,0,0,0,0.00042585082119787660,0.00085170164239575319,0.00042585082119787660,-1.94079521500497276243,0.94249861828976422284} //60Hz         
 sFilter2nd fil2nVdc = FILTER2ND_DEFAULTS;
+sFilter2nd fil2nPot = FILTER2ND_DEFAULTS;
+sFilter2nd fil2nQ   = FILTER2ND_DEFAULTS;
 
 typedef struct{
 float final;
@@ -203,11 +206,12 @@ float in;
 float delta;
 int flag;
 int flag2;
+float range;
 float inc;
-} Ramp;
+} sRamp;
 
-#define QRamp_default {0,0,0,0,0,0,0,0.12} 
-Ramp QRamp = QRamp_default;
+#define QRamp_default {0,0,0,0,0,0,0,0.1,10} 
+sRamp QRamp = QRamp_default;
 
 //................Parametros do PWM
 int count = 0;
@@ -230,3 +234,108 @@ void Second_order_filter(sFilter2nd *filt)
 	filt->y_ant2 = filt->y_ant;
 	filt->y_ant  = filt->y;
 }
+
+// Controlador PI
+void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdown)
+{
+    reg->erro = reg->Xref  - reg->Xm;
+
+    reg->erropi = reg->erro - (1/Kp)*reg->dif;
+
+    reg->inte = reg->inte_ant + T_div2 * (reg->erropi  + reg->erropi_ant);
+    reg->inte_ant = reg->inte;
+    reg->erropi_ant = reg->erropi;
+
+    reg->piout = (Kp*reg->erro + Ki*reg->inte); 
+
+    reg->piout_sat = reg->piout;
+    if(reg->piout>satup) reg->piout_sat = satup;
+    if(reg->piout<satdown) reg->piout_sat= satdown;
+
+    reg->dif = reg->piout - reg->piout_sat;
+}
+
+// SOGI
+void SOGI_func(sSOGI *sog, float Tsample)
+{
+  sog->x =  4*Tsample*pi * sog->K_damp *  sog->freq_res;
+  sog->y = (Tsample*2*pi * sog->freq_res)*(Tsample*2*pi * sog->freq_res);
+
+  sog->b1 = sog->x + sog->y + 4;
+  sog->b2 = sog->x - sog->y - 4;
+  sog->b3 = 2*(4 - sog->y);
+
+  sog->b0 = sog->x * (1/sog->b1);
+  sog->a1 = sog->b3 * (1/sog->b1);
+  sog->a2 = sog->b2 * (1/sog->b1);
+
+  sog->W = 4*Tsample*pi * sog->freq_res;
+
+  sog->V_sogi = sog->b0 * sog->Vm - sog->b0 * sog->Vm2 + sog->a1 * sog->V_sogi1+ sog->a2 * sog->V_sogi2;
+
+  sog->V_sogi_q = sog->W * sog->b0 * sog->Vm1 + sog->V_sogi_q1 * sog->a1 + sog->V_sogi_q2 * sog->a2;
+	
+  sog->Vm2 = sog->Vm1;
+  sog->Vm1 = sog->Vm;
+	
+  sog->V_sogi2 = sog->V_sogi1;
+  sog->V_sogi1 = sog->V_sogi;
+	 
+  sog->V_sogi_q2 = sog->V_sogi_q1;
+  sog->V_sogi_q1 = sog->V_sogi_q;
+}
+
+// Rampa
+void Ramp(sRamp *rmp)
+{
+    if(rmp->final != rmp->final_ant)
+    {
+        rmp->flag = 0;
+        rmp->flag2 = 1;
+    }
+
+    rmp->final_ant = rmp->final;
+
+    if(rmp->flag == 0)
+    {
+        rmp->atual = rmp->in;
+        rmp->flag = 1;
+    }
+
+    rmp->delta = rmp->final - rmp->atual;
+
+    if(rmp->flag2 == 1)
+    {
+        if(rmp->delta > 0)
+        {
+            rmp->atual += rmp->inc;
+            if(rmp->delta<=rmp->range)
+            {
+                rmp->atual = rmp->final;
+                rmp->flag2 = 0;
+            }
+        }
+        else if(rmp->delta < 0)
+        {
+            rmp->atual -= rmp->inc;
+            if(rmp->delta>=rmp->range)
+            {
+                rmp->atual = rmp->final;
+                rmp->flag2 = 0;
+            }
+
+        }
+    }
+}
+
+// Ressonante
+void Resfunc(sPR *point_res, float Kp, float Kr)
+{
+ 	point_res->res = point_res->c1*point_res->erro + point_res->c2*point_res->erro_ant2 - point_res->c3*point_res->res_ant - point_res->c4*point_res->res_ant2;
+    point_res->res_ant2 = point_res->res_ant;
+    point_res->res_ant = point_res->res;
+    point_res->erro_ant2 = point_res->erro_ant;
+    point_res->erro_ant = point_res->erro;
+
+    point_res->pr_out = Kp*point_res->erro + Kr*point_res->res;
+}    

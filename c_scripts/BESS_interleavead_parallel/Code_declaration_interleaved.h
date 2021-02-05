@@ -26,11 +26,11 @@
 #define Nb_strings ParamRealData(12,0)  
 
 #define N_br  3                                        //Número de braços do interleaved
-#define PRD  (fdsp/fsw)/2           						 // COntador Up e Down, PRD = (fdsp/fsw)/2 
-#define PRD_div2  PRD/2              						 // PRD_div2 = PRD/2;
+#define PRD  (fdsp/fsw)/2                                    // COntador Up e Down, PRD = (fdsp/fsw)/2 
+#define PRD_div2  PRD/2                                      // PRD_div2 = PRD/2;
 #define pi    3.141592653589793   
-#define wn    2*pi*fn                 						//Frequência angular fundamental
-#define N     100                 						// Numero de pontos da fundamental N = fs/fn;     
+#define wn    2*pi*fn                                       //Frequência angular fundamental
+#define N     150                                       // Numero de pontos da fundamental N = fs/fn;     
   
 // Parâmetros da bateria
 float Vboost = 14.4;               //Tensão de boost
@@ -41,22 +41,24 @@ float Vref = 0;
 
 //...............Parametros do Controle do DC/dc
 typedef struct {
-	float Xref;
-	float Xm;
-	float erro;
-	float erro_ant;
-	float inte;
-	float inte_ant;
-	float duty;
-	float piout;
-	float piout_ant;
-	float piout_sat;
-	float erropi;
-	float erropi_ant ;
-	float dif;
+    float Xref;
+    float Xm;
+    float erro;
+    float erro_ant;
+    float inte;
+    float inte_ant;
+    float duty;
+    float piout;
+    float piout_ant;
+    float piout_sat;
+    float erropi;
+    float erropi_ant;
+    float dif;
+    float Kp;
+    float Ki;
 } sPI;
 
-#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0}
+#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
 sPI PIbt = PI_default;
 sPI PIbt2 = PI_default;
@@ -113,45 +115,67 @@ int S5 = 0;
 int S6 = 0;
 int teste = 0;
 
+///////////////////////////////////////Funções/////////////////////
 
+// Rampa
 void Ramp(sRamp *rmp)
 {
-        if(rmp->final != rmp->final_ant)
+    if(rmp->final != rmp->final_ant)
+    {
+        rmp->flag = 0;
+        rmp->flag2 = 1;
+    }
+
+    rmp->final_ant = rmp->final;
+
+    if(rmp->flag == 0)
+    {
+        rmp->atual = rmp->in;
+        rmp->flag = 1;
+    }
+
+    rmp->delta = rmp->final - rmp->atual;
+
+    if(rmp->flag2 == 1)
+    {
+        if(rmp->delta > 0)
         {
-            rmp->flag = 0;
-            rmp->flag2 = 1;
-        }
-
-        rmp->final_ant = rmp->final;
-
-        if(rmp->flag == 0)
-        {
-            rmp->atual = rmp->in;
-            rmp->flag = 1;
-        }
-
-        rmp->delta = rmp->final - rmp->atual;
-
-        if(rmp->flag2 == 1)
-        {
-            if(rmp->delta > 0)
+            rmp->atual += rmp->inc;
+            if(rmp->delta<=rmp->range)
             {
-                rmp->atual += rmp->inc;
-                if(rmp->delta<=rmp->range)
-                {
-                    rmp->atual = rmp->final;
-                    rmp->flag2 = 0;
-                }
-            }
-            else if(rmp->delta < 0)
-            {
-                rmp->atual -= rmp->inc;
-                if(rmp->delta>=rmp->range)
-                {
-                    rmp->atual = rmp->final;
-                    rmp->flag2 = 0;
-                }
-
+                rmp->atual = rmp->final;
+                rmp->flag2 = 0;
             }
         }
+        else if(rmp->delta < 0)
+        {
+            rmp->atual -= rmp->inc;
+            if(rmp->delta>=rmp->range)
+            {
+                rmp->atual = rmp->final;
+                rmp->flag2 = 0;
+            }
+
+        }
+    }
+}
+
+// Controlador PI
+void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdown)
+{
+    reg->erro = reg->Xref  - reg->Xm;
+
+    reg->erropi = reg->erro - (1/Kp)*reg->dif;
+
+    reg->inte = reg->inte_ant + T_div2 * (reg->erropi  + reg->erropi_ant);
+    reg->inte_ant = reg->inte;
+    reg->erropi_ant = reg->erropi;
+
+    reg->piout = (Kp*reg->erro + Ki*reg->inte); 
+
+    reg->piout_sat = reg->piout;
+    if(reg->piout>satup) reg->piout_sat = satup;
+    if(reg->piout<satdown) reg->piout_sat= satdown;
+
+    reg->dif = reg->piout - reg->piout_sat;
 }
