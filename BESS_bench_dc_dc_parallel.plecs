@@ -1,9 +1,9 @@
 Plecs {
   Name          "BESS_bench_dc_dc_parallel"
-  Version       "4.1"
+  Version       "4.5"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
-  StopTime      "10"
+  TimeSpan      "10"
   Timeout       ""
   Solver        "FixedStepDiscrete"
   MaxStep       "passo"
@@ -13,7 +13,7 @@ Plecs {
   ZCStepSize    "1e-8"
   RelTol        "1e-3"
   AbsTol        "-1"
-  TurnOnThreshold "1e-2"
+  TurnOnThreshold "0"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "1"
   LossVariableLimitExceededMsg "3"
@@ -21,6 +21,7 @@ Plecs {
   DivisionByZeroMsg "2"
   StiffnessDetectionMsg "2"
   MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
   InitializationCommands base64 "JSUgUGFyw6JtZXRyb3MgZGEgcmVkZSBlIGRhIGNhcmdhC"
 "lZybXMgPSAyMjA7ICAgICAgICAlIFRlbnPDo28gZGUgbGluaGEgZWZpY2F6IGRhIHJlZGUKJVZybX"
@@ -98,10 +99,10 @@ Plecs {
 "AAAAAAAAAD+ifSHBDuezAAAAAAAAAAA/f8YCHZDEcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgBDAG8AbQBtAGUAbgB0AAAACgAAAAAKAG"
 "wAdQB2AGEAcw=="
+  TaskingMode   "1"
+  TaskConfigurations ""
   CodeGenParameterInlining "2"
-  CodeGenInliningExceptions "AAAACwAAAAAA"
   CodeGenFloatingPointFormat "2"
-  CodeGenIntegerWordSize "32"
   CodeGenAbsTimeUsageMsg "3"
   CodeGenBaseName ""
   CodeGenOutputDir ""
@@ -116,10 +117,12 @@ Plecs {
   ExternalModeSettings ""
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 27; 1360, 691]
+    Location      [0, 37; 1280, 671]
     ZoomFactor    0.873846
-    SliderPosition [0, 0]
+    SliderPosition [0, 93]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -256,6 +259,7 @@ Plecs {
       Frame         [-20, -20; 20, 20]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -291,6 +295,11 @@ Plecs {
           Parameter {
             Variable      "Inputs"
             Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
             Show          off
           }
         }
@@ -386,6 +395,11 @@ Plecs {
           LabelPosition [0, 18]
           LabelAlign    up
           Parameter {
+            Variable      "x0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
             Variable      "T_period"
             Value         "1/60"
             Show          off
@@ -417,6 +431,11 @@ Plecs {
           Frame         [-15, -15; 15, 15]
           LabelPosition [0, 18]
           LabelAlign    up
+          Parameter {
+            Variable      "x0"
+            Value         "0"
+            Show          off
+          }
           Parameter {
             Variable      "T_period"
             Value         "1/60"
@@ -535,6 +554,11 @@ Plecs {
       Parameter {
         Variable      "Value"
         Value         "5"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
         Show          off
       }
     }
@@ -964,6 +988,7 @@ Plecs {
       Frame         [-30, -55; 30, 55]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -1126,6 +1151,7 @@ Plecs {
           Frame         [-60, -40; 60, 40]
           LabelPosition [0, 0]
           SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
           CodeGenTarget "Generic"
           MaskIconFrame on
           MaskIconOpaque off
@@ -1175,6 +1201,11 @@ Plecs {
               }
               Parameter {
                 Variable      "ShowStatePort"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "EnableWrapping"
                 Value         "1"
                 Show          off
               }
@@ -1478,6 +1509,11 @@ Plecs {
                 Value         "+++++"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Subsystem
@@ -1489,6 +1525,7 @@ Plecs {
               Frame         [-80, -20; 80, 20]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -1516,6 +1553,11 @@ Plecs {
                   Position      [470, 110]
                   Direction     up
                   Flipped       off
+                  Parameter {
+                    Variable      "DialogGeometry"
+                    Value         ""
+                    Show          off
+                  }
                   Parameter {
                     Variable      "NumInputs"
                     Value         "3"
@@ -1562,14 +1604,20 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "GnuExtensions"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "RuntimeCheck"
                     Value         "2"
                     Show          off
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -1579,8 +1627,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -1595,6 +1644,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -1627,6 +1686,11 @@ Plecs {
                     Value         "BatType"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Constant
@@ -1641,6 +1705,11 @@ Plecs {
                   Parameter {
                     Variable      "Value"
                     Value         "BatType==1"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -1659,6 +1728,11 @@ Plecs {
                     Value         "BatType==2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Product
@@ -1672,6 +1746,11 @@ Plecs {
                     Value         "2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Product
@@ -1683,6 +1762,11 @@ Plecs {
                   Parameter {
                     Variable      "Inputs"
                     Value         "2"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -1872,6 +1956,7 @@ Plecs {
               Frame         [-75, -30; 75, 30]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -1917,6 +2002,11 @@ Plecs {
                     Value         "2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          ConstantRelationalOperator
@@ -1956,6 +2046,11 @@ Plecs {
                     Value         "1"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Sum
@@ -1974,6 +2069,11 @@ Plecs {
                     Value         "+-"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Gain
@@ -1990,6 +2090,11 @@ Plecs {
                   Parameter {
                     Variable      "Multiplication"
                     Value         "1"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -2021,6 +2126,11 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "EnableWrapping"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "UpperLimit"
                     Value         "inf"
                     Show          off
@@ -2038,6 +2148,11 @@ Plecs {
                   Position      [585, 110]
                   Direction     up
                   Flipped       off
+                  Parameter {
+                    Variable      "DialogGeometry"
+                    Value         ""
+                    Show          off
+                  }
                   Parameter {
                     Variable      "NumInputs"
                     Value         "3"
@@ -2084,14 +2199,20 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "GnuExtensions"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "RuntimeCheck"
                     Value         "2"
                     Show          off
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -2101,8 +2222,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -2117,6 +2239,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -2147,6 +2279,11 @@ Plecs {
                   Parameter {
                     Variable      "Value"
                     Value         "BatType"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -2353,6 +2490,11 @@ Plecs {
                 Value         "++"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -2369,6 +2511,11 @@ Plecs {
                 Value         "E0"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Subsystem
@@ -2380,6 +2527,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -2726,6 +2874,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -2740,6 +2893,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "2*E0"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -2843,6 +3001,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -2859,6 +3022,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "-+"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -3011,6 +3179,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Display
@@ -3061,6 +3234,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -3327,6 +3501,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Function
@@ -3354,6 +3533,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -3638,6 +3818,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -3652,6 +3837,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -3719,6 +3909,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Gain
@@ -3735,6 +3930,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -3773,6 +3973,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Memory
@@ -3800,6 +4005,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "Q*r"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -3836,6 +4046,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -4524,6 +4739,11 @@ Plecs {
             Value         "1"
             Show          off
           }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
         }
         Component {
           Type          Voltmeter
@@ -4566,6 +4786,11 @@ Plecs {
           Parameter {
             Variable      "Multiplication"
             Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
             Show          off
           }
         }
@@ -4725,6 +4950,11 @@ Plecs {
         Value         "15"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          ThreePhaseMeter
@@ -4776,6 +5006,7 @@ Plecs {
       LabelPosition [0, -28]
       LabelAlign    down
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -4816,6 +5047,7 @@ Plecs {
           Frame         [-20, -20; 20, 20]
           LabelPosition [0, 0]
           SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
           CodeGenTarget "Generic"
           MaskIconFrame on
           MaskIconOpaque off
@@ -4858,6 +5090,11 @@ Plecs {
                 Value         "2"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -4876,6 +5113,11 @@ Plecs {
                 Value         "+-"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Gain
@@ -4892,6 +5134,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -4938,6 +5185,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -4954,6 +5206,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "+-"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -4974,6 +5231,11 @@ Plecs {
                 Value         "+-"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Product
@@ -4985,6 +5247,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -5003,6 +5270,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -5233,6 +5505,7 @@ Plecs {
           LabelPosition [0, 13]
           LabelAlign    up
           SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
           CodeGenTarget "Generic"
           MaskType      "Filtro Passa Baixa"
           MaskDescription base64 "VCA9IDEvKDIqcGkqRmMpIAoKRmMgPSBGcmVxdcOqbmNp"
@@ -5372,6 +5645,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -5388,6 +5666,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "-++"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -5429,6 +5712,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -5542,6 +5830,7 @@ Plecs {
           LabelPosition [0, 13]
           LabelAlign    up
           SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
           CodeGenTarget "Generic"
           MaskType      "Filtro Passa Baixa"
           MaskDescription base64 "VCA9IDEvKDIqcGkqRmMpIAoKRmMgPSBGcmVxdcOqbmNp"
@@ -5681,6 +5970,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -5697,6 +5991,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "-++"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -5738,6 +6037,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -6533,6 +6837,7 @@ Plecs {
       Frame         [-35, -20; 35, 20]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -7187,6 +7492,7 @@ Plecs {
       Frame         [-30, -25; 30, 25]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -7697,6 +8003,11 @@ Plecs {
         Value         "Vdc"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Constant
@@ -7711,6 +8022,11 @@ Plecs {
       Parameter {
         Variable      "Value"
         Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
         Show          off
       }
     }
@@ -7831,6 +8147,11 @@ Plecs {
       Direction     up
       Flipped       off
       Parameter {
+        Variable      "DialogGeometry"
+        Value         "[370 177 520 322]"
+        Show          off
+      }
+      Parameter {
         Variable      "NumInputs"
         Value         "10"
         Show          off
@@ -7877,14 +8198,19 @@ Plecs {
         Show          off
       }
       Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
         Variable      "RuntimeCheck"
         Value         "2"
         Show          off
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"declaration_inverter.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
+"claration_inverter.h\""
         Show          off
       }
       Parameter {
@@ -7894,8 +8220,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"Output_inverter.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
+"tput_inverter.c\""
         Show          off
       }
       Parameter {
@@ -7910,6 +8236,16 @@ Plecs {
       }
       Parameter {
         Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
         Value         ""
         Show          off
       }
@@ -7998,6 +8334,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Delay
@@ -8032,6 +8373,7 @@ Plecs {
       Frame         [-20, -30; 20, 30]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -8564,6 +8906,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Step
@@ -8585,6 +8932,11 @@ Plecs {
       Parameter {
         Variable      "After"
         Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
         Show          off
       }
     }
@@ -8722,6 +9074,7 @@ Plecs {
       Frame         [-20, -20; 20, 20]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -8757,6 +9110,11 @@ Plecs {
           Parameter {
             Variable      "Inputs"
             Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
             Show          off
           }
         }
@@ -8852,6 +9210,11 @@ Plecs {
           LabelPosition [0, 18]
           LabelAlign    up
           Parameter {
+            Variable      "x0"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
             Variable      "T_period"
             Value         "1/60"
             Show          off
@@ -8883,6 +9246,11 @@ Plecs {
           Frame         [-15, -15; 15, 15]
           LabelPosition [0, 18]
           LabelAlign    up
+          Parameter {
+            Variable      "x0"
+            Value         "0"
+            Show          off
+          }
           Parameter {
             Variable      "T_period"
             Value         "1/60"
@@ -9001,6 +9369,11 @@ Plecs {
       Parameter {
         Variable      "Value"
         Value         "5"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
         Show          off
       }
     }
@@ -9430,6 +9803,7 @@ Plecs {
       Frame         [-30, -55; 30, 55]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -9592,6 +9966,7 @@ Plecs {
           Frame         [-60, -40; 60, 40]
           LabelPosition [0, 0]
           SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
           CodeGenTarget "Generic"
           MaskIconFrame on
           MaskIconOpaque off
@@ -9641,6 +10016,11 @@ Plecs {
               }
               Parameter {
                 Variable      "ShowStatePort"
+                Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "EnableWrapping"
                 Value         "1"
                 Show          off
               }
@@ -9944,6 +10324,11 @@ Plecs {
                 Value         "+++++"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Subsystem
@@ -9955,6 +10340,7 @@ Plecs {
               Frame         [-80, -20; 80, 20]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -9982,6 +10368,11 @@ Plecs {
                   Position      [470, 110]
                   Direction     up
                   Flipped       off
+                  Parameter {
+                    Variable      "DialogGeometry"
+                    Value         ""
+                    Show          off
+                  }
                   Parameter {
                     Variable      "NumInputs"
                     Value         "3"
@@ -10028,14 +10419,20 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "GnuExtensions"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "RuntimeCheck"
                     Value         "2"
                     Show          off
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -10045,8 +10442,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -10061,6 +10459,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -10093,6 +10501,11 @@ Plecs {
                     Value         "BatType"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Constant
@@ -10107,6 +10520,11 @@ Plecs {
                   Parameter {
                     Variable      "Value"
                     Value         "BatType==1"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -10125,6 +10543,11 @@ Plecs {
                     Value         "BatType==2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Product
@@ -10138,6 +10561,11 @@ Plecs {
                     Value         "2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Product
@@ -10149,6 +10577,11 @@ Plecs {
                   Parameter {
                     Variable      "Inputs"
                     Value         "2"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -10338,6 +10771,7 @@ Plecs {
               Frame         [-75, -30; 75, 30]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -10383,6 +10817,11 @@ Plecs {
                     Value         "2"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          ConstantRelationalOperator
@@ -10422,6 +10861,11 @@ Plecs {
                     Value         "1"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Sum
@@ -10440,6 +10884,11 @@ Plecs {
                     Value         "+-"
                     Show          off
                   }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
+                    Show          off
+                  }
                 }
                 Component {
                   Type          Gain
@@ -10456,6 +10905,11 @@ Plecs {
                   Parameter {
                     Variable      "Multiplication"
                     Value         "1"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -10487,6 +10941,11 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "EnableWrapping"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "UpperLimit"
                     Value         "inf"
                     Show          off
@@ -10504,6 +10963,11 @@ Plecs {
                   Position      [585, 110]
                   Direction     up
                   Flipped       off
+                  Parameter {
+                    Variable      "DialogGeometry"
+                    Value         ""
+                    Show          off
+                  }
                   Parameter {
                     Variable      "NumInputs"
                     Value         "3"
@@ -10550,14 +11014,20 @@ Plecs {
                     Show          off
                   }
                   Parameter {
+                    Variable      "GnuExtensions"
+                    Value         "1"
+                    Show          off
+                  }
+                  Parameter {
                     Variable      "RuntimeCheck"
                     Value         "2"
                     Show          off
                   }
                   Parameter {
                     Variable      "Declarations"
-                    Value         "#define x Input (0)\n#define port1 Input (1"
-")\n#define port2 Input (2)"
+                    Value         "#define x Input (0)\n"
+"#define port1 Input (1)\n"
+"#define port2 Input (2)"
                     Show          off
                   }
                   Parameter {
@@ -10567,8 +11037,9 @@ Plecs {
                   }
                   Parameter {
                     Variable      "OutputFcn"
-                    Value         "if(x==1) Output(0) = port1;\nelse if(x==2) "
-"Output(0) = port2;\nelse Output(0) = port2;"
+                    Value         "if(x==1) Output(0) = port1;\n"
+"else if(x==2) Output(0) = port2;\n"
+"else Output(0) = port2;"
                     Show          off
                   }
                   Parameter {
@@ -10583,6 +11054,16 @@ Plecs {
                   }
                   Parameter {
                     Variable      "TerminateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "StoreCustomStateFcn"
+                    Value         ""
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "RestoreCustomStateFcn"
                     Value         ""
                     Show          off
                   }
@@ -10613,6 +11094,11 @@ Plecs {
                   Parameter {
                     Variable      "Value"
                     Value         "BatType"
+                    Show          off
+                  }
+                  Parameter {
+                    Variable      "DataType"
+                    Value         "10"
                     Show          off
                   }
                 }
@@ -10819,6 +11305,11 @@ Plecs {
                 Value         "++"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -10835,6 +11326,11 @@ Plecs {
                 Value         "E0"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Subsystem
@@ -10846,6 +11342,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -11192,6 +11689,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -11206,6 +11708,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "2*E0"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -11309,6 +11816,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Sum
@@ -11325,6 +11837,11 @@ Plecs {
               Parameter {
                 Variable      "Inputs"
                 Value         "-+"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -11477,6 +11994,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Display
@@ -11527,6 +12049,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -11793,6 +12316,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Function
@@ -11820,6 +12348,7 @@ Plecs {
               Frame         [-55, -15; 55, 15]
               LabelPosition [0, 0]
               SampleTime    "-1"
+              CodeGenDiscretizationMethod "2"
               CodeGenTarget "Generic"
               MaskIconFrame on
               MaskIconOpaque off
@@ -12104,6 +12633,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Constant
@@ -12118,6 +12652,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -12185,6 +12724,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Gain
@@ -12201,6 +12745,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -12239,6 +12788,11 @@ Plecs {
                 Value         "1"
                 Show          off
               }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
+                Show          off
+              }
             }
             Component {
               Type          Memory
@@ -12266,6 +12820,11 @@ Plecs {
               Parameter {
                 Variable      "Value"
                 Value         "Q*r"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -12302,6 +12861,11 @@ Plecs {
               Parameter {
                 Variable      "Multiplication"
                 Value         "1"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "10"
                 Show          off
               }
             }
@@ -12990,6 +13554,11 @@ Plecs {
             Value         "1"
             Show          off
           }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
+            Show          off
+          }
         }
         Component {
           Type          Voltmeter
@@ -13032,6 +13601,11 @@ Plecs {
           Parameter {
             Variable      "Multiplication"
             Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataType"
+            Value         "10"
             Show          off
           }
         }
@@ -13191,6 +13765,11 @@ Plecs {
         Value         "15"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Switch
@@ -13290,6 +13869,7 @@ Plecs {
       Frame         [-20, -30; 20, 30]
       LabelPosition [0, 0]
       SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
       MaskIconFrame on
       MaskIconOpaque off
@@ -13822,6 +14402,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Step
@@ -13845,6 +14430,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          CScript
@@ -13853,6 +14443,11 @@ Plecs {
       Position      [235, 180]
       Direction     up
       Flipped       off
+      Parameter {
+        Variable      "DialogGeometry"
+        Value         "[370 177 520 322]"
+        Show          off
+      }
       Parameter {
         Variable      "NumInputs"
         Value         "10"
@@ -13900,14 +14495,19 @@ Plecs {
         Show          off
       }
       Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
         Variable      "RuntimeCheck"
         Value         "2"
         Show          off
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"declaration_interleaved.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
+"claration_interleaved.h\""
         Show          off
       }
       Parameter {
@@ -13917,8 +14517,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"Output_interleaved.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
+"tput_interleaved.c\""
         Show          off
       }
       Parameter {
@@ -13933,6 +14533,16 @@ Plecs {
       }
       Parameter {
         Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
         Value         ""
         Show          off
       }
@@ -13982,6 +14592,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -14016,10 +14627,11 @@ Plecs {
         BaselineValue 0
       }
       Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
         Axis {
           Name          ""
           AutoScale     1
@@ -14084,6 +14696,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -14118,10 +14731,11 @@ Plecs {
         BaselineValue 0
       }
       Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
         Axis {
           Name          ""
           AutoScale     1
@@ -14186,6 +14800,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -14220,10 +14835,11 @@ Plecs {
         BaselineValue 0
       }
       Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
         Axis {
           Name          ""
           AutoScale     1
@@ -14289,6 +14905,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -14301,10 +14918,11 @@ Plecs {
         BaselineValue 0
       }
       Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
         Axis {
           Name          ""
           AutoScale     1
@@ -14332,6 +14950,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          Constant
@@ -14348,6 +14971,11 @@ Plecs {
         Value         "1"
         Show          off
       }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
     }
     Component {
       Type          CScript
@@ -14356,6 +14984,11 @@ Plecs {
       Position      [235, 700]
       Direction     up
       Flipped       off
+      Parameter {
+        Variable      "DialogGeometry"
+        Value         "[370 177 520 322]"
+        Show          off
+      }
       Parameter {
         Variable      "NumInputs"
         Value         "10"
@@ -14403,14 +15036,19 @@ Plecs {
         Show          off
       }
       Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
         Variable      "RuntimeCheck"
         Value         "2"
         Show          off
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"declaration_interleaved.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
+"claration_interleaved.h\""
         Show          off
       }
       Parameter {
@@ -14420,8 +15058,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts\\BESS_interleavead_parallel\\Code_"
-"Output_interleaved.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
+"tput_interleaved.c\""
         Show          off
       }
       Parameter {
@@ -14436,6 +15074,16 @@ Plecs {
       }
       Parameter {
         Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
         Value         ""
         Show          off
       }
@@ -14470,6 +15118,7 @@ Plecs {
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
+      ShowLegend    "1"
       Axis {
         Name          ""
         AutoScale     1
@@ -14482,10 +15131,11 @@ Plecs {
         BaselineValue 0
       }
       Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
         Axis {
           Name          ""
           AutoScale     1
@@ -15428,7 +16078,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am4"
       SrcTerminal   3
-      Points        [165, 935; 195, 935; 195, 1070]
+      Points        [195, 935; 195, 1070]
       DstComponent  "Pot3"
       DstTerminal   3
     }
@@ -15706,7 +16356,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am3"
       SrcTerminal   3
-      Points        [200, 415; 220, 415; 220, 550]
+      Points        [220, 415; 220, 550]
       DstComponent  "Pot2"
       DstTerminal   3
     }
@@ -16043,7 +16693,6 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        Points        [125, 90]
         DstComponent  "Scope1"
         DstTerminal   1
       }
@@ -16168,24 +16817,6 @@ Plecs {
     } 
   }
   ProbeBlock {
-    Tag           "BESS_bench_dc_dc_parallel/Interleaved Currents4"
-    Probe {
-      Component     "L12"
-      Path          ""
-      Signals       {"Inductor current"}
-    }
-    Probe {
-      Component     "L13"
-      Path          ""
-      Signals       {"Inductor current"}
-    }
-    Probe {
-      Component     "L14"
-      Path          ""
-      Signals       {"Inductor current"}
-    }
-  }
-  ProbeBlock {
     Tag           "BESS_bench_dc_dc_parallel/Interleaved Currents3"
     Probe {
       Component     "L9"
@@ -16199,6 +16830,24 @@ Plecs {
     }
     Probe {
       Component     "L11"
+      Path          ""
+      Signals       {"Inductor current"}
+    }
+  }
+  ProbeBlock {
+    Tag           "BESS_bench_dc_dc_parallel/Interleaved Currents4"
+    Probe {
+      Component     "L12"
+      Path          ""
+      Signals       {"Inductor current"}
+    }
+    Probe {
+      Component     "L13"
+      Path          ""
+      Signals       {"Inductor current"}
+    }
+    Probe {
+      Component     "L14"
       Path          ""
       Signals       {"Inductor current"}
     }
@@ -16275,4 +16924,3 @@ Plecs {
 "F0IiwgIkJpbmQiKQo="
   }
 }
-DemoSignature "OxWiKOwtBimdsHeH5kqRPdfeuBtiI9Z4tv/WsYWsO+c="
