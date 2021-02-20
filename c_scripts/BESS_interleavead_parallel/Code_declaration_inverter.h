@@ -47,6 +47,7 @@ float dutya = 0;
 float dutyb = 0;
 float dutyc = 0;
 int counti = 0;
+int count_pll = 0;
 //
 
 typedef struct {

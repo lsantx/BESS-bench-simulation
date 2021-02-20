@@ -31,8 +31,15 @@ if(count == PRD)
   Isalfabeta.beta = 0.5773502692 * (Isabc.b - Isabc.c);
 
   ////////////////////////////////////////////////////////DSOGI-PLL////////////////////////////////////////////////////////////////////////////////
-  SOGI1.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
-  SOGI2.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
+  if(count_pll >= 1000){
+    SOGI1.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
+    SOGI2.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
+  }
+  else{
+    count_pll++;
+    SOGI1.freq_res = 60;
+    SOGI2.freq_res = 60;
+  }
 
   ////Sogi para a componente alfa da tensão
   SOGI1.Vm = Valfabeta.alfa;
@@ -54,10 +61,10 @@ if(count == PRD)
   Vdq.q = PLL.Vbeta_in*cos(PLL.angle) - PLL.Valfa_in*sin(PLL.angle);
 
   // Normalização pelo pico da tensão da rede
-  PIpll.Xref = Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);
-  PIpll.Xm = 0;                                 
+  PIpll.Xref = 0;
+  PIpll.Xm = -Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);                                 
       
-  Pifunc(&PIpll, Ts/2, Kp_pll, Ki_pll, 400, 0);                   // Controle PI
+  Pifunc(&PIpll, Ts/2, Kp_pll, Ki_pll, 500, -500);                   // Controle PI
 
   // Integrador da PLL para o cálculo do ângulo. Método de integração (Foward)
   PLL.angle = PLL.angle_ant + Ts*PLL.pi_out_ant;
@@ -263,9 +270,11 @@ Output(8) = PRf_beta.Xm;
 Output(9) = PRf_beta.Xref;
 Output(10) = Vdc_ref;
 Output(11) = fil2nVdc.y;
-Output(12) = Vpwm_norm_a;
-Output(13) = Vpwm_norm_b;
-Output(14) = Vpwm_norm_c;
-Output(15) = count;
-Output(16) = 0;
-Output(17) = QRamp.atual;
+Output(12) = PIq.Xref;
+Output(13) = PIq.Xm;
+Output(14) = Vpwm_norm_a;
+Output(15) = Vpwm_norm_b;
+Output(16) = Vpwm_norm_c;
+Output(17) = count;
+Output(18) = Vdq.q;
+Output(19) = Vdq.d;
