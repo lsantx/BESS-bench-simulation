@@ -117,8 +117,8 @@ Plecs {
   ExternalModeSettings ""
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
-  ScriptsDialogGeometry "[406 160 534 273]"
-  ScriptsDialogSplitterPos "100"
+  ScriptsDialogGeometry "[1766 160 534 273]"
+  ScriptsDialogSplitterPos "70"
   Terminal {
     Type          Output
     Index         "1"
@@ -1580,7 +1580,7 @@ Plecs {
       Type          Display
       Name          "Display6"
       Show          off
-      Position      [980, 275]
+      Position      [995, 275]
       Direction     up
       Flipped       off
       Frame         [-41, -11; 41, 11]
@@ -1601,7 +1601,7 @@ Plecs {
       Type          Display
       Name          "Display7"
       Show          off
-      Position      [980, 300]
+      Position      [995, 300]
       Direction     up
       Flipped       off
       Frame         [-41, -11; 41, 11]
@@ -3861,9 +3861,7 @@ Plecs {
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"/media/lucas/Drive/materiais/Doutorado/Banca"
-"da/Simulacoes/BESS bench simulation/c_scripts/BESS_interleavead_parallel/Code"
-"_declaration_inverter.h\""
+        Value         "#include \"c_scripts/Code_declaration_inverter.h\""
         Show          off
       }
       Parameter {
@@ -3873,9 +3871,7 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"/media/lucas/Drive/materiais/Doutorado/Banca"
-"da/Simulacoes/BESS bench simulation/c_scripts/BESS_interleavead_parallel/Code"
-"_Output_inverter.c\""
+        Value         "#include \"c_scripts/Code_Output_inverter.c\""
         Show          off
       }
       Parameter {
@@ -9780,9 +9776,8 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#include \"/media/lucas/Drive/materiais/Doutorado/B"
-"ancada/Simulacoes/BESS bench simulation/c_scripts/BESS_interleavead_parallel/"
-"Code_declaration_interleaved.h\""
+            Value         "#include \"c_scripts/Code_declaration_interleaved.h"
+"\""
             Show          off
           }
           Parameter {
@@ -9792,9 +9787,7 @@ Plecs {
           }
           Parameter {
             Variable      "OutputFcn"
-            Value         "#include \"/media/lucas/Drive/materiais/Doutorado/B"
-"ancada/Simulacoes/BESS bench simulation/c_scripts/BESS_interleavead_parallel/"
-"Code_Output_interleaved.c\""
+            Value         "#include \"c_scripts/Code_Output_interleaved.c\""
             Show          off
           }
           Parameter {
@@ -9839,8 +9832,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAACQAAAGQAAAAIAAAAZAAAAAMAAABkAAAAAgAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAA"
-"AFAAAAZAAAAAQAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"AAACAAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAA"
+"AGAAAAZAAAAAcAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
 "FAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -9943,8 +9936,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAgAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAA"
-"AIAAAAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"AAACAAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAA"
+"AGAAAAZAAAAAcAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
 "UAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10132,11 +10125,21 @@ Plecs {
           Position      [935, 640]
           Direction     up
           Flipped       off
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
+          Location      [50, 105; 400, 336]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAV4AAADI"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
+"AAACAAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAA"
+"AGAAAAZAAAAAcAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"vAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
+"AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
+"AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           Axes          "1"
           TimeRange     "0"
           ScrollingMode "1"
@@ -13070,8 +13073,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAgAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAA"
-"AIAAAAZAAAAAMAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAD"
+"AAACAAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAA"
+"AGAAAAZAAAAAcAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAD"
 "BAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -13133,8 +13136,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAgAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAA"
-"AIAAAAZAAAAAMAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAD"
+"AAACAAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAA"
+"AGAAAAZAAAAAcAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAD"
 "AAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -19626,9 +19629,8 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#include \"/media/lucas/Drive/materiais/Doutorado/B"
-"ancada/Simulacoes/BESS bench simulation/c_scripts/BESS_interleavead_parallel/"
-"Code_declaration_interleaved.h\""
+            Value         "#include \"c_scripts/Code_declaration_interleaved.h"
+"\""
             Show          off
           }
           Parameter {
@@ -23440,7 +23442,7 @@ Plecs {
       LabelAlign    up
       Parameter {
         Variable      "Value"
-        Value         "1"
+        Value         "2"
         Show          off
       }
       Parameter {
@@ -27172,13 +27174,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Pot calc"
-      SrcTerminal   2
-      DstComponent  "Display6"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Vm1"
       SrcTerminal   3
       DstComponent  "Goto7"
@@ -27594,12 +27589,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      Points        [930, 275]
-      DstComponent  "Goto12"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "3ph Meter1"
       SrcTerminal   8
       DstComponent  "Goto9"
@@ -27634,9 +27623,23 @@ Plecs {
       DstComponent  "Out1"
       DstTerminal   1
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pot calc"
+      SrcTerminal   2
+      Points        [930, 275]
+      Branch {
+        DstComponent  "Display6"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Goto12"
+        DstTerminal   1
+      }
+    }
     Annotation {
       Name          "Active Power [W]"
-      Position      [990, 255]
+      Position      [1005, 255]
     } 
     Annotation {
       Name          "Control enab"

@@ -40,6 +40,7 @@ pswitches_conv_cc_sw2 = np.array(
 )
 Pcp_inter2 = np.array(scipy.io.loadmat("Pcp_ind_bt2.mat").get("Pcp_ind_bt2"))
 binter2 = np.array(scipy.io.loadmat("Bind2.mat").get("Bind2"))
+Pgrid = np.array(scipy.io.loadmat("Pot_grid.mat").get("Pot_grid"))
 
 # Perdas totais nos capacitores do dc-link em relação ao SOC
 # print("Dc-link loss calculation...")
@@ -186,7 +187,9 @@ total_power_losses = (
 )
 
 print("Efficiency calculation...")
-efficiency = ((1 - total_power_losses / (pbat + pbat2)) * 100)[0]
+# efficiency = ((1 - total_power_losses / (pbat + pbat2)) * 100)[0]    # Discharge
+
+efficiency = ((1 - total_power_losses / abs(Pgrid)) * 100)[0]      # Charge
 
 print("Save json file...")
 with open("efficiency_bess.json", "w") as arquivo:
