@@ -5,397 +5,248 @@ if(count == PRD) inc = -1;
 if(count == 0) inc = 1;
 
 //............................................................Interrupção........................................................................................................
-if(count == 0 || count == PRD)
+if(count == PRD)
 {
 
-////////////////////////////////////////////////////////Transformada abc para alfa-beta da tensão da rede/////////////////////////////////////
-Vabc.a = Vga;
-Vabc.b = Vgb;
-Vabc.c = Vgc;
+  ////////////////////////////////////////////////////////Transformada abc para alfa-beta da tensão da rede/////////////////////////////////////
+  Vabc.a = Vga;
+  Vabc.b = Vgb;
+  Vabc.c = Vgc;
 
-//Valfabeta.alfa = 0.816496580927726 * (Vabc.a - 0.5*Vabc.b - 0.5*Vabc.c);
-//Valfabeta.beta = 0.816496580927726 * (0.866025403784439*Vabc.b - 0.866025403784439*Vabc.c);
+  //Valfabeta.alfa = 0.816496580927726 * (Vabc.a - 0.5*Vabc.b - 0.5*Vabc.c);
+  //Valfabeta.beta = 0.816496580927726 * (0.866025403784439*Vabc.b - 0.866025403784439*Vabc.c);
 
-Valfabeta.alfa = 0.66666667   * (Vabc.a - 0.5*Vabc.b - 0.5*Vabc.c);
-Valfabeta.beta = 0.5773502692 * (Vabc.b - Vabc.c);
+  Valfabeta.alfa = 0.66666667   * (Vabc.a - 0.5*Vabc.b - 0.5*Vabc.c);
+  Valfabeta.beta = 0.5773502692 * (Vabc.b - Vabc.c);
 
-////////////////////////////////////////////////////////Transformada abc para alfa-beta da corrente do inversor/////////////////////////////////////
-Isabc.a = Isa;
-Isabc.b = Isb;
-Isabc.c = Isc;
+  ////////////////////////////////////////////////////////Transformada abc para alfa-beta da corrente do inversor/////////////////////////////////////
+  Isabc.a = Isa;
+  Isabc.b = Isb;
+  Isabc.c = Isc;
 
-//Isalfabeta.alfa = 0.816496580927726 * (Isabc.a - 0.5*Isabc.b - 0.5*Isabc.c);
-//Isalfabeta.beta = 0.816496580927726 * (0.866025403784439*Isabc.b - 0.866025403784439*Isabc.c);
+  //Isalfabeta.alfa = 0.816496580927726 * (Isabc.a - 0.5*Isabc.b - 0.5*Isabc.c);
+  //Isalfabeta.beta = 0.816496580927726 * (0.866025403784439*Isabc.b - 0.866025403784439*Isabc.c);
 
-Isalfabeta.alfa = 0.66666667 * (Isabc.a - 0.5*Isabc.b - 0.5*Isabc.c);
-Isalfabeta.beta = 0.5773502692 * (Isabc.b - Isabc.c);
+  Isalfabeta.alfa = 0.66666667 * (Isabc.a - 0.5*Isabc.b - 0.5*Isabc.c);
+  Isalfabeta.beta = 0.5773502692 * (Isabc.b - Isabc.c);
 
-////////////////////////////////////////////////////////DSOGI-PLL////////////////////////////////////////////////////////////////////////////////
-//SOGI1.freq_res = PIpll.piout/(2*pi);  //Adaptativo
+  ////////////////////////////////////////////////////////DSOGI-PLL////////////////////////////////////////////////////////////////////////////////
+  if(count_pll >= 1000){
+    SOGI1.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
+    SOGI2.freq_res = (PIpll.piout_sat + PLL.wf)/(2*pi);  //Adaptativo
+  }
+  else{
+    count_pll++;
+    SOGI1.freq_res = 60;
+    SOGI2.freq_res = 60;
+  }
 
-SOGI1.freq_res = 60; 
+  ////Sogi para a componente alfa da tensão
+  SOGI1.Vm = Valfabeta.alfa;
 
-////Sogi para a componente alfa da tensão
-SOGI1.Vm = Valfabeta.alfa;
+  SOGI_func(&SOGI1, Ts);
 
-SOGI1.x =  4*Ts*pi * SOGI1.K_damp *  SOGI1.freq_res;
-SOGI1.y = (Ts*2*pi * SOGI1.freq_res)*(Ts*2*pi * SOGI1.freq_res);
+  ////Sogi para a componente beta da tensão
+  SOGI2.Vm = Valfabeta.beta;
 
-SOGI1.b1 = SOGI1.x + SOGI1.y + 4;
-SOGI1.b2 = SOGI1.x - SOGI1.y - 4;
-SOGI1.b3 = 2*(4 - SOGI1.y);
+  SOGI_func(&SOGI2, Ts);
 
-SOGI1.b0 = SOGI1.x * (1/SOGI1.b1);
-SOGI1.a1 = SOGI1.b3 * (1/SOGI1.b1);
-SOGI1.a2 = SOGI1.b2 * (1/SOGI1.b1);
+  ///////////////////////////////////////////////PLL
+  // Cálculo da Seq positiva
+  PLL.Valfa_in = 0.5*(SOGI1.V_sogi-SOGI2.V_sogi_q);
+  PLL.Vbeta_in = 0.5*(SOGI2.V_sogi+SOGI1.V_sogi_q);
 
-SOGI1.W = 4*Ts*pi * SOGI1.freq_res;
+  // Transformada alfabeta-dq da tensão
+  Vdq.d = PLL.Valfa_in*cos(PLL.angle) + PLL.Vbeta_in*sin(PLL.angle);
+  Vdq.q = PLL.Vbeta_in*cos(PLL.angle) - PLL.Valfa_in*sin(PLL.angle);
 
-SOGI1.V_sogi = SOGI1.b0 * SOGI1.Vm - SOGI1.b0 * SOGI1.Vm2 + SOGI1.a1 * SOGI1.V_sogi1 + SOGI1.a2 * SOGI1.V_sogi2;
+  // Normalização pelo pico da tensão da rede
+  PIpll.Xref = 0;
+  PIpll.Xm = -Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);                                 
+      
+  Pifunc(&PIpll, Ts/2, Kp_pll, Ki_pll, 500, -500);                   // Controle PI
 
-SOGI1.V_sogi_q = SOGI1.W * SOGI1.b0 * SOGI1.Vm1 + SOGI1.V_sogi_q1 * SOGI1.a1 + SOGI1.V_sogi_q2 * SOGI1.a2;
-	
-SOGI1.Vm2 = SOGI1.Vm1;
-SOGI1.Vm1 = SOGI1.Vm;
-	
-SOGI1.V_sogi2 = SOGI1.V_sogi1;
-SOGI1.V_sogi1 = SOGI1.V_sogi;
-	
-SOGI1.V_sogi_q2 = SOGI1.V_sogi_q1;
-SOGI1.V_sogi_q1 = SOGI1.V_sogi_q;
+  // Integrador da PLL para o cálculo do ângulo. Método de integração (Foward)
+  PLL.angle = PLL.angle_ant + Ts*PLL.pi_out_ant;
+  PLL.pi_out_ant = PIpll.piout_sat + PLL.wf;
+  if(PLL.angle > 6.283185307179586)  PLL.angle -= 6.283185307179586;
+  if(PLL.angle < 0.0)  PLL.angle += 6.283185307179586;
+  PLL.angle_ant = PLL.angle;
 
-////Sogi para a componente beta da tensão
-SOGI2.Vm = Valfabeta.beta;
+  //Medição pot ativa Injetada
+  Pc = 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.alfa + 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.beta;
+  fil2nPot.x  = Pc;
 
-SOGI2.x =  4*Ts*pi * SOGI2.K_damp *  SOGI2.freq_res;
-SOGI2.y = (Ts*2*pi * SOGI2.freq_res)*(Ts*2*pi * SOGI2.freq_res);
+  Second_order_filter(&fil2nPot);
 
-SOGI2.b1 = SOGI2.x + SOGI2.y + 4;
-SOGI2.b2 = SOGI2.x - SOGI2.y - 4;
-SOGI2.b3 = 2*(4 - SOGI1.y);
+  //Medição pot reativa Injetada
+  Qc = 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.alfa - 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.beta;
 
-SOGI2.b0 = SOGI2.x * (1/SOGI2.b1);
-SOGI2.a1 = SOGI2.b3 * (1/SOGI2.b1);
-SOGI2.a2 = SOGI2.b2 * (1/SOGI2.b1);
+  fil2nQ.x = Qc;
 
-SOGI2.W = 4*Ts*pi * SOGI2.freq_res;
+  Second_order_filter(&fil2nQ);
 
-SOGI2.V_sogi = SOGI2.b0 * SOGI2.Vm - SOGI2.b0 * SOGI2.Vm2 + SOGI2.a1 * SOGI2.V_sogi1 + SOGI2.a2 * SOGI2.V_sogi2;
+  //Filtragem do Vdc medido
+  fil2nVdc.x = Vdc;
+  Second_order_filter(&fil2nVdc);
 
-SOGI2.V_sogi_q = SOGI2.W * SOGI2.b0 * SOGI2.Vm1 + SOGI2.V_sogi_q1 * SOGI2.a1 + SOGI2.V_sogi_q2 * SOGI2.a2;
-	
-SOGI2.Vm2 = SOGI2.Vm1;
-SOGI2.Vm1 = SOGI2.Vm;
-	
-SOGI2.V_sogi2 = SOGI2.V_sogi1;
-SOGI2.V_sogi1 = SOGI2.V_sogi;
-	
-SOGI2.V_sogi_q2 = SOGI2.V_sogi_q1;
-SOGI2.V_sogi_q1 = SOGI2.V_sogi_q;
+  //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////qq
+  if(control_enable == 1)
+  {
+    //Controle
+    PIvdc.Xref = Vdc_ref*Vdc_ref;
+    PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
+    
+    Pifunc(&PIvdc, Ts/2, Kpouter, Kiouter, psat, -psat);                   // Controle PI
 
-///////////////////////////////////////////////PLL
-// Cálculo da Seq positiva
-PLL.Valfa_in = 0.5*(SOGI1.V_sogi-SOGI2.V_sogi_q);
-PLL.Vbeta_in = 0.5*(SOGI2.V_sogi+SOGI1.V_sogi_q);
+    //////////////////////////////////////////////////////////Controle do Reativo///////////////////////////////////////////////////////////////////////
+    QRamp.final = Qref;
+    QRamp.in = fil2nQ.y;
 
-// Transformada alfabeta-dq da tensão
-Vdq.d = PLL.Valfa_in*cos(PLL.angle) + PLL.Vbeta_in*sin(PLL.angle);
-Vdq.q = PLL.Vbeta_in*cos(PLL.angle) - PLL.Valfa_in*sin(PLL.angle);
-
-// Normalização pelo pico da tensão da rede
-PIpll.erropi = Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);
-
-// Controlador PI da PLL
-PIpll.inte = PIpll.inte_ant + Ts/2 * (PIpll.erropi  + PIpll.erropi_ant);
-PIpll.inte_ant = PIpll.inte;
-PIpll.erropi_ant = PIpll.erropi;
-
-PIpll.piout = Kp_pll*PIpll.erropi + Ki_pll*PIpll.inte + PLL.wf; 
-
-// Integrador da PLL para o cálculo do ângulo. Método de integração (Foward)
-PLL.angle = PLL.angle_ant + Ts*PLL.pi_out_ant;
-PLL.pi_out_ant = PIpll.piout;
-if(PLL.angle > 6.283185307179586)  PLL.angle -= 6.283185307179586;
-if(PLL.angle < 0.0)  PLL.angle += 6.283185307179586;
-PLL.angle_ant = PLL.angle;
-
-//Medição pot ativa Injetada
-Pc = 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.alfa + 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.beta;
-MAVP.x  = Pc;
-
-if(MAVP.j == N) MAVP.j = 0;
-MAVP.y = MAVP.y_ant + (MAVP.x - MAVP.array[MAVP.j])/N;
-MAVP.array[MAVP.j] = MAVP.x;
-MAVP.j++;
-MAVP.y_ant = MAVP.y;
-
-//Medição pot reativa Injetada
-Qc = 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.alfa - 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.beta;
-
-MAVQ.x  = Qc;
-
-if(MAVQ.j == N) MAVQ.j = 0;
-MAVQ.y = MAVQ.y_ant + (MAVQ.x - MAVQ.array[MAVQ.j])/N;
-MAVQ.array[MAVQ.j] = MAVQ.x;
-MAVQ.j++;
-MAVQ.y_ant = MAVQ.y;
-
-//Filtragem do Vdc medido
-filVdc.x = Vdc;
-filVdc2.x = Vdc2;
-filVdc3.x = Vdc3;
-First_order_filter(&filVdc);
-First_order_filter(&filVdc2);
-First_order_filter(&filVdc3);
-
-//////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////qq
-if(control_enable == 1)
-{
-//Controle
-PIvdc.Xref = Vdc_ref*Vdc_ref;
-PIvdc.Xm   = Vdc*Vdc;                                               //Corrente medida para o modo boost (Descarga)
-
-PIvdc.erro = PIvdc.Xref - PIvdc.Xm;
-
-PIvdc.inte = PIvdc.inte_ant + Ts/2 * (PIvdc.erro  + PIvdc.erro_ant);
-PIvdc.inte_ant = PIvdc.inte;
-PIvdc.erro_ant = PIvdc.erro;
-
-PIvdc.piout = (Kpouter*PIvdc.erro + Kiouter*PIvdc.inte);
-
-// Equalização da tensão entre os módulos (Controle da tensão de saída do módulo 1)
-PIvdceq2.Xref =  (Vdc_ref*I1/(I1+I2))*(Vdc_ref*I1/(I1+I2));
-PIvdceq2.Xm   = filVdc2.y*filVdc2.y;
-
-PIvdceq2.erro = PIvdceq2.Xref - PIvdceq2.Xm;
-
-PIvdceq2.inte = PIvdceq2.inte_ant + Ts/2 * (PIvdceq2.erro  + PIvdceq2.erro_ant);
-PIvdceq2.inte_ant = PIvdceq2.inte;
-PIvdceq2.erro_ant = PIvdceq2.erro;
-
-PIvdceq2.piout = (Kpouter_eq*PIvdceq2.erro + Kiouter_eq*PIvdceq2.inte);
-
-// Equalização da tensão entre os módulos (Controle da tensão de saída do módulo 2)
-PIvdceq3.Xref = (Vdc_ref*I2/(I1+I2))*(Vdc_ref*I2/(I1+I2));
-PIvdceq3.Xm   = filVdc3.y*filVdc3.y;
-
-PIvdceq3.erro = PIvdceq3.Xref - PIvdceq3.Xm;
-
-PIvdceq3.inte = PIvdceq3.inte_ant + Ts/3 * (PIvdceq3.erro  + PIvdceq3.erro_ant);
-PIvdceq3.inte_ant = PIvdceq3.inte;
-PIvdceq3.erro_ant = PIvdceq3.erro;
-
-PIvdceq3.piout = (Kpouter_eq*PIvdceq3.erro + Kiouter_eq*PIvdceq3.inte);
-
-pot_act_sat = PIvdc.piout;
-
-if(pot_act_sat>psat) pot_act_sat = psat;
-if(pot_act_sat<-psat) pot_act_sat = -psat;
-
-//////////////////////////////////////////////////////////Controle do Reativo///////////////////////////////////////////////////////////////////////
-QRamp.final = Qref;
-QRamp.in = MAVQ.y;
-
-//Rampa da referência de Q
-        if(QRamp.final != QRamp.final_ant)
-        {
-            QRamp.flag = 0;
-            QRamp.flag2 = 1;
-        }
-
-        QRamp.final_ant = QRamp.final;
-
-        if(QRamp.flag == 0)
-        {
-            QRamp.atual = QRamp.in;
-            QRamp.flag = 1;
-        }
-
-        QRamp.delta = QRamp.final - QRamp.atual;
-
-        if(QRamp.flag2 == 1)
-        {
-            if(QRamp.delta > 0)
-            {
-                QRamp.atual += QRamp.inc;
-                if(QRamp.delta<=0.1)
-                {
-                    QRamp.atual = QRamp.final;
-                    QRamp.flag2 = 0;
-                }
-            }
-            else if(QRamp.delta < 0)
-            {
-                QRamp.atual -= QRamp.inc;
-                if(QRamp.delta>=0.1)
-                {
-                    QRamp.atual = QRamp.final;
-                    QRamp.flag2 = 0;
-                }
-
-            }
-        }
+    Ramp(&QRamp);
         
-PIq.Xref = QRamp.atual;
-PIq.Xm   = MAVQ.y; 
+    PIq.Xref = QRamp.atual;
+    PIq.Xm   = fil2nQ.y; 
 
-PIq.erro = PIq.Xref - PIq.Xm;
+    Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
 
-PIq.inte = PIq.inte_ant + Ts/2 * (PIq.erro  + PIq.erro_ant);
-PIq.inte_ant = PIq.inte;
-PIq.erro_ant = PIq.erro;
+    Q_control = PIq.piout_sat + PIq.Xref; 
 
-PIq.piout = Kiq*PIq.inte + PIq.Xref; 
+    /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
+    Ialfabeta.alfa = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    Ialfabeta.beta = (PLL.Vbeta_in*(-PIvdc.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
 
-/////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
-Ialfabeta.alfa = (PLL.Valfa_in*(-pot_act_sat) + PIq.piout*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-Ialfabeta.beta = (PLL.Vbeta_in*(-pot_act_sat) - PIq.piout*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    // saturação da corrente
+    if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
+    if(Ialfabeta.alfa<-Ir) Ialfabeta.alfa = -Ir;
+    if(Ialfabeta.beta>Ir) Ialfabeta.beta = Ir;
+    if(Ialfabeta.beta<-Ir) Ialfabeta.beta = -Ir;
 
-// saturação da corrente
-if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
-if(Ialfabeta.alfa<-Ir) Ialfabeta.alfa = -Ir;
-if(Ialfabeta.beta>Ir) Ialfabeta.beta = Ir;
-if(Ialfabeta.beta<-Ir) Ialfabeta.beta = -Ir;
+    /////////////////////////////////////////////////////////Controladores ressonantes////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////Controladores ressonantes////////////////////////////////////////////////////////////
+    // Componente Alfa
+    PRf_alfa.Xref = Ialfabeta.alfa;
+    PRf_alfa.Xm = Isalfabeta.alfa;
 
-// Componente Alfa
-PRf_alfa.Xref = Ialfabeta.alfa;
-PRf_alfa.Xm = Isalfabeta.alfa;
+    PRf_alfa.erro = PRf_alfa.Xref - PRf_alfa.Xm;
 
-PRf_alfa.erro = PRf_alfa.Xref - PRf_alfa.Xm;
+    Resfunc(&PRf_alfa, Kp_res, Ki_res);
 
-//Ressonante fundamental
-PRf_alfa.res = PRf_alfa.c1*PRf_alfa.erro + PRf_alfa.c2*PRf_alfa.erro_ant2 - PRf_alfa.c3*PRf_alfa.res_ant - PRf_alfa.c4*PRf_alfa.res_ant2;
-PRf_alfa.res_ant2 = PRf_alfa.res_ant;
-PRf_alfa.res_ant = PRf_alfa.res;
-PRf_alfa.erro_ant2 = PRf_alfa.erro_ant;
-PRf_alfa.erro_ant = PRf_alfa.erro;
+    // Componente Beta
+    PRf_beta.Xref = Ialfabeta.beta;
+    PRf_beta.Xm = Isalfabeta.beta;
 
-PRf_alfa.pr_out = Kp_res*PRf_alfa.erro + Ki_res*PRf_alfa.res;
+    PRf_beta.erro = PRf_beta.Xref - PRf_beta.Xm;
 
-// Componente Beta
-PRf_beta.Xref = Ialfabeta.beta;
-PRf_beta.Xm = Isalfabeta.beta;
+    Resfunc(&PRf_beta, Kp_res, Ki_res);
 
-PRf_beta.erro = PRf_beta.Xref - PRf_beta.Xm;
+    ///////////////////////////////////////////////Transformada abc para alfabeta da tensão de referência////////////////////////////////////
+    Vpwm_alfabeta.alfa = PRf_alfa.pr_out + PLL.Valfa_in;
+    Vpwm_alfabeta.beta = PRf_beta.pr_out + PLL.Vbeta_in;
 
-//Ressonante fundamental
-PRf_beta.res = PRf_beta.c1*PRf_beta.erro + PRf_beta.c2*PRf_beta.erro_ant2 - PRf_beta.c3*PRf_beta.res_ant - PRf_beta.c4*PRf_beta.res_ant2;
-PRf_beta.res_ant2 = PRf_beta.res_ant;
-PRf_beta.res_ant = PRf_beta.res;
-PRf_beta.erro_ant2 = PRf_beta.erro_ant;
-PRf_beta.erro_ant = PRf_beta.erro;
+    // Malha aberta
+    //Vpwm_alfabeta.alfa = 50*cos(PLL.angle);
+    //Vpwm_alfabeta.beta = 50*sin(PLL.angle);
 
-PRf_beta.pr_out = Kp_res*PRf_beta.erro + Ki_res*PRf_beta.res;
+    //Vpwm_abc.a = 0.816496580927726*Vpwm_alfabeta.alfa;
+    //Vpwm_abc.b = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta);
+    //Vpwm_abc.c = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta);
 
-///////////////////////////////////////////////Transformada abc para alfabeta da tensão de referência////////////////////////////////////
-Vpwm_alfabeta.alfa = PRf_alfa.pr_out + PLL.Valfa_in;
-Vpwm_alfabeta.beta = PRf_beta.pr_out + PLL.Vbeta_in;
+    Vpwm_abc.a = Vpwm_alfabeta.alfa;
+    Vpwm_abc.b = -0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta;
+    Vpwm_abc.c = -0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta;
 
-// Malha aberta
-//Vpwm_alfabeta.alfa = 50*cos(PLL.angle);
-//Vpwm_alfabeta.beta = 50*sin(PLL.angle);
+    ////////////////////////////////////////////////Normalização pela tensão do barramento cc////////////////////////////////////
+    Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/fil2nVdc.y;
+    Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/fil2nVdc.y;
+    Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/fil2nVdc.y;
 
-//Vpwm_abc.a = 0.816496580927726*Vpwm_alfabeta.alfa;
-//Vpwm_abc.b = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta);
-//Vpwm_abc.c = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta);
+    if(Vpwm_norm_a > 1) Vpwm_norm_a = 1;
+    if(Vpwm_norm_a < -1) Vpwm_norm_a = -1;
+    if(Vpwm_norm_b > 1) Vpwm_norm_b = 1;
+    if(Vpwm_norm_b < -1) Vpwm_norm_b = -1;
+    if(Vpwm_norm_c > 1) Vpwm_norm_c = 1;
+    if(Vpwm_norm_c < -1) Vpwm_norm_c = -1;
 
-Vpwm_abc.a = Vpwm_alfabeta.alfa;
-Vpwm_abc.b = -0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta;
-Vpwm_abc.c = -0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta;
+    //Cálculo da seq zero para o SVPWM
+    if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_b>Vpwm_norm_c) 
+    {
+      vmin = Vpwm_norm_a;
+      vmax = Vpwm_norm_b;
+    }  
+    else if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_b) 
+    {
+      vmin = Vpwm_norm_a;
+      vmax = Vpwm_norm_c;
+    }  
+    else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_a>Vpwm_norm_c) 
+    {
+      vmin = Vpwm_norm_b;
+      vmax = Vpwm_norm_a;
+    }  
+    else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_a) 
+    {
+      vmin = Vpwm_norm_b;
+      vmax = Vpwm_norm_c;
+    } 
+    else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_a>Vpwm_norm_b) 
+    {
+      vmin = Vpwm_norm_c;
+      vmax = Vpwm_norm_a;
+    } 
+    else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_b>Vpwm_norm_a) 
+    {
+      vmin = Vpwm_norm_c;
+      vmax = Vpwm_norm_b;
+    } 
 
-////////////////////////////////////////////////Normalização pela tensão do barramento cc////////////////////////////////////
-Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/(filVdc.y);
-Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/(filVdc.y);
-Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/(filVdc.y);
+    vsa_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_a;
+    vsb_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_b;
+    vsc_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_c;
 
-if(Vpwm_norm_a > 1) Vpwm_norm_a = 1;
-if(Vpwm_norm_a < -1) Vpwm_norm_a = -1;
-if(Vpwm_norm_b > 1) Vpwm_norm_b = 1;
-if(Vpwm_norm_b < -1) Vpwm_norm_b = -1;
-if(Vpwm_norm_c > 1) Vpwm_norm_c = 1;
-if(Vpwm_norm_c < -1) Vpwm_norm_c = -1;
+    dutya = PRD_div2 + 2/sqrt(3)*vsa_svpwm*PRD_div2;
+    dutyb = PRD_div2 + 2/sqrt(3)*vsb_svpwm*PRD_div2;
+    dutyc = PRD_div2 + 2/sqrt(3)*vsc_svpwm*PRD_div2;
 
-//Cálculo da seq zero para o SVPWM
-if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_b>Vpwm_norm_c) 
-{
-  vmin = Vpwm_norm_a;
-  vmax = Vpwm_norm_b;
-}  
-else if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_b) 
-{
-  vmin = Vpwm_norm_a;
-  vmax = Vpwm_norm_c;
-}  
-else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_a>Vpwm_norm_c) 
-{
-  vmin = Vpwm_norm_b;
-  vmax = Vpwm_norm_a;
-}  
-else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_a) 
-{
-  vmin = Vpwm_norm_b;
-  vmax = Vpwm_norm_c;
-} 
-else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_a>Vpwm_norm_b) 
-{
-  vmin = Vpwm_norm_c;
-  vmax = Vpwm_norm_a;
-} 
-else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_b>Vpwm_norm_a) 
-{
-  vmin = Vpwm_norm_c;
-  vmax = Vpwm_norm_b;
-} 
-
-vsa_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_a;
-vsb_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_b;
-vsc_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_c;
-
-dutya = PRD_div2 + 2/sqrt(3)*vsa_svpwm*PRD_div2;
-dutyb = PRD_div2 + 2/sqrt(3)*vsb_svpwm*PRD_div2;
-dutyc = PRD_div2 + 2/sqrt(3)*vsc_svpwm*PRD_div2;
-
-}// Fecha o control_enable
+  }// Fecha o control_enable
 
 } // fecha a interrupção
 
 ///////////////////////////////PWM//////////////////////////////////////////////
 if(control_enable == 1)
 {
-if(dutya>=count)
-{
-  S1 = 1;
-  S2 = 0;
-}
-else
-{
-  S1 = 0;
-  S2 = 1;
-}
+  if(dutya>=count)
+  {
+    S1 = 1;
+    S2 = 0;
+  }
+  else
+  {
+    S1 = 0;
+    S2 = 1;
+  }
 
-if(dutyb>=count)
-{
-  S3 = 1;
-  S4 = 0;
-}
-else
-{
-  S3 = 0;
-  S4 = 1;
-}
+  if(dutyb>=count)
+  {
+    S3 = 1;
+    S4 = 0;
+  }
+  else
+  {
+    S3 = 0;
+    S4 = 1;
+  }
 
-if(dutyc>=count)
-{
-  S5 = 1;
-  S6 = 0;
-}
-else
-{
-  S5 = 0;
-  S6 = 1;
-}
+  if(dutyc>=count)
+  {
+    S5 = 1;
+    S6 = 0;
+  }
+  else
+  {
+    S5 = 0;
+    S6 = 1;
+  }
 }
 else
 {
@@ -418,10 +269,12 @@ Output(7) = PRf_alfa.Xref;
 Output(8) = PRf_beta.Xm;
 Output(9) = PRf_beta.Xref;
 Output(10) = Vdc_ref;
-Output(11) = filVdc.y;
-Output(12) = filVdc2.y;
-Output(13) = Vdc_ref*I1/(I1+I2);
-Output(14) = 0;
-Output(15) = filVdc3.y;
-Output(16) = Vdc_ref*I2/(I1+I2);
-Output(17) = 0;
+Output(11) = fil2nVdc.y;
+Output(12) = PIq.Xref;
+Output(13) = PIq.Xm;
+Output(14) = Vpwm_norm_a;
+Output(15) = Vpwm_norm_b;
+Output(16) = Vpwm_norm_c;
+Output(17) = count;
+Output(18) = Vdq.q;
+Output(19) = Vdq.d;
