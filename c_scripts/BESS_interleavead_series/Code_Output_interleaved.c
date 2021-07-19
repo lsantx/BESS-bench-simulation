@@ -82,7 +82,7 @@ if(control_enable == 1)
       PIvdceq2.piout = (Kpvbu*PIvdceq2.erro+Kpvbu*PIvdceq2.inte);
 
       //Rampa de corrente
-      PIbt.Xref = IRamp_bt.atual + PIvdceq2.piout/N_br;
+      PIbt.Xref = IRamp_bt.atual + PIvdceq2.piout;
       if(PIbt.Xref > Iref_dis/N_br) PIbt.Xref = Iref_dis/N_br;
       PIbt.Xm = Ibat;                                    // Corrente medida para o modo boost (Descarga)
       
@@ -131,7 +131,7 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt2.Xref = IRamp2_bt.atual + PIvdceq2.piout/N_br;
+      PIbt2.Xref = IRamp2_bt.atual + PIvdceq2.piout;
       if(PIbt2.Xref > Iref_dis/N_br) PIbt2.Xref = Iref_dis/N_br;
       PIbt2.Xm = Ibat2;                                   //Corrente medida para o modo boost (Descarga)
       
@@ -167,7 +167,7 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt3.Xref = IRamp3_bt.atual + PIvdceq2.piout/N_br;
+      PIbt3.Xref = IRamp3_bt.atual + PIvdceq2.piout;
       if(PIbt3.Xref > Iref_dis/N_br) PIbt3.Xref = Iref_dis/N_br;
       PIbt3.Xm = Ibat3;                                               //Corrente medida para o modo boost (Descarga)
       

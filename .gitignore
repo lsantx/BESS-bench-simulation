@@ -9,3 +9,5 @@ perdas/BESS_bench_dc_dc_parallel_efficiency_calculation.plecs.autosave
 perdas/__pycache__/
 perdas/venv/
 
+*/*.insyncdl
+
