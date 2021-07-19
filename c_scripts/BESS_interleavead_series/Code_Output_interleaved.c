@@ -34,6 +34,7 @@ if(control_enable == 1)
       IRamp2_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
       IRamp3_bt.final = Iref_dis/N_br;
       IRamp3_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
+      Iref = Iref_dis/N_br;
    
       flag.BVCM = 0;
     }
@@ -66,8 +67,23 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
+      // Equalização da tensão entre os módulos (Controle da tensão de saída do módulo 1)
+      PIvdceq2.Xref = Vdc_ref*(Iref*Vbat)/(Iref*Vbat+Vbat2*I2ref/3);
+      //PIvdceq2.Xref = Vdc_ref*Iref_dis/(Iref+I2ref/3);
+      //PIvdceq2.Xref = 333.333;
+      PIvdceq2.Xm   = Vdc;
+
+      PIvdceq2.erro = PIvdceq2.Xref - PIvdceq2.Xm;
+
+      PIvdceq2.inte = PIvdceq2.inte_ant + Ts/2 * (PIvdceq2.erro  + PIvdceq2.erro_ant);
+      PIvdceq2.inte_ant = PIvdceq2.inte;
+      PIvdceq2.erro_ant = PIvdceq2.erro;
+
+      PIvdceq2.piout = (Kpvbu*PIvdceq2.erro+Kpvbu*PIvdceq2.inte);
+
       //Rampa de corrente
-      PIbt.Xref = IRamp_bt.atual;
+      PIbt.Xref = IRamp_bt.atual + PIvdceq2.piout/N_br;
+      if(PIbt.Xref > Iref_dis/N_br) PIbt.Xref = Iref_dis/N_br;
       PIbt.Xm = Ibat;                                    // Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
@@ -115,7 +131,8 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt2.Xref = IRamp2_bt.atual;
+      PIbt2.Xref = IRamp2_bt.atual + PIvdceq2.piout/N_br;
+      if(PIbt2.Xref > Iref_dis/N_br) PIbt2.Xref = Iref_dis/N_br;
       PIbt2.Xm = Ibat2;                                   //Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt2, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
@@ -150,7 +167,8 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt3.Xref = IRamp3_bt.atual;
+      PIbt3.Xref = IRamp3_bt.atual + PIvdceq2.piout/N_br;
+      if(PIbt3.Xref > Iref_dis/N_br) PIbt3.Xref = Iref_dis/N_br;
       PIbt3.Xm = Ibat3;                                               //Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt3, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
