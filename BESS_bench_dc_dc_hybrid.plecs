@@ -46,31 +46,31 @@ Plecs {
 "Mi0oMStzcXJ0KDUpKSpyb14tMSkvKCgxLXJvXi0xKSpzcXJ0KDIpKTsKCiUlIFBhcmFtZXRyb3MgU"
 "ExMCldpbml0ID0gMipwaSpmbjsKa3NpX3NyZiA9IDEvc3FydCgyKTsgICAgICAgCnduX3NyZiA9ID"
 "MwKjIqcGk7CgpLcF9wbGwgPSAyKnduX3NyZiprc2lfc3JmOwpLaV9wbGwgPSAod25fc3JmXjIpOwo"
-"KJSUgTWFsaGEgZXh0ZXJuYSBWZGMKQ2RjID0gNC43ZS0zOyAgICAgICAgIApLcG91dGVyID0gMC4x"
-"OTE4MDkyODI3Njc3NjkqMC41OyAgICAgICAgICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KS2lvd"
-"XRlciA9IDMuNDc5MDM1NTUxMzg0MDAwKjAuNTsgICAgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aX"
-"ZvIC5tCgolJSBNYWxoYSByZWF0aXZvICAgICAgICAgCktpcSA9IDEyLjU2NjQ7ICAgICAgICAgJSV"
-"NT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLcHEgPSAtMC4xNjI5OyAgICAgICAgICUlTU9kZWxhZ2Vt"
-"IG5vIGFycXVpdm8gLm0KCiUlIEJhdHRlcnkKTmJfc2VyaWVzICA9IDE2OwpOYl9zdHJpbmdzID0gM"
-"TsKUmludCA9IE5iX3Nlcmllcyo3LjFlLTM7ICAgJSVSZXNpc3TDqm5jaWEgaW50ZXJuYSBkYXMgYm"
-"F0ZXJpYXMKU29jX21pbiA9IDUwOyAgICAlIFNPQ1slXQpTb2NfbWF4ID0gMTAwOwpWZGNvID0gMTM"
-"uNipOYl9zZXJpZXM7ICAgICAgICAgICAgICAgICAgICAgICAgJSUgdGVuc8OjbyBpbmljaWFsIGRj"
-"LWxpbmsKCiUgRGMvZGMgUGFyYW1ldGVycwpMYiA9IDRlLTM7ICAgICAgICAgICAgICAgICVJbmR1d"
-"G9yIGRvIEJvb3N0ClJiID0gMC41NTsgICAgICAgICAgICAgICVSZXNpc3TDqm5jaWEgc8OpcmllIG"
-"RvIGluZHV0b3IKTiA9IDM7ICAgICAgICAgICAgICAgICAlTsO6bWVybyBkZSBicmHDp29zIGRvIGl"
-"udGVybGVhdmVkCk5fZXNwaXJhc19jYyA9IDQwMzsKQXJlYV9jYyA9IDk4N2UtNjsgICAgICAgCmZz"
-"d2IgPSA5MDAwOwpUc2IgPSAxLyhmc3diKTsKCiUlR2FuaG9zIGRvIGNvbnRyb2xhZG9yIGRvIGRjL"
-"2RjCiUlIGdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlbnRlIGRvIGJvb3N0IGUgYnVjawpLYyA9IFZkYy"
-"8oUmIrTipSaW50KTsKVG0gPSBMYi8oUmIrTipSaW50KTsKZmMgPSBmc3diLzIwOwpLcGIgPSAyKnB"
-"pKmZjKlRtL0tjOyAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaWIgPSAyKnBpKmZj"
-"L0tjOyAgICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJWdhbmhvIGNvbnRyb2xlI"
-"GRlIGNvcnJlbnRlIGRvIGJ1Y2sgKE1vZG8gY29ycmVudGUgY29uc3RhbnRlKQpLcGlidSA9IDIqcG"
-"kqZmMqVG0vS2M7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaWlidSA9IDIqcGkqZmM"
-"vS2M7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJSBnYW5obyBjb250cm9sZSBk"
-"ZSB0ZW5zw6NvIGRvIGJ1Y2sgKE1vZG8gdGVuc8OjbyBjb25zdGFudGUpCktlID0gTipSaW50OwpmY"
-"zEgPSAxMDsKZmMyID0gZmMxLzIwOwpLcHZidSA9IDIqcGkqZmMyLygyKnBpKktlKihmYzEtZmMyKS"
-"k7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaXZidSA9IDIqcGkqZmMxKihLcHZidSk"
-"7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQ=="
+"KJSUgTWFsaGEgZXh0ZXJuYSBWZGMKQ2RjID0gNC43ZS0zOyAgICAgICAgIApLcG91dGVyID0gMC4w"
+"MTkxODA5MjgyNzY3Nzc7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaW91dGVyI"
+"D0gMC4wMzQ3OTAzNTU1MTM4NDA7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQoKJS"
+"UgTWFsaGEgcmVhdGl2byAgICAgICAgIApLaXEgPSAxMi41NjY0OyAgICAgICAgICUlTU9kZWxhZ2V"
+"tIG5vIGFycXVpdm8gLm0KS3BxID0gLTAuMTYyOTsgICAgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1"
+"aXZvIC5tCgolJSBCYXR0ZXJ5Ck5iX3NlcmllcyAgPSAxNjsKTmJfc3RyaW5ncyA9IDE7ClJpbnQgP"
+"SBOYl9zZXJpZXMqNy4xZS0zOyAgICUlUmVzaXN0w6puY2lhIGludGVybmEgZGFzIGJhdGVyaWFzCl"
+"NvY19taW4gPSA1MDsgICAgJSBTT0NbJV0KU29jX21heCA9IDEwMDsKVmRjbyA9IDEzLjYqTmJfc2V"
+"yaWVzOyAgICAgICAgICAgICAgICAgICAgICAgICUlIHRlbnPDo28gaW5pY2lhbCBkYy1saW5rCgol"
+"IERjL2RjIFBhcmFtZXRlcnMKTGIgPSA0ZS0zOyAgICAgICAgICAgICAgICAlSW5kdXRvciBkbyBCb"
+"29zdApSYiA9IDAuNTU7ICAgICAgICAgICAgICAlUmVzaXN0w6puY2lhIHPDqXJpZSBkbyBpbmR1dG"
+"9yCk4gPSAzOyAgICAgICAgICAgICAgICAgJU7Dum1lcm8gZGUgYnJhw6dvcyBkbyBpbnRlcmxlYXZ"
+"lZApOX2VzcGlyYXNfY2MgPSA0MDM7CkFyZWFfY2MgPSA5ODdlLTY7ICAgICAgIApmc3diID0gOTAw"
+"MDsKVHNiID0gMS8oZnN3Yik7CgolJUdhbmhvcyBkbyBjb250cm9sYWRvciBkbyBkYy9kYwolJSBnY"
+"W5obyBjb250cm9sZSBkZSBjb3JyZW50ZSBkbyBib29zdCBlIGJ1Y2sKS2MgPSBWZGMvKFJiK04qUm"
+"ludCk7ClRtID0gTGIvKFJiK04qUmludCk7CmZjID0gZnN3Yi81OwpLcGIgPSAyKnBpKmZjKlRtL0t"
+"jOyAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaWIgPSAyKnBpKmZjL0tjOyAgICAg"
+"ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJWdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlb"
+"nRlIGRvIGJ1Y2sgKE1vZG8gY29ycmVudGUgY29uc3RhbnRlKQpLcGlidSA9IDIqcGkqZmMqVG0vS2"
+"M7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaWlidSA9IDIqcGkqZmMvS2M7ICAgICA"
+"gICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJSBnYW5obyBjb250cm9sZSBkZSB0ZW5zw6Nv"
+"IGRvIGJ1Y2sgKE1vZG8gdGVuc8OjbyBjb25zdGFudGUpCktlID0gTipSaW50OwpmYzEgPSAxMDsKZ"
+"mMyID0gZmMxLzIwOwpLcHZidSA9IDIqcGkqZmMyLygyKnBpKktlKihmYzEtZmMyKSk7ICAgICAgJS"
+"VNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaXZidSA9IDIqcGkqZmMxKihLcHZidSk7ICAgICAgJSV"
+"NT2RlbGFnZW0gbm8gYXJxdWl2byAubQ=="
   InitialState  "1"
   SystemState   "AAAACAAAAAADAAAAEgBUAGkAbQBlAFMAdABhAG0AcAAAABAAACWFAgOHlFj/A"
 "AAAFgBTAHQAYQB0AGUAVgBlAGMAdABvAHIAAAB/AAAAABlQbGVjc0FycmF5OjpEb3VibGVWZWN0b3"
@@ -120,9 +120,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1360, 55; 2726, 719]
+    Location      [0, 55; 1366, 719]
     ZoomFactor    0.873846
-    SliderPosition [0, 8]
+    SliderPosition [5, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1079,7 +1079,7 @@ Plecs {
         Variable      "SOC"
         Prompt        "Initial state-of-charge (%)"
         Type          FreeText
-        Value         "40"
+        Value         "100"
         Show          off
         Tunable       off
         TabName       ""
@@ -1088,7 +1088,7 @@ Plecs {
         Variable      "Tsc"
         Prompt        "Time scale [s]"
         Type          FreeText
-        Value         "2"
+        Value         "20"
         Show          off
         Tunable       off
         TabName       ""
@@ -1097,7 +1097,7 @@ Plecs {
         Variable      "Batt_Tr"
         Prompt        "Battery response time (s) / (3600/Time scale) "
         Type          FreeText
-        Value         "30/(3600/2)"
+        Value         "30/(3600/20)"
         Show          off
         Tunable       off
         TabName       ""
@@ -8209,8 +8209,8 @@ Plecs {
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
-"claration_inverter.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_decl"
+"aration_inverter.h\""
         Show          off
       }
       Parameter {
@@ -8220,8 +8220,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
-"tput_inverter.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_Outp"
+"ut_inverter.c\""
         Show          off
       }
       Parameter {
@@ -9894,7 +9894,7 @@ Plecs {
         Variable      "SOC"
         Prompt        "Initial state-of-charge (%)"
         Type          FreeText
-        Value         "40"
+        Value         "100"
         Show          off
         Tunable       off
         TabName       ""
@@ -9903,7 +9903,7 @@ Plecs {
         Variable      "Tsc"
         Prompt        "Time scale [s]"
         Type          FreeText
-        Value         "2"
+        Value         "20"
         Show          off
         Tunable       off
         TabName       ""
@@ -9912,7 +9912,7 @@ Plecs {
         Variable      "Batt_Tr"
         Prompt        "Battery response time (s) / (3600/Time scale) "
         Type          FreeText
-        Value         "30/(3600/2)"
+        Value         "30/(3600/20)"
         Show          off
         Tunable       off
         TabName       ""
@@ -14506,8 +14506,8 @@ Plecs {
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
-"claration_interleaved.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_decl"
+"aration_interleaved.h\""
         Show          off
       }
       Parameter {
@@ -14517,8 +14517,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
-"tput_interleaved.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_Outp"
+"ut_interleaved.c\""
         Show          off
       }
       Parameter {
@@ -14567,17 +14567,17 @@ Plecs {
       Position      [1260, 65]
       Direction     up
       Flipped       off
-      Location      [0, 30; 1360, 748]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAKkA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVAAAAKvAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAGQAAAAEAAAAZAAAAAUAAABkAAAACAAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAA"
-"AAZAAAAAYAAABkAAAAXQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABEAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAA"
+"AAZAAAAAgAAABkAAAAXQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABEAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -14692,20 +14692,20 @@ Plecs {
       Position      [20, 1005]
       Direction     down
       Flipped       on
-      Location      [0, 27; 1360, 712]
+      Location      [169, 93; 1189, 619]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABVAAAAKSAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA/wAAAHvAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAogAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAA"
+"AAZAAAAAgAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAA=="
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -14796,17 +14796,17 @@ Plecs {
       Position      [20, 485]
       Direction     down
       Flipped       on
-      Location      [0, 30; 1360, 748]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVAAAAKvAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAGQAAAAEAAAAZAAAAAUAAABkAAAACAAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAA"
-"AAZAAAAAYAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAA"
+"AAZAAAAAgAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -14900,20 +14900,20 @@ Plecs {
       Position      [155, 90]
       Direction     up
       Flipped       off
-      Location      [0, 27; 1360, 712]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABVAAAAKSAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAA"
+"AAZAAAAAgAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAA=="
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
       PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
 "/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
 "AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
@@ -15068,8 +15068,8 @@ Plecs {
       }
       Parameter {
         Variable      "Declarations"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_de"
-"claration_interleaved.h\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_decl"
+"aration_interleaved.h\""
         Show          off
       }
       Parameter {
@@ -15079,8 +15079,8 @@ Plecs {
       }
       Parameter {
         Variable      "OutputFcn"
-        Value         "#include \"c_scripts/BESS_interleavead_parallel/Code_Ou"
-"tput_interleaved.c\""
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_Outp"
+"ut_interleaved.c\""
         Show          off
       }
       Parameter {
@@ -15113,7 +15113,7 @@ Plecs {
       Type          Scope
       Name          "Scope4"
       Show          on
-      Position      [1265, 135]
+      Position      [1255, 130]
       Direction     up
       Flipped       off
       Location      [0, 37; 1280, 700]
@@ -15167,24 +15167,6 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
-      }
-    }
-    Component {
-      Type          Capacitor
-      Name          "C2"
-      Show          off
-      Position      [850, 420]
-      Direction     down
-      Flipped       on
-      Parameter {
-        Variable      "C"
-        Value         "Cdc"
-        Show          off
-      }
-      Parameter {
-        Variable      "v_init"
-        Value         "Vdc/2"
-        Show          off
       }
     }
     Component {
@@ -15435,7 +15417,7 @@ Plecs {
       Type          Capacitor
       Name          "C3"
       Show          off
-      Position      [820, 940]
+      Position      [820, 960]
       Direction     down
       Flipped       on
       Parameter {
@@ -15446,103 +15428,6 @@ Plecs {
       Parameter {
         Variable      "v_init"
         Value         "Vdc/2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant"
-      Show          off
-      Position      [710, 310]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant1"
-      Show          off
-      Position      [705, 530]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant2"
-      Show          off
-      Position      [715, 830]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant3"
-      Show          off
-      Position      [715, 1045]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Resistor
-      Name          "R16"
-      Show          off
-      Position      [850, 380]
-      Direction     down
-      Flipped       off
-      Parameter {
-        Variable      "R"
-        Value         "0.001"
         Show          off
       }
     }
@@ -15560,16 +15445,482 @@ Plecs {
       }
     }
     Component {
+      Type          Goto
+      Name          "Goto"
+      Show          off
+      Position      [1360, 590]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "t1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto1"
+      Show          off
+      Position      [1360, 620]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "t2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto2"
+      Show          off
+      Position      [1360, 650]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "b1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto3"
+      Show          off
+      Position      [1360, 680]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "b2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
       Type          Resistor
       Name          "R18"
       Show          off
-      Position      [820, 905]
+      Position      [820, 925]
       Direction     down
       Flipped       off
       Parameter {
         Variable      "R"
         Value         "0.001"
         Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "Peak Detector35"
+      Show          off
+      Position      [1250, 635]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "DialogGeometry"
+        Value         "[1360 55 1366 713]"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "4"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "1/fdsp"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         "fswb,Tsb,fdsp"
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_decl"
+"aration_conv_mode.h\""
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "#include \"c_scripts/BESS_interleavead_hybrid/Code_outp"
+"ut_conv_mode.c\""
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant4"
+      Show          off
+      Position      [1175, 635]
+      Direction     right
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux6"
+      Show          off
+      Position      [1310, 635]
+      Direction     right
+      Flipped       on
+      Parameter {
+        Variable      "Width"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From25"
+      Show          off
+      Position      [715, 310]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "t1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From32"
+      Show          off
+      Position      [710, 530]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "t2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From33"
+      Show          off
+      Position      [720, 830]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "b1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From34"
+      Show          off
+      Position      [720, 1045]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "b2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display"
+      Show          off
+      Position      [765, 830]
+      Direction     up
+      Flipped       off
+      Frame         [-11, -11; 11, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display1"
+      Show          off
+      Position      [765, 1045]
+      Direction     up
+      Flipped       off
+      Frame         [-11, -11; 11, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display2"
+      Show          off
+      Position      [770, 530]
+      Direction     up
+      Flipped       off
+      Frame         [-11, -11; 11, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display3"
+      Show          off
+      Position      [770, 310]
+      Direction     up
+      Flipped       off
+      Frame         [-11, -11; 11, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "C4"
+      Show          off
+      Position      [800, 420]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "C"
+        Value         "Cdc"
+        Show          off
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "Vdc/2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R19"
+      Show          off
+      Position      [800, 380]
+      Direction     down
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "0.001"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope5"
+      Show          on
+      Position      [380, 75]
+      Direction     up
+      Flipped       off
+      Location      [0, 55; 1366, 748]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAAClvwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMBAAAAMwAAApYAAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABJwAAAKWAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAA"
+"AAZAAAAAgAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
+"BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
       }
     }
     Connection {
@@ -15588,186 +15939,78 @@ Plecs {
           Branch {
             Points        [930, 495]
             Branch {
-              Points        [850, 495]
+              Points        [850, 495; 850, 1015; 820, 1015]
               Branch {
-                Points        [800, 495]
-                Branch {
-                  Points        [775, 495]
-                  Branch {
-                    Points        [710, 495]
-                    Branch {
-                      Points        [635, 495]
-                      Branch {
-                        Points        [550, 495]
-                        Branch {
-                          Points        [550, 485]
-                          Branch {
-                            Points        [560, 485]
-                            DstComponent  "D11"
-                            DstTerminal   1
-                          }
-                          Branch {
-                            DstComponent  "IGBT20"
-                            DstTerminal   2
-                          }
-                        }
-                        Branch {
-                          Points        [235, 495]
-                          Branch {
-                            DstComponent  "Batteries1"
-                            DstTerminal   2
-                          }
-                          Branch {
-                            DstComponent  "Vm4"
-                            DstTerminal   2
-                          }
-                        }
-                      }
-                      Branch {
-                        Points        [635, 485]
-                        Branch {
-                          Points        [635, 480]
-                          DstComponent  "D16"
-                          DstTerminal   1
-                        }
-                        Branch {
-                          DstComponent  "IGBT18"
-                          DstTerminal   2
-                        }
-                      }
-                    }
-                    Branch {
-                      Points        [710, 485]
-                      Branch {
-                        Points        [710, 480]
-                        DstComponent  "D18"
-                        DstTerminal   1
-                      }
-                      Branch {
-                        DstComponent  "IGBT19"
-                        DstTerminal   2
-                      }
-                    }
-                  }
-                  Branch {
-                    Points        [775, 480]
-                    Branch {
-                      Points        [775, 475]
-                      DstComponent  "D31"
-                      DstTerminal   1
-                    }
-                    Branch {
-                      DstComponent  "IGBT32"
-                      DstTerminal   2
-                    }
-                  }
-                }
-                Branch {
-                  Points        [800, 935; 770, 935]
-                  Branch {
-                    Points        [770, 910]
-                    Branch {
-                      DstComponent  "IGBT33"
-                      DstTerminal   2
-                    }
-                    Branch {
-                      Points        [780, 910]
-                      DstComponent  "D34"
-                      DstTerminal   1
-                    }
-                  }
-                  Branch {
-                    Points        [770, 960]
-                    Branch {
-                      DstComponent  "IGBT34"
-                      DstTerminal   1
-                    }
-                    Branch {
-                      Points        [780, 960]
-                      DstComponent  "D33"
-                      DstTerminal   2
-                    }
-                  }
-                }
-              }
-              Branch {
-                DstComponent  "C2"
+                DstComponent  "C3"
                 DstTerminal   2
               }
               Branch {
-                Points        [850, 1015; 820, 1015]
+                Points        [770, 1015]
                 Branch {
-                  DstComponent  "C3"
-                  DstTerminal   2
-                }
-                Branch {
-                  Points        [770, 1015]
+                  Points        [770, 1000]
                   Branch {
-                    Points        [770, 1000]
-                    Branch {
-                      Points        [770, 995]
-                      DstComponent  "D33"
-                      DstTerminal   1
-                    }
-                    Branch {
-                      DstComponent  "IGBT34"
-                      DstTerminal   2
-                    }
+                    Points        [770, 995]
+                    DstComponent  "D33"
+                    DstTerminal   1
                   }
                   Branch {
-                    Points        [710, 1015]
+                    DstComponent  "IGBT34"
+                    DstTerminal   2
+                  }
+                }
+                Branch {
+                  Points        [710, 1015]
+                  Branch {
+                    Points        [635, 1015]
                     Branch {
-                      Points        [635, 1015]
+                      Points        [550, 1015]
                       Branch {
-                        Points        [550, 1015]
+                        Points        [550, 1005]
                         Branch {
-                          Points        [550, 1005]
-                          Branch {
-                            Points        [560, 1005]
-                            DstComponent  "D12"
-                            DstTerminal   1
-                          }
-                          Branch {
-                            DstComponent  "IGBT30"
-                            DstTerminal   2
-                          }
-                        }
-                        Branch {
-                          Points        [235, 1015]
-                          Branch {
-                            DstComponent  "Batteries2"
-                            DstTerminal   2
-                          }
-                          Branch {
-                            DstComponent  "Vm5"
-                            DstTerminal   2
-                          }
-                        }
-                      }
-                      Branch {
-                        Points        [635, 1005]
-                        Branch {
-                          Points        [635, 1000]
-                          DstComponent  "D26"
+                          Points        [560, 1005]
+                          DstComponent  "D12"
                           DstTerminal   1
                         }
                         Branch {
-                          DstComponent  "IGBT28"
+                          DstComponent  "IGBT30"
+                          DstTerminal   2
+                        }
+                      }
+                      Branch {
+                        Points        [235, 1015]
+                        Branch {
+                          DstComponent  "Batteries2"
+                          DstTerminal   2
+                        }
+                        Branch {
+                          DstComponent  "Vm5"
                           DstTerminal   2
                         }
                       }
                     }
                     Branch {
-                      Points        [710, 1005]
+                      Points        [635, 1005]
                       Branch {
-                        Points        [710, 1000]
-                        DstComponent  "D28"
+                        Points        [635, 1000]
+                        DstComponent  "D26"
                         DstTerminal   1
                       }
                       Branch {
-                        DstComponent  "IGBT29"
+                        DstComponent  "IGBT28"
                         DstTerminal   2
                       }
+                    }
+                  }
+                  Branch {
+                    Points        [710, 1005]
+                    Branch {
+                      Points        [710, 1000]
+                      DstComponent  "D28"
+                      DstTerminal   1
+                    }
+                    Branch {
+                      DstComponent  "IGBT29"
+                      DstTerminal   2
                     }
                   }
                 }
@@ -15814,6 +16057,109 @@ Plecs {
     }
     Connection {
       Type          Wire
+      SrcComponent  "D11"
+      SrcTerminal   1
+      Points        [560, 485; 550, 485]
+      Branch {
+        Points        [550, 495]
+        Branch {
+          Points        [635, 495]
+          Branch {
+            Points        [710, 495]
+            Branch {
+              Points        [775, 495]
+              Branch {
+                Points        [800, 495]
+                Branch {
+                  DstComponent  "C4"
+                  DstTerminal   2
+                }
+                Branch {
+                  Points        [800, 935; 770, 935]
+                  Branch {
+                    Points        [770, 910]
+                    Branch {
+                      DstComponent  "IGBT33"
+                      DstTerminal   2
+                    }
+                    Branch {
+                      Points        [780, 910]
+                      DstComponent  "D34"
+                      DstTerminal   1
+                    }
+                  }
+                  Branch {
+                    Points        [770, 960]
+                    Branch {
+                      DstComponent  "IGBT34"
+                      DstTerminal   1
+                    }
+                    Branch {
+                      Points        [780, 960]
+                      DstComponent  "D33"
+                      DstTerminal   2
+                    }
+                  }
+                }
+              }
+              Branch {
+                Points        [775, 480]
+                Branch {
+                  Points        [775, 475]
+                  DstComponent  "D31"
+                  DstTerminal   1
+                }
+                Branch {
+                  DstComponent  "IGBT32"
+                  DstTerminal   2
+                }
+              }
+            }
+            Branch {
+              Points        [710, 485]
+              Branch {
+                Points        [710, 480]
+                DstComponent  "D18"
+                DstTerminal   1
+              }
+              Branch {
+                DstComponent  "IGBT19"
+                DstTerminal   2
+              }
+            }
+          }
+          Branch {
+            Points        [635, 485]
+            Branch {
+              Points        [635, 480]
+              DstComponent  "D16"
+              DstTerminal   1
+            }
+            Branch {
+              DstComponent  "IGBT18"
+              DstTerminal   2
+            }
+          }
+        }
+        Branch {
+          Points        [235, 495]
+          Branch {
+            DstComponent  "Batteries1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Vm4"
+            DstTerminal   2
+          }
+        }
+      }
+      Branch {
+        DstComponent  "IGBT20"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
       SrcComponent  "D7"
       SrcTerminal   2
       Points        [1075, 355; 1065, 355]
@@ -15828,7 +16174,7 @@ Plecs {
               DstTerminal   1
             }
             Branch {
-              Points        [850, 345]
+              Points        [800, 345]
               Branch {
                 Points        [775, 345]
                 Branch {
@@ -15886,7 +16232,7 @@ Plecs {
                 }
               }
               Branch {
-                DstComponent  "R16"
+                DstComponent  "R19"
                 DstTerminal   2
               }
             }
@@ -15966,11 +16312,7 @@ Plecs {
             Branch {
               Points        [820, 865]
               Branch {
-                DstComponent  "R18"
-                DstTerminal   2
-              }
-              Branch {
-                Points        [820, 410; 775, 410]
+                Points        [820, 405; 775, 405]
                 Branch {
                   Points        [775, 390]
                   Branch {
@@ -15995,6 +16337,10 @@ Plecs {
                     DstTerminal   2
                   }
                 }
+              }
+              Branch {
+                DstComponent  "R18"
+                DstTerminal   2
               }
             }
           }
@@ -17285,48 +17631,106 @@ Plecs {
     }
     Connection {
       Type          Signal
-      Points        [1180, 135]
-      DstComponent  "Scope4"
+      SrcComponent  "Constant4"
+      SrcTerminal   1
+      DstComponent  "Peak Detector35"
       DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant"
-      SrcTerminal   1
-      Points        [740, 310]
-      DstComponent  "IGBT31"
-      DstTerminal   3
+      SrcComponent  "Peak Detector35"
+      SrcTerminal   2
+      DstComponent  "Demux6"
+      DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant1"
-      SrcTerminal   1
-      Points        [735, 530; 735, 460]
-      DstComponent  "IGBT32"
-      DstTerminal   3
+      SrcComponent  "Demux6"
+      SrcTerminal   2
+      Points        [1325, 620; 1325, 590]
+      DstComponent  "Goto"
+      DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant2"
+      SrcComponent  "Demux6"
+      SrcTerminal   3
+      Points        [1330, 630; 1330, 620]
+      DstComponent  "Goto1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux6"
+      SrcTerminal   4
+      Points        [1330, 640; 1330, 650]
+      DstComponent  "Goto2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux6"
+      SrcTerminal   5
+      Points        [1325, 650; 1325, 680]
+      DstComponent  "Goto3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From33"
       SrcTerminal   1
       Points        [735, 830]
-      DstComponent  "IGBT33"
-      DstTerminal   3
+      Branch {
+        DstComponent  "IGBT33"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Display"
+        DstTerminal   1
+      }
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant3"
+      SrcComponent  "From34"
       SrcTerminal   1
       Points        [735, 1045]
-      DstComponent  "IGBT34"
-      DstTerminal   3
+      Branch {
+        DstComponent  "IGBT34"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Display1"
+        DstTerminal   1
+      }
     }
     Connection {
-      Type          Wire
-      SrcComponent  "R16"
+      Type          Signal
+      SrcComponent  "From32"
       SrcTerminal   1
-      DstComponent  "C2"
-      DstTerminal   1
+      Points        [735, 530]
+      Branch {
+        Points        [735, 460]
+        DstComponent  "IGBT32"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Display2"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From25"
+      SrcTerminal   1
+      Points        [740, 310]
+      Branch {
+        DstComponent  "IGBT31"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Display3"
+        DstTerminal   1
+      }
     }
     Connection {
       Type          Wire
@@ -17340,6 +17744,28 @@ Plecs {
       SrcComponent  "R18"
       SrcTerminal   1
       DstComponent  "C3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R19"
+      SrcTerminal   1
+      DstComponent  "C4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux7"
+      SrcTerminal   11
+      DstComponent  "Scope4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux2"
+      SrcTerminal   2
+      Points        [325, 130; 325, 75]
+      DstComponent  "Scope5"
       DstTerminal   1
     }
     Annotation {
@@ -17437,6 +17863,10 @@ Plecs {
     Annotation {
       Name          "Controle de Corrente (descarga)"
       Position      [470, 630]
+    } 
+    Annotation {
+      Name          "1- Paralelo\n2 -Serie"
+      Position      [1175, 665]
     } 
   }
   ProbeBlock {
