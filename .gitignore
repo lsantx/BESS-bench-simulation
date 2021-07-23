@@ -10,5 +10,5 @@ perdas/__pycache__/
 perdas/venv/
 
 */*.insyncdl
-c_scripts/BESS_interleavead_series/*.insyncdl
-
+*/*/*.insyncdl
+*.insyncdl
