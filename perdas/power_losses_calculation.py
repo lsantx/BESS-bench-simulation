@@ -188,8 +188,10 @@ total_power_losses = (
 
 print("Efficiency calculation...")
 # efficiency = ((1 - total_power_losses / (pbat + pbat2)) * 100)[0]    # Discharge
+# Pin = (pbat + pbat2)[0]    # Discharge
 
 efficiency = ((1 - total_power_losses / abs(Pgrid)) * 100)[0]      # Charge
+Pin = abs(Pgrid)[0]
 
 print("Save json file...")
 with open("efficiency_bess.json", "w") as arquivo:
@@ -198,7 +200,11 @@ with open("efficiency_bess.json", "w") as arquivo:
 
 with open("total_power_losses_bess.json", "w") as arquivo:
     total_power_losses_list = total_power_losses.tolist()
-    json.dump(total_power_losses_list, arquivo)
+    json.dump(total_power_losses_list[0], arquivo)
+
+with open("pin.json", "w") as arquivo:
+    Pin_list = Pin.tolist()
+    json.dump(Pin_list, arquivo)
 
 print("Complete")
 # %%
