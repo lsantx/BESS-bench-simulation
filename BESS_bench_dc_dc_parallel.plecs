@@ -1088,7 +1088,7 @@ Plecs {
         Variable      "Tsc"
         Prompt        "Time scale [s]"
         Type          FreeText
-        Value         "2"
+        Value         "3600"
         Show          off
         Tunable       off
         TabName       ""
@@ -1097,7 +1097,7 @@ Plecs {
         Variable      "Batt_Tr"
         Prompt        "Battery response time (s) / (3600/Time scale) "
         Type          FreeText
-        Value         "30/(3600/2)"
+        Value         "30/(3600/3600)"
         Show          off
         Tunable       off
         TabName       ""
@@ -6343,7 +6343,7 @@ Plecs {
       Type          Display
       Name          "Display6"
       Show          off
-      Position      [1410, 305]
+      Position      [1445, 305]
       Direction     up
       Flipped       off
       Frame         [-41, -11; 41, 11]
@@ -6364,7 +6364,7 @@ Plecs {
       Type          Display
       Name          "Display7"
       Show          off
-      Position      [1410, 330]
+      Position      [1445, 330]
       Direction     up
       Flipped       off
       Frame         [-41, -11; 41, 11]
@@ -6390,7 +6390,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "Width"
-        Value         "[6 2 2 2 2 1 1 1 1 2]"
+        Value         "[6 2 2 2 2 1 1 1 1 1 1]"
         Show          off
       }
     }
@@ -8001,27 +8001,6 @@ Plecs {
       Parameter {
         Variable      "Value"
         Value         "Vdc"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant10"
-      Show          off
-      Position      [765, 180]
-      Direction     right
-      Flipped       off
-      Frame         [-40, -10; 40, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "2000"
         Show          off
       }
       Parameter {
@@ -9903,7 +9882,7 @@ Plecs {
         Variable      "Tsc"
         Prompt        "Time scale [s]"
         Type          FreeText
-        Value         "2"
+        Value         "3600"
         Show          off
         Tunable       off
         TabName       ""
@@ -9912,7 +9891,7 @@ Plecs {
         Variable      "Batt_Tr"
         Prompt        "Battery response time (s) / (3600/Time scale) "
         Type          FreeText
-        Value         "30/(3600/2)"
+        Value         "30/(3600/3600)"
         Show          off
         Tunable       off
         TabName       ""
@@ -14796,20 +14775,20 @@ Plecs {
       Position      [20, 485]
       Direction     down
       Flipped       on
-      Location      [0, 27; 1360, 712]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABVAAAAKSAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAogAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAgAAAGQAAAADAA"
+"AAZAAAAAEAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAA=="
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -15110,27 +15089,43 @@ Plecs {
       }
     }
     Component {
+      Type          SignalMux
+      Name          "Mux17"
+      Show          off
+      Position      [1140, 155]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
       Type          Scope
       Name          "Scope4"
       Show          on
-      Position      [1135, 135]
+      Position      [1195, 155]
       Direction     up
       Flipped       off
-      Location      [0, 37; 1280, 700]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABQAAAAJ4AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAAAQAAAGQAAAADAAAAZAAAAAIAAABkAAAABQAAAGQAAAAEAA"
-"AAZAAAAAcAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAgAAAGQAAAADAA"
+"AAZAAAAAEAAABkAAAAygAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACxAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
+"BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
@@ -15167,6 +15162,34 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step6"
+      Show          off
+      Position      [790, 180]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Time"
+        Value         "1.5"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "2000"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
       }
     }
     Connection {
@@ -15483,13 +15506,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Pot calc"
-      SrcTerminal   1
-      DstComponent  "Display7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "3ph Meter"
       SrcTerminal   7
       Points        [1270, 330]
@@ -15613,7 +15629,7 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant10"
+      SrcComponent  "Step6"
       SrcTerminal   1
       Points        [905, 180; 905, 110]
       DstComponent  "Mux16"
@@ -15694,7 +15710,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   2
-      Points        [1075, 40]
+      Points        [1075, 35]
       DstComponent  "Delay2"
       DstTerminal   1
     }
@@ -15840,6 +15856,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   3
+      Points        [1085, 45; 1085, 50]
       DstComponent  "Scope"
       DstTerminal   1
     }
@@ -15847,6 +15864,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   4
+      Points        [1080, 55; 1080, 60]
       DstComponent  "Scope"
       DstTerminal   2
     }
@@ -15854,6 +15872,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   5
+      Points        [1075, 65; 1075, 70]
       DstComponent  "Scope"
       DstTerminal   3
     }
@@ -16737,18 +16756,43 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   6
+      Points        [1070, 75; 1070, 80]
       DstComponent  "Scope"
       DstTerminal   4
     }
     Connection {
       Type          Signal
-      Points        [1050, 135]
+      SrcComponent  "Mux17"
+      SrcTerminal   1
       DstComponent  "Scope4"
       DstTerminal   1
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pot calc"
+      SrcTerminal   1
+      DstComponent  "Display7"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux7"
+      SrcTerminal   11
+      Points        [1100, 125; 1100, 150]
+      DstComponent  "Mux17"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux7"
+      SrcTerminal   12
+      Points        [1080, 135; 1080, 160]
+      DstComponent  "Mux17"
+      DstTerminal   3
+    }
     Annotation {
       Name          "Active Power [W]"
-      Position      [1420, 285]
+      Position      [1455, 285]
     } 
     Annotation {
       Name          "Control enab"
@@ -16760,7 +16804,7 @@ Plecs {
     } 
     Annotation {
       Name          "Q_ref"
-      Position      [755, 160]
+      Position      [795, 155]
     } 
     Annotation {
       Name          "Controle"

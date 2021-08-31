@@ -110,7 +110,9 @@ if(count == PRD)
 
     Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
 
-    Q_control = PIq.piout_sat + PIq.Xref; 
+    //Q_control = PIq.piout_sat + PIq.Xref;
+
+    Q_control = PIq.Xref; 
 
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
     Ialfabeta.alfa = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
@@ -276,5 +278,5 @@ Output(14) = Vpwm_norm_a;
 Output(15) = Vpwm_norm_b;
 Output(16) = Vpwm_norm_c;
 Output(17) = count;
-Output(18) = Vdq.q;
-Output(19) = Vdq.d;
+Output(18) = PIq.Xref;
+Output(19) = Qc;
