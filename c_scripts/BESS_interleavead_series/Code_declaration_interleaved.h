@@ -10,8 +10,6 @@
 #define Vdc Input (7)
 #define Soc Input (8)
 #define reset Input (9)
-#define I2ref Input (10)
-#define Vbat2 Input (11)
 
 #define fsw ParamRealData(0,0)    
 #define Ts ParamRealData(1,0)   
@@ -26,7 +24,6 @@
 #define Soc_max ParamRealData(10,0)   
 #define Nb_series ParamRealData(11,0)   
 #define Nb_strings ParamRealData(12,0)  
-#define Vdc_ref ParamRealData(13,0) 
 
 #define N_br  3                                        //Número de braços do interleaved
 #define PRD  (fdsp/fsw)/2                                    // COntador Up e Down, PRD = (fdsp/fsw)/2 
@@ -41,7 +38,6 @@ float Vfloat = 13.6;               //Tensão de float
 
 //Referências
 float Vref = 0;
-float Iref = 0.01;
 
 //...............Parametros do Controle do DC/dc
 typedef struct {
@@ -71,7 +67,6 @@ sPI PIbu = PI_default;
 sPI PIbu2 = PI_default;
 sPI PIbu3 = PI_default;
 sPI PIbuv = PI_default;
-sPI PIvdceq2 = PI_default;
 
 float sat_up = 1;
 float sat_down = -1;
