@@ -5,7 +5,7 @@
 #define Ibat3 Input (2)
 #define control_enable Input (3)
 #define Iref_ch Input (4)
-#define Iref_dis Input (5)
+#define Pref Input (5)
 #define Vbat Input (6)
 #define Vdc Input (7)
 #define Soc Input (8)
@@ -24,6 +24,8 @@
 #define Soc_max ParamRealData(10,0)   
 #define Nb_series ParamRealData(11,0)   
 #define Nb_strings ParamRealData(12,0)  
+#define Kpp ParamRealData(13,0) 
+#define Kip ParamRealData(14,0)
 
 #define N_br  3                                        //Número de braços do interleaved
 #define PRD  (fdsp/fsw)/2                                    // COntador Up e Down, PRD = (fdsp/fsw)/2 
@@ -67,6 +69,7 @@ sPI PIbu = PI_default;
 sPI PIbu2 = PI_default;
 sPI PIbu3 = PI_default;
 sPI PIbuv = PI_default;
+sPI PIp = PI_default;
 
 float sat_up = 1;
 float sat_down = -1;
@@ -85,10 +88,12 @@ float inc;
 
 #define IRamp_default {0,0,0,0,0,0,0,0.1,0.1}    
 #define VRamp_default {0,0,0,0,0,0,0,0.1,0.05} 
+#define PRamp_default {0,0,0,0,0,0,0,0.1,0.2}  
 sRamp IRamp_bt  = IRamp_default;
 sRamp IRamp2_bt = IRamp_default;
 sRamp IRamp3_bt = IRamp_default;
 sRamp VRamp     = VRamp_default;
+sRamp PRamp     = PRamp_default;
 
 typedef struct{
 int CM;      //Charge mode
