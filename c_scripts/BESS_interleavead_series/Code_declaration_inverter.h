@@ -11,6 +11,7 @@
 #define Vdc_ref Input (8)
 #define Qref Input (9)
 #define Pref Input (10)
+#define cmode Input (11)
 
 #define fsw     ParamRealData(0,0)    
 #define Ts      ParamRealData(1,0)   
@@ -29,13 +30,14 @@
 #define wn    2*pi*fn                 						 //Frequência angular fundamental 
 #define N     150               						   
 //...............Variáveis do Controle da tensão do link cc
-float psat = 10e3;
+float psat = 8e3;
 
 //...............Variáveis do Controle de corrente do inversor
 float Ir = 30;
 float Pc = 0;
 float Qc = 0;
 float Q_control = 0;
+float P_control = 0;
 float Vpwm_norm_a = 0;
 float Vpwm_norm_b = 0;
 float Vpwm_norm_c = 0;

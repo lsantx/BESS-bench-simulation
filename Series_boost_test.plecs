@@ -1,5 +1,5 @@
 Plecs {
-  Name          "teste"
+  Name          "Series_boost_test"
   Version       "4.5"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
@@ -124,7 +124,7 @@ Plecs {
   Schematic {
     Location      [0, 55; 1366, 719]
     ZoomFactor    1
-    SliderPosition [0, 289]
+    SliderPosition [0, 91]
     ShowBrowser   off
     BrowserWidth  100
     Component {

@@ -97,12 +97,9 @@ if(count == PRD)
     PIvdc.Xref = Vdc_ref*Vdc_ref;
     PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
     
-    Pifunc(&PIvdc, Ts/2, Kpouter, Kiouter, psat, -psat);              // Controle PI
+    Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
 
     /////////////////////Controle do Ativo/////////////////////////////////////////
-    PRamp.final = Pref;
-    PRamp.in = fil2nPot.y;
-
     Ramp(&PRamp);
         
     PIp.Xref = PRamp.atual;
@@ -122,10 +119,16 @@ if(count == PRD)
     Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
 
     Q_control = PIq.piout_sat + PIq.Xref; 
-
+    if(cmode == 0) P_control = PIvdc.piout_sat;
+    if(cmode == 1)
+    {
+      P_control = PIp.piout_sat;
+      PRamp.final = Pref;
+      PRamp.in = fil2nPot.y;
+    }
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
-    Ialfabeta.alfa = (PLL.Valfa_in*(PIp.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-    Ialfabeta.beta = (PLL.Vbeta_in*(PIp.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    Ialfabeta.alfa = (PLL.Valfa_in*(P_control) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    Ialfabeta.beta = (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
 
     // saturação da corrente
     if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;

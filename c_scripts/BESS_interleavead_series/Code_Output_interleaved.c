@@ -73,7 +73,7 @@ if(control_enable == 1)
       PI_vout.Xref = VoutRamp.atual;
       PI_vout.Xm = Vdc;
 
-      Pifunc(&PI_vout, Ts/2, Kp_vout, Ki_vout, 60, -60);                   // Controle 
+      Pifunc(&PI_vout, Ts/2, Kp_vout, Ki_vout, 18, -18);                   // Controle 
 
       //Rampa de corrente
       PIbt.Xref = PI_vout.piout_sat / 3;
