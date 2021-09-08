@@ -72,6 +72,7 @@ typedef struct {
 sPI PIvdc = PI_default;
 sPI PIpll = PI_default;
 sPI PIq   = PI_default;
+sPI PIp   = PI_default;
 
 typedef struct {
 float Xref;
@@ -214,6 +215,7 @@ float inc;
 
 #define QRamp_default {0,0,0,0,0,0,0,0.1,10} 
 sRamp QRamp = QRamp_default;
+sRamp PRamp = QRamp_default;
 
 //................Parametros do PWM
 int count = 0;

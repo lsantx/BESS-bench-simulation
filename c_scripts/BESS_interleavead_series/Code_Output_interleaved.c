@@ -265,24 +265,26 @@ if(control_enable == 1)
 
 }//fecha control enable
 
-Output(0) = IRamp_bt.atual;
-Output(1) = PIbt.Xm;
-Output(2) = PIbt2.Xm;
-Output(3) = PIbt3.Xm;
-Output(4) = S1;
-Output(5) = S2;
-Output(6) = S3;
-Output(7) = S4;
-Output(8) = S5;
-Output(9) = S6;
-Output(10) = PIbuv.Xref;
-Output(11) = PIbuv.Xm;
-Output(12) = PIbu.Xref;
-Output(13) = PIbu.Xm;
-Output(14) = PIbt.piout_sat;
-Output(15) = PIbt2.piout_sat;
-Output(16) = PIbt3.piout_sat;
-Output(17) = count_0;
-Output(18) = count_120;
-Output(19) = count_240;
+Output(0) = VoutRamp.atual;
+Output(1) = PI_vout.Xm;
+Output(2) = IRamp_bt.atual;
+Output(3) = PIbt.Xm;
+Output(4) = PIbt2.Xm;
+Output(5) = PIbt3.Xm;
+Output(6) = S1;
+Output(7) = S2;
+Output(8) = S3;
+Output(9) = S4;
+Output(10) = S5;
+Output(11) = S6;
+Output(12) = PIbuv.Xref;
+Output(13) = PIbuv.Xm;
+Output(14) = PIbu.Xref;
+Output(15) = PIbu.Xm;
+Output(16) = PIbt.piout_sat;
+Output(17) = PIbt2.piout_sat;
+Output(18) = PIbt3.piout_sat;
+Output(19) = count_0;
+Output(20) = count_120;
+Output(21) = count_240;
 

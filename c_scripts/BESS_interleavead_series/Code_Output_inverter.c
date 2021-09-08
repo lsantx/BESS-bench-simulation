@@ -90,16 +90,27 @@ if(count == PRD)
   fil2nVdc.x = Vdc;
   Second_order_filter(&fil2nVdc);
 
-  //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////qq
+  //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
   if(control_enable == 1)
   {
     //Controle
     PIvdc.Xref = Vdc_ref*Vdc_ref;
     PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
     
-    Pifunc(&PIvdc, Ts/2, Kpouter, Kiouter, psat, -psat);                   // Controle PI
+    Pifunc(&PIvdc, Ts/2, Kpouter, Kiouter, psat, -psat);              // Controle PI
 
-    //////////////////////////////////////////////////////////Controle do Reativo///////////////////////////////////////////////////////////////////////
+    /////////////////////Controle do Ativo/////////////////////////////////////////
+    PRamp.final = Pref;
+    PRamp.in = fil2nPot.y;
+
+    Ramp(&PRamp);
+        
+    PIp.Xref = PRamp.atual;
+    PIp.Xm   = fil2nPot.y; 
+
+    Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
+
+    /////////////////////Controle do Reativo/////////////////////////////////////////
     QRamp.final = Qref;
     QRamp.in = fil2nQ.y;
 
@@ -112,11 +123,9 @@ if(count == PRD)
 
     Q_control = PIq.piout_sat + PIq.Xref; 
 
-    PIvdc.piout_sat = -Pref;
-
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
-    Ialfabeta.alfa = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-    Ialfabeta.beta = (PLL.Vbeta_in*(-PIvdc.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    Ialfabeta.alfa = (PLL.Valfa_in*(PIp.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    Ialfabeta.beta = (PLL.Vbeta_in*(PIp.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
 
     // saturação da corrente
     if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
@@ -274,9 +283,11 @@ Output(10) = Vdc_ref;
 Output(11) = fil2nVdc.y;
 Output(12) = PIq.Xref;
 Output(13) = PIq.Xm;
-Output(14) = Vpwm_norm_a;
-Output(15) = Vpwm_norm_b;
-Output(16) = Vpwm_norm_c;
-Output(17) = count;
-Output(18) = Vdq.q;
-Output(19) = Vdq.d;
+Output(14) = PIp.Xref;
+Output(15) = PIp.Xm;
+Output(16) = Vpwm_norm_a;
+Output(17) = Vpwm_norm_b;
+Output(18) = Vpwm_norm_c;
+Output(19) = count;
+Output(20) = Vdq.q;
+Output(21) = Vdq.d;
