@@ -211,7 +211,7 @@ float range;
 float inc;
 } sRamp;
 
-#define QRamp_default {0,0,0,0,0,0,0,0.1,0.1} 
+#define QRamp_default {0,0,0,0,0,0,0,0.1,10} 
 sRamp QRamp = QRamp_default;
 
 //................Parametros do PWM
