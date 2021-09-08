@@ -10,6 +10,7 @@
 #define control_enable Input (7)
 #define Vdc_ref Input (8)
 #define Qref Input (9)
+#define Pref Input (10)
 
 #define fsw     ParamRealData(0,0)    
 #define Ts      ParamRealData(1,0)   

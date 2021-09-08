@@ -34,6 +34,9 @@ if(control_enable == 1)
       IRamp2_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
       IRamp3_bt.final = Iref_dis/N_br;
       IRamp3_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
+
+      VoutRamp.final = Iref_dis;
+      VoutRamp.in = Vdc;
    
       flag.BVCM = 0;
     }
@@ -62,12 +65,18 @@ if(control_enable == 1)
     //Rampa da referência de I
     Ramp(&IRamp_bt);
     Ramp(&VRamp);
+    Ramp(&VoutRamp);
 
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
+      PI_vout.Xref = VoutRamp.atual;
+      PI_vout.Xm = Vdc;
+
+      Pifunc(&PI_vout, Ts/2, Kp_vout, Ki_vout, 60, -60);                   // Controle 
+
       //Rampa de corrente
-      PIbt.Xref = IRamp_bt.atual;
+      PIbt.Xref = PI_vout.piout_sat / 3;
       PIbt.Xm = Ibat;                                    // Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
@@ -115,7 +124,7 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt2.Xref = IRamp2_bt.atual;
+      PIbt2.Xref = PIbt.Xref;
       PIbt2.Xm = Ibat2;                                   //Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt2, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
@@ -150,7 +159,7 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PIbt3.Xref = IRamp3_bt.atual;
+      PIbt3.Xref = PIbt.Xref;
       PIbt3.Xm = Ibat3;                                               //Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt3, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI

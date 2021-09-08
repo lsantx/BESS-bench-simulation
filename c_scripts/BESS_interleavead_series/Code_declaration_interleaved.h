@@ -23,7 +23,9 @@
 #define Soc_min ParamRealData(9,0)   
 #define Soc_max ParamRealData(10,0)   
 #define Nb_series ParamRealData(11,0)   
-#define Nb_strings ParamRealData(12,0)  
+#define Nb_strings ParamRealData(12,0)
+#define Kp_vout ParamRealData(13,0)
+#define Ki_vout ParamRealData(14,0) 
 
 #define N_br  3                                        //Número de braços do interleaved
 #define PRD  (fdsp/fsw)/2                                    // COntador Up e Down, PRD = (fdsp/fsw)/2 
@@ -67,6 +69,7 @@ sPI PIbu = PI_default;
 sPI PIbu2 = PI_default;
 sPI PIbu3 = PI_default;
 sPI PIbuv = PI_default;
+sPI PI_vout = PI_default;
 
 float sat_up = 1;
 float sat_down = -1;
@@ -89,6 +92,7 @@ sRamp IRamp_bt  = IRamp_default;
 sRamp IRamp2_bt = IRamp_default;
 sRamp IRamp3_bt = IRamp_default;
 sRamp VRamp     = VRamp_default;
+sRamp VoutRamp     = VRamp_default;
 
 typedef struct{
 int CM;      //Charge mode

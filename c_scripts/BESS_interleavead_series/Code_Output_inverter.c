@@ -112,6 +112,8 @@ if(count == PRD)
 
     Q_control = PIq.piout_sat + PIq.Xref; 
 
+    PIvdc.piout_sat = -Pref;
+
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
     Ialfabeta.alfa = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
     Ialfabeta.beta = (PLL.Vbeta_in*(-PIvdc.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
