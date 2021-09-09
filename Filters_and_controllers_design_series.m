@@ -199,3 +199,43 @@ disp('____________________________________________________');
 disp({'KP =',num2str(KP)});
 disp({'KI =',num2str(KI)});
 
+%% Projeto do controle de tensão nos capacitores no dc-link
+clear; close all; clc;
+
+s = tf('s');
+P = 10e3;
+Vdc = 500;
+Vnom_bat = 12;
+C = 4.7e-3;
+L = 4e-3;
+RL = 0.55;
+Nb_series = 16;
+Rb = Nb_series*7.1e-3;
+Vo = Vdc/2;
+Vs = Vnom_bat*Nb_series
+D = 1 - Vs/Vo;
+Ro = (Vo^2)/P;
+
+fc = 0.5;
+wc = 2*pi*fc;
+MF = 120;
+%Código
+
+Tplanta = -(L*s + RL + Rb - D*Ro) / (Ro*C*s + D + 1)
+%%Tplanta = (2/(Cdc*s));
+
+[Amp,PH] = bode(Tplanta,wc);
+Gain_PI = 1/Amp;
+Phase_PI = -PH - 180 + MF;
+Tan_PI = (1/wc)*tan(pi*(Phase_PI + 90)/180);
+Kpi = (Gain_PI*wc)/(sqrt(1+(wc*Tan_PI)^2));
+KP = Kpi*Tan_PI
+KI = Kpi
+
+Gc = KP+KI/s;
+MA = Tplanta*Gc;
+
+% bode(MA)
+
+MF = MA/(1 + MA);
+step(MF)

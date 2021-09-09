@@ -15,7 +15,11 @@ if(count_240 == 0) inc_240 = 1;
 
 CMPB = 0;
 
-//............................................................Interrupções........................................................................................................
+//............................................................Interrupções.....................................................................................................]...
+
+//Rampa da referência
+Ramp(&VoutRamp, Ts);
+
 if(control_enable == 1)
 {
   ///////////////////////////////////////////////////Interrupção 1
@@ -27,56 +31,26 @@ if(control_enable == 1)
     {
       flag.DM = 1;               //Habilita Descarga
       flag.CM = 0;               //Desabilita Carga
-      //Rampa de corrente
-      IRamp_bt.final = Iref_dis/N_br;
-      IRamp_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
-      IRamp2_bt.final = Iref_dis/N_br;
-      IRamp2_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
-      IRamp3_bt.final = Iref_dis/N_br;
-      IRamp3_bt.in = (Ibat+Ibat2+Ibat3)/N_br;
-
-      VoutRamp.final = Iref_dis;
-      VoutRamp.in = Vdc;
-   
-      flag.BVCM = 0;
     }
 
-    if(reset == 2)
+    else if(reset == 2)
     {
       flag.DM = 0;               //Desabilita Descarga
       flag.CM = 1;               //Aciona o modo de carga
-   
-      if(flag.BVCM == 0)
-      {
-        Vref = Vboost*Nb_series;   //seta a referência de tensão para a tensão de boost
-        VRamp.final = Vref;
-        VRamp.in = Vbat;
-        if(Vbat >= Vboost*Nb_series) flag.BVCM = 1; // Tensão de boost atingida
-      }
-      //Comuta para tensão de float: Importante, flag.BVCM precista está zerado por default no ligamento da bancada e zerado quando para de chaver. Isto é necessário para que se a carga for novamanete ativada, o ciclo se repita
-      if(flag.BVCM == 1  && (Ibat+Ibat2+Ibat3) >= -0.1*Iref_ch) 
-      { 
-        Vref = Vfloat*Nb_series;   //seta a referência de tensão para a tensão de float
-        VRamp.final = Vref;
-        VRamp.in = Vbat;
-      }
     }
-
-    //Rampa da referência de I
-    Ramp(&IRamp_bt);
-    Ramp(&VRamp);
-    Ramp(&VoutRamp);
 
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      PI_vout.Xref = VoutRamp.atual;
-      PI_vout.Xm = Vdc;
+      VoutRamp.uin = Iref_dis;
 
-      Pifunc(&PI_vout, Ts/2, Kp_vout, Ki_vout, 18, -18);                   // Controle 
+      PIbt_vout.Xref = VoutRamp.y;
+      PIbt_vout.Xm = Vdc;
+
+      Pifunc(&PIbt_vout, Ts/2, Kp_vout, Ki_vout, 18, -18);                   // Controle 
 
       //Rampa de corrente
-      PIbt.Xref = PI_vout.piout_sat / 3;
+      PIbt.Xref = PIbt_vout.piout_sat / 3;
       PIbt.Xm = Ibat;                                    // Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIbt, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
@@ -84,43 +58,33 @@ if(control_enable == 1)
       PIbt.duty = PIbt.piout_sat*PRD;                    // Saída do controlador -> duty
     } //fecha DCM
 
-    else
-    {
-      IRamp_bt.final = 0;
-    }
 
-    ////////////////////////////////////////////////////////////////Inicia Carga (INT1)///////////////////////////////////////////////////////////////
+    /////////////////////////////////Inicia Carga (INT1)//////////
     //Carga
     if(flag.CM == 1)
-    {        
-      //////////////////////////////////////////////////////Malha externa de controle da tensão
+    { 
+      VoutRamp.uin = Iref_ch;       
+      ///////////////////Malha externa de controle da tensão
       ///controle
-      PIbuv.Xref = VRamp.atual;
-      PIbuv.Xm   = Vbat;                                     //Tensão medida para o modo buck (carga)           
-      
-      Pifunc(&PIbuv, Ts/2, Kpvbu, Kivbu, Iref_ch/3, -10);   // Controle PI
-  
-      PIbu.Xref = PIbuv.piout_sat;
+      PIbu_vout.Xref = VoutRamp.y;
+      PIbu_vout.Xm = Vdc;
 
-      PIbu.Xm   = -Ibat;                                   //Corrente medida para o modo boost (Descarga)
+      Pifunc(&PIbu_vout, Ts/2, -Kp_vout, -Ki_vout, 5, -5);                   // 
+  
+      PIbu.Xref = PIbu_vout.piout_sat / 3;
+
+      PIbu.Xm   = -Ibat;                                
 
       Pifunc(&PIbu, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
 
       PIbu.duty = PIbu.piout_sat*PRD;                    // Saída do controlador -> duty
     }// fecha CCM
 
-    else
-    {
-      VRamp.final = 0;
-    }
   } //Fecha interrupção1
 
   ///////////////////////////////////////////////////Interrupção 2
   if(count_120 == CMPB)
   {
-    //Rampa da referência de I
-    Ramp(&IRamp2_bt);
-       
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
@@ -132,18 +96,14 @@ if(control_enable == 1)
       PIbt2.duty = PIbt2.piout_sat*PRD;                   // Saída do controlador -> duty
     } //fecha DCM
 
-    else
-    {
-      IRamp2_bt.final = 0;
-    }
       ////////////////////////////////////////////////////////////////Inicia Carga (INT2)///////////////////////////////////////////////////////////////
       //Carga a corrente constante
     if(flag.CM == 1)
     {
 
       PIbu2.Xref = PIbu.Xref;
-      PIbu2.Xm = -Ibat2;                                               //Corrente medida para o modo boost (Descarga)
-      
+      PIbu2.Xm = -Ibat2;                                             
+
       Pifunc(&PIbu2, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
 
       PIbu2.duty = PIbu2.piout_sat*PRD;                    // Saída do controlador -> duty
@@ -153,9 +113,6 @@ if(control_enable == 1)
   ///////////////////////////////////////////////////Interrupção 3
   if(count_240 == CMPB)
   {
-    //Rampa da referência de I
-    Ramp(&IRamp3_bt);
-
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
@@ -167,17 +124,13 @@ if(control_enable == 1)
       PIbt3.duty = PIbt3.piout_sat*PRD;                    // Saída do controlador -> duty
     } //fecha DCM
 
-    else
-    {
-      IRamp3_bt.final = 0;
-    }
 
-    ////////////////////////////////////////////////////////////////Inicia Carga (INT3)///////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////Inicia Carga (INT3)//////////////
     //Carga a corrente constante
     if(flag.CM == 1)
     {
       PIbu3.Xref = PIbu.Xref;
-      PIbu3.Xm   = -Ibat3;                                  //Corrente medida para o modo boost (Descarga)
+      PIbu3.Xm   = -Ibat3;                              
      
       Pifunc(&PIbu3, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
 
@@ -265,9 +218,14 @@ if(control_enable == 1)
 
 }//fecha control enable
 
-Output(0) = VoutRamp.atual;
-Output(1) = PI_vout.Xm;
-Output(2) = IRamp_bt.atual;
+else
+{
+  VoutRamp.uin = Vdc;
+}
+
+Output(0) = PIbt_vout.Xref;
+Output(1) = PIbt_vout.Xm;
+Output(2) = PIbt.Xref;
 Output(3) = PIbt.Xm;
 Output(4) = PIbt2.Xm;
 Output(5) = PIbt3.Xm;
@@ -277,13 +235,13 @@ Output(8) = S3;
 Output(9) = S4;
 Output(10) = S5;
 Output(11) = S6;
-Output(12) = PIbuv.Xref;
-Output(13) = PIbuv.Xm;
+Output(12) = PIbu_vout.Xref;
+Output(13) = PIbu_vout.Xm;
 Output(14) = PIbu.Xref;
 Output(15) = PIbu.Xm;
-Output(16) = PIbt.piout_sat;
-Output(17) = PIbt2.piout_sat;
-Output(18) = PIbt3.piout_sat;
+Output(16) = PIbu.piout_sat;
+Output(17) = PIbu2.piout_sat;
+Output(18) = PIbu3.piout_sat;
 Output(19) = count_0;
 Output(20) = count_120;
 Output(21) = count_240;

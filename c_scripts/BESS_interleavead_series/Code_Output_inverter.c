@@ -93,39 +93,46 @@ if(count == PRD)
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
   if(control_enable == 1)
   {
-    //Controle
-    PIvdc.Xref = Vdc_ref*Vdc_ref;
-    PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
-    
-    Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
+    if(cmode == 0)
+    {
+      //Controle
+      PIvdc.Xref = Vdc_ref*Vdc_ref;
+      PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
+      
+      Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
 
-    /////////////////////Controle do Ativo/////////////////////////////////////////
-    Ramp(&PRamp);
-        
-    PIp.Xref = PRamp.atual;
-    PIp.Xm   = fil2nPot.y; 
+      P_control = PIvdc.piout_sat;
+    }
 
-    Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
+    /////////////////////Controle do Ativo/////////////////////////////////////////  
+    if(cmode == 1)
+    {
+      PRamp.uin = Pref;
+
+      PIp.Xref = PRamp.y;
+      PIp.Xm   = fil2nPot.y; 
+
+      Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
+
+      P_control = PIp.piout_sat;
+    }
+    else
+    {
+      PRamp.uin = fil2nPot.y;
+    }
+
+    Ramp(&PRamp, Ts);
 
     /////////////////////Controle do Reativo/////////////////////////////////////////
-    QRamp.final = Qref;
-    QRamp.in = fil2nQ.y;
-
-    Ramp(&QRamp);
+    QRamp.uin = Qref;
+    Ramp(&QRamp, Ts);
         
-    PIq.Xref = QRamp.atual;
+    PIq.Xref = QRamp.y;
     PIq.Xm   = fil2nQ.y; 
 
     Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
 
-    Q_control = PIq.piout_sat + PIq.Xref; 
-    if(cmode == 0) P_control = PIvdc.piout_sat;
-    if(cmode == 1)
-    {
-      P_control = PIp.piout_sat;
-      PRamp.final = Pref;
-      PRamp.in = fil2nPot.y;
-    }
+    Q_control = PIq.piout_sat + PIq.Xref;
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
     Ialfabeta.alfa = (PLL.Valfa_in*(P_control) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
     Ialfabeta.beta = (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);

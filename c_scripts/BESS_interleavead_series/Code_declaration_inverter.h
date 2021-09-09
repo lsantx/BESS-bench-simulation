@@ -204,20 +204,18 @@ sFilter2nd fil2nPot = FILTER2ND_DEFAULTS;
 sFilter2nd fil2nQ   = FILTER2ND_DEFAULTS;
 
 typedef struct{
-float final;
-float final_ant;
-float atual;
-float in;
-float delta;
-int flag;
-int flag2;
-float range;
-float inc;
+	float t1;
+	float t1_ant;
+	float y;
+	float y_ant;
+	float uin;
+	float rate;
+	float rising; 
+	float falling;
 } sRamp;
-
-#define QRamp_default {0,0,0,0,0,0,0,0.1,10} 
-sRamp QRamp = QRamp_default;
-sRamp PRamp = QRamp_default;
+#define PRamp_default {0,0,0,0,0,0,(2.5e3),(-2.5e3)} 
+sRamp QRamp = PRamp_default;
+sRamp PRamp = PRamp_default;
 
 //................Parametros do PWM
 int count = 0;
@@ -292,46 +290,17 @@ void SOGI_func(sSOGI *sog, float Tsample)
 }
 
 // Rampa
-void Ramp(sRamp *rmp)
+void Ramp(sRamp *rmp, float sample)
 {
-    if(rmp->final != rmp->final_ant)
-    {
-        rmp->flag = 0;
-        rmp->flag2 = 1;
-    }
+  if(rmp->uin != rmp->y) rmp->t1 = rmp->t1 + sample;
+  else rmp->t1 = 0;
+  rmp->rate = (rmp->uin - rmp->y_ant)/(rmp->t1 - rmp->t1_ant);
+  if(rmp->rate > rmp->rising) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->rising + rmp->y_ant;
+  else if(rmp->rate < rmp->falling) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->falling + rmp->y_ant;
+  else rmp->y = rmp->uin;
 
-    rmp->final_ant = rmp->final;
-
-    if(rmp->flag == 0)
-    {
-        rmp->atual = rmp->in;
-        rmp->flag = 1;
-    }
-
-    rmp->delta = rmp->final - rmp->atual;
-
-    if(rmp->flag2 == 1)
-    {
-        if(rmp->delta > 0)
-        {
-            rmp->atual += rmp->inc;
-            if(rmp->delta<=rmp->range)
-            {
-                rmp->atual = rmp->final;
-                rmp->flag2 = 0;
-            }
-        }
-        else if(rmp->delta < 0)
-        {
-            rmp->atual -= rmp->inc;
-            if(rmp->delta>=rmp->range)
-            {
-                rmp->atual = rmp->final;
-                rmp->flag2 = 0;
-            }
-
-        }
-    }
+  rmp->t1_ant = rmp->t1;
+  rmp->y_ant = rmp->y;	
 }
 
 // Ressonante
