@@ -100,12 +100,11 @@ if(count == PRD)
     Pifunc(&PIvdc, Ts/2, Kpouter, Kiouter, psat, -psat);                   // Controle PI
 
     //////////////////////////////////////////////////////////Controle do Reativo///////////////////////////////////////////////////////////////////////
-    QRamp.final = Qref;
-    QRamp.in = fil2nQ.y;
+    QRamp.uin = Qref;
 
-    Ramp(&QRamp);
+    Ramp(&QRamp, Ts);
         
-    PIq.Xref = QRamp.atual;
+    PIq.Xref = QRamp.y;
     PIq.Xm   = fil2nQ.y; 
 
     Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)

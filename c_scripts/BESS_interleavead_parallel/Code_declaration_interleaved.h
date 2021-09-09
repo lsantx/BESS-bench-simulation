@@ -72,19 +72,17 @@ float sat_up = 1;
 float sat_down = -1;
 
 typedef struct{
-float final;
-float final_ant;
-float atual;
-float in;
-float delta;
-int flag;
-int flag2;
-float range;
-float inc;
+	float t1;
+	float t1_ant;
+	float y;
+	float y_ant;
+	float uin;
+	float rate;
+	float rising; 
+	float falling;
 } sRamp;
-
-#define IRamp_default {0,0,0,0,0,0,0,0.1,0.1}    
-#define VRamp_default {0,0,0,0,0,0,0,0.1,0.05} 
+#define IRamp_default{0,0,0,0,0,0,(15),(-15)} 
+#define VRamp_default{0,0,0,0,0,0,(500),(-500)} 
 sRamp IRamp_bt  = IRamp_default;
 sRamp IRamp2_bt = IRamp_default;
 sRamp IRamp3_bt = IRamp_default;
@@ -118,46 +116,17 @@ int teste = 0;
 ///////////////////////////////////////Funções/////////////////////
 
 // Rampa
-void Ramp(sRamp *rmp)
+void Ramp(sRamp *rmp, float sample)
 {
-    if(rmp->final != rmp->final_ant)
-    {
-        rmp->flag = 0;
-        rmp->flag2 = 1;
-    }
+  if(rmp->uin != rmp->y) rmp->t1 = rmp->t1 + sample;
+  else rmp->t1 = 0;
+  rmp->rate = (rmp->uin - rmp->y_ant)/(rmp->t1 - rmp->t1_ant);
+  if(rmp->rate > rmp->rising) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->rising + rmp->y_ant;
+  else if(rmp->rate < rmp->falling) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->falling + rmp->y_ant;
+  else rmp->y = rmp->uin;
 
-    rmp->final_ant = rmp->final;
-
-    if(rmp->flag == 0)
-    {
-        rmp->atual = rmp->in;
-        rmp->flag = 1;
-    }
-
-    rmp->delta = rmp->final - rmp->atual;
-
-    if(rmp->flag2 == 1)
-    {
-        if(rmp->delta > 0)
-        {
-            rmp->atual += rmp->inc;
-            if(rmp->delta<=rmp->range)
-            {
-                rmp->atual = rmp->final;
-                rmp->flag2 = 0;
-            }
-        }
-        else if(rmp->delta < 0)
-        {
-            rmp->atual -= rmp->inc;
-            if(rmp->delta>=rmp->range)
-            {
-                rmp->atual = rmp->final;
-                rmp->flag2 = 0;
-            }
-
-        }
-    }
+  rmp->t1_ant = rmp->t1;
+  rmp->y_ant = rmp->y;	
 }
 
 // Controlador PI
