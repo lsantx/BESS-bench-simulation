@@ -27,13 +27,13 @@ if(control_enable == 1)
   {
     //////////////////////////////////////////////////////////////////////Mudança do modo de operação pelas flags/////////////////////////////////////  
     //Reseta para Descarga (1) e Carga (2)
-    if(reset == 1)
+    if(Pref > 0)
     {
       flag.DM = 1;               //Habilita Descarga
       flag.CM = 0;               //Desabilita Carga
     }
 
-    else if(reset == 2)
+    else if(Pref <= 0)
     {
       flag.DM = 0;               //Desabilita Descarga
       flag.CM = 1;               //Aciona o modo de carga
@@ -42,7 +42,7 @@ if(control_enable == 1)
     ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
     if(flag.DM == 1)
     {
-      VoutRamp.uin = Iref_dis;
+      VoutRamp.uin = Vref_dis;
 
       PIbt_vout.Xref = VoutRamp.y;
       PIbt_vout.Xm = Vdc;
@@ -63,7 +63,7 @@ if(control_enable == 1)
     //Carga
     if(flag.CM == 1)
     { 
-      VoutRamp.uin = Iref_ch;       
+      VoutRamp.uin = Vref_ch;       
       ///////////////////Malha externa de controle da tensão
       ///controle
       PIbu_vout.Xref = VoutRamp.y;

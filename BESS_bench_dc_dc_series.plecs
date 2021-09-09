@@ -123,7 +123,7 @@ Plecs {
   Schematic {
     Location      [0, 55; 1366, 719]
     ZoomFactor    0.873846
-    SliderPosition [0, 0]
+    SliderPosition [0, 296]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1080,7 +1080,7 @@ Plecs {
         Variable      "SOC"
         Prompt        "Initial state-of-charge (%)"
         Type          FreeText
-        Value         "60"
+        Value         "40"
         Show          off
         Tunable       off
         TabName       ""
@@ -10862,9 +10862,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
+"AAZAAAAAUAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10908,48 +10908,6 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant18"
-      Show          off
-      Position      [70, 355]
-      Direction     right
-      Flipped       off
-      Frame         [-25, -10; 25, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant19"
-      Show          off
-      Position      [70, 875]
-      Direction     right
-      Flipped       off
-      Frame         [-25, -10; 25, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
       }
     }
     Component {
@@ -15120,7 +15078,7 @@ Plecs {
       LabelAlign    up
       Parameter {
         Variable      "Value"
-        Value         "-1000"
+        Value         "2000"
         Show          off
       }
       Parameter {
@@ -15272,20 +15230,20 @@ Plecs {
       Position      [480, 120]
       Direction     up
       Flipped       off
-      Location      [0, 27; 1360, 712]
+      Location      [0, 55; 1366, 748]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABVAAAAKSAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
+"AAZAAAAAUAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAA=="
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
       PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
 "/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
 "AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
@@ -16489,6 +16447,123 @@ Plecs {
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
 "AAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAIAA"
 "AAZAAAAAkAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
+"BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          From
+      Name          "From36"
+      Show          off
+      Position      [85, 340]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Pc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From37"
+      Show          off
+      Position      [85, 860]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Pc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto18"
+      Show          off
+      Position      [1225, 130]
+      Direction     left
+      Flipped       on
+      Parameter {
+        Variable      "Tag"
+        Value         "Pc"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope14"
+      Show          off
+      Position      [1265, 150]
+      Direction     up
+      Flipped       off
+      Location      [0, 55; 1366, 748]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
+"AAZAAAAAUAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -17752,9 +17827,9 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Constant18"
+      SrcComponent  "From36"
       SrcTerminal   1
-      Points        [205, 355; 205, 215]
+      Points        [205, 340; 205, 215]
       DstComponent  "Mux15"
       DstTerminal   9
     }
@@ -17829,14 +17904,6 @@ Plecs {
       Points        [195, 840; 195, 725]
       DstComponent  "Mux19"
       DstTerminal   8
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Constant19"
-      SrcTerminal   1
-      Points        [205, 875; 205, 735]
-      DstComponent  "Mux19"
-      DstTerminal   9
     }
     Connection {
       Type          Signal
@@ -18025,14 +18092,6 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Am4"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Constant11"
-      SrcTerminal   1
-      Points        [995, 190; 995, 115]
-      DstComponent  "Mux16"
-      DstTerminal   8
     }
     Connection {
       Type          Signal
@@ -18327,6 +18386,37 @@ Plecs {
       DstComponent  "Scope13"
       DstTerminal   1
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "From37"
+      SrcTerminal   1
+      Points        [205, 860; 205, 735]
+      DstComponent  "Mux19"
+      DstTerminal   9
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant11"
+      SrcTerminal   1
+      Points        [995, 190; 995, 115]
+      DstComponent  "Mux16"
+      DstTerminal   8
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux7"
+      SrcTerminal   11
+      Points        [1200, 130]
+      Branch {
+        DstComponent  "Goto18"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [1200, 150]
+        DstComponent  "Scope14"
+        DstTerminal   1
+      }
+    }
     Annotation {
       Name          "Active Power [W]"
       Position      [1650, 285]
@@ -18352,19 +18442,7 @@ Plecs {
       Position      [1110, 45]
     } 
     Annotation {
-      Name          "Reset"
-      Position      [70, 855]
-    } 
-    Annotation {
-      Name          "1 - Descarga"
-      Position      [80, 895]
-    } 
-    Annotation {
-      Name          "2 - Carga"
-      Position      [70, 910]
-    } 
-    Annotation {
-      Name          "Iref_ch"
+      Name          "Vref"
       Position      [90, 180]
     } 
     Annotation {
@@ -18384,19 +18462,7 @@ Plecs {
       Position      [475, 260]
     } 
     Annotation {
-      Name          "Reset"
-      Position      [65, 335]
-    } 
-    Annotation {
-      Name          "1 - Descarga"
-      Position      [80, 375]
-    } 
-    Annotation {
-      Name          "2 - Carga"
-      Position      [70, 390]
-    } 
-    Annotation {
-      Name          "Iref_ch"
+      Name          "Vref"
       Position      [90, 700]
     } 
     Annotation {
@@ -18417,7 +18483,11 @@ Plecs {
     } 
     Annotation {
       Name          "Change initial outer \ncontrol-loop mode"
-      Position      [845, 220]
+      Position      [840, 225]
+    } 
+    Annotation {
+      Name          "6 kW - Discharge\n1.5 kW - Charge"
+      Position      [780, 190]
     } 
   }
   ProbeBlock {

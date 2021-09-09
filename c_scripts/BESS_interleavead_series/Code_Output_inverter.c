@@ -62,7 +62,7 @@ if(count == PRD)
 
   // Normalização pelo pico da tensão da rede
   PIpll.Xref = 0;
-  PIpll.Xm = -Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);                                 
+  PIpll.Xm = -Vdq.q/(sqrt(Vdq.q*Vdq.q + Vdq.d*Vdq.d) + 1e-2);                                
       
   Pifunc(&PIpll, Ts/2, Kp_pll, Ki_pll, 500, -500);                   // Controle PI
 
@@ -298,6 +298,6 @@ Output(15) = PIp.Xm;
 Output(16) = Vpwm_norm_a;
 Output(17) = Vpwm_norm_b;
 Output(18) = Vpwm_norm_c;
-Output(19) = count;
+Output(19) = PRamp.y;
 Output(20) = Vdq.q;
 Output(21) = Vdq.d;
