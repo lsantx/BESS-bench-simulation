@@ -1080,7 +1080,7 @@ Plecs {
         Variable      "SOC"
         Prompt        "Initial state-of-charge (%)"
         Type          FreeText
-        Value         "40"
+        Value         "80"
         Show          off
         Tunable       off
         TabName       ""
@@ -6404,7 +6404,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Width"
-        Value         "[1 3 3 1 1 1 1 1]"
+        Value         "[1 3 3 1 1 1 1]"
         Show          off
       }
     }
@@ -8144,7 +8144,7 @@ Plecs {
       Type          CScript
       Name          "Peak Detector34"
       Show          off
-      Position      [1130, 90]
+      Position      [1125, 90]
       Direction     up
       Flipped       off
       Parameter {
@@ -8154,7 +8154,7 @@ Plecs {
       }
       Parameter {
         Variable      "NumInputs"
-        Value         "12"
+        Value         "11"
         Show          off
       }
       Parameter {
@@ -10507,9 +10507,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10521,7 +10521,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -10655,8 +10655,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10758,9 +10758,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10863,8 +10863,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -11210,7 +11210,7 @@ Plecs {
         Variable      "SOC"
         Prompt        "Initial state-of-charge (%)"
         Type          FreeText
-        Value         "60"
+        Value         "40"
         Show          off
         Tunable       off
         TabName       ""
@@ -15115,9 +15115,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -16114,34 +16114,6 @@ Plecs {
       }
     }
     Component {
-      Type          Step
-      Name          "Step2"
-      Show          off
-      Position      [920, 220]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Time"
-        Value         "1"
-        Show          on
-      }
-      Parameter {
-        Variable      "Before"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "After"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
       Type          Goto
       Name          "Goto16"
       Show          off
@@ -16532,7 +16504,7 @@ Plecs {
       Type          Goto
       Name          "Goto18"
       Show          off
-      Position      [1225, 130]
+      Position      [1265, 130]
       Direction     left
       Flipped       on
       Parameter {
@@ -16550,7 +16522,7 @@ Plecs {
       Type          Scope
       Name          "Scope14"
       Show          off
-      Position      [1265, 150]
+      Position      [1305, 150]
       Direction     up
       Flipped       off
       Location      [0, 55; 1366, 748]
@@ -16569,6 +16541,69 @@ Plecs {
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
       PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
 "/8AAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEAAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
+"BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope15"
+      Show          off
+      Position      [1245, 175]
+      Direction     up
+      Flipped       off
+      Location      [0, 55; 1366, 748]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAIAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEB/////wAAA"
+"AAAAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEBAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
 "AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
 "BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
       Axes          "1"
@@ -17004,6 +17039,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From16"
       SrcTerminal   1
+      Points        [1005, 75; 1005, 80]
       DstComponent  "Mux16"
       DstTerminal   4
     }
@@ -17011,7 +17047,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From15"
       SrcTerminal   1
-      Points        [1030, 55; 1030, 65]
+      Points        [1030, 55; 1030, 70]
       DstComponent  "Mux16"
       DstTerminal   3
     }
@@ -17087,7 +17123,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Constant9"
       SrcTerminal   1
-      Points        [970, 130; 970, 95]
+      Points        [970, 130; 970, 100]
       DstComponent  "Mux16"
       DstTerminal   6
     }
@@ -17095,7 +17131,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Constant10"
       SrcTerminal   1
-      Points        [980, 160; 980, 105]
+      Points        [980, 160; 980, 110]
       DstComponent  "Mux16"
       DstTerminal   7
     }
@@ -17131,7 +17167,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From17"
       SrcTerminal   1
-      Points        [1045, 35; 1045, 55]
+      Points        [1045, 35; 1045, 60]
       DstComponent  "Mux16"
       DstTerminal   2
     }
@@ -18326,18 +18362,11 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Step2"
-      SrcTerminal   1
-      Points        [1025, 220; 1025, 125]
-      DstComponent  "Mux16"
-      DstTerminal   9
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Step1"
       SrcTerminal   1
       Points        [920, 85]
       Branch {
+        Points        [1000, 85; 1000, 90]
         DstComponent  "Mux16"
         DstTerminal   5
       }
@@ -18398,7 +18427,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Constant11"
       SrcTerminal   1
-      Points        [995, 190; 995, 115]
+      Points        [995, 190; 995, 120]
       DstComponent  "Mux16"
       DstTerminal   8
     }
@@ -18406,16 +18435,24 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux7"
       SrcTerminal   11
-      Points        [1200, 130]
+      Points        [1240, 130]
       Branch {
         DstComponent  "Goto18"
         DstTerminal   1
       }
       Branch {
-        Points        [1200, 150]
+        Points        [1240, 150]
         DstComponent  "Scope14"
         DstTerminal   1
       }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux7"
+      SrcTerminal   12
+      Points        [1205, 140; 1205, 175]
+      DstComponent  "Scope15"
+      DstTerminal   1
     }
     Annotation {
       Name          "Active Power [W]"
@@ -18482,12 +18519,8 @@ Plecs {
       Position      [845, 190]
     } 
     Annotation {
-      Name          "Change initial outer \ncontrol-loop mode"
-      Position      [840, 225]
-    } 
-    Annotation {
       Name          "6 kW - Discharge\n1.5 kW - Charge"
-      Position      [780, 190]
+      Position      [900, 220]
     } 
   }
   ProbeBlock {

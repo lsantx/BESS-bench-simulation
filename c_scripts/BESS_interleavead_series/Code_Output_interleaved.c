@@ -33,7 +33,7 @@ if(control_enable == 1)
       flag.CM = 0;               //Desabilita Carga
     }
 
-    else if(Pref <= 0)
+    else if(Pref < 0)
     {
       flag.DM = 0;               //Desabilita Descarga
       flag.CM = 1;               //Aciona o modo de carga

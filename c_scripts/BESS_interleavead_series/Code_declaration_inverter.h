@@ -11,7 +11,6 @@
 #define Vdc_ref Input (8)
 #define Qref Input (9)
 #define Pref Input (10)
-#define cmode Input (11)
 
 #define fsw     ParamRealData(0,0)    
 #define Ts      ParamRealData(1,0)   
@@ -51,6 +50,8 @@ float dutyb = 0;
 float dutyc = 0;
 int counti = 0;
 int count_pll = 0;
+int flag_vdc_control = 0;
+int flag_p_control = 0;
 //
 
 typedef struct {

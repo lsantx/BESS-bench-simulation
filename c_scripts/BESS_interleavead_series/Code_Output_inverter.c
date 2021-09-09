@@ -93,7 +93,19 @@ if(count == PRD)
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
   if(control_enable == 1)
   {
-    if(cmode == 0)
+    if(abs(fil2nPot.y) <= 0.1 && Pref == 0)
+    {
+      flag_vdc_control = 1;
+      flag_p_control = 0;
+    }
+
+    if(Pref != 0)
+    {
+      flag_vdc_control = 0;
+      flag_p_control = 1;
+    }
+
+    if(flag_vdc_control == 1)
     {
       //Controle
       PIvdc.Xref = Vdc_ref*Vdc_ref;
@@ -105,7 +117,7 @@ if(count == PRD)
     }
 
     /////////////////////Controle do Ativo/////////////////////////////////////////  
-    if(cmode == 1)
+    if(flag_p_control == 1)
     {
       PRamp.uin = Pref;
 
@@ -298,6 +310,6 @@ Output(15) = PIp.Xm;
 Output(16) = Vpwm_norm_a;
 Output(17) = Vpwm_norm_b;
 Output(18) = Vpwm_norm_c;
-Output(19) = PRamp.y;
-Output(20) = Vdq.q;
-Output(21) = Vdq.d;
+Output(19) = PIp.Xref;
+Output(20) = flag_vdc_control;
+Output(21) = flag_p_control;
