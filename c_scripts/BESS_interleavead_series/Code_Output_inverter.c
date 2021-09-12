@@ -135,7 +135,7 @@ if(count == PRD)
 
       Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
 
-      P_control = PIp.piout_sat;
+      P_control = PIp.piout_sat + PIp.Xref;
     }
     else
     {
