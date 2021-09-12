@@ -122,6 +122,7 @@ if(count == PRD)
     else
     {
       VRamp.uin = fil2nVdc.y;
+      VRamp.y = fil2nVdc.y;
     }
 
     /////////////////////Controle do Ativo/////////////////////////////////////////  
