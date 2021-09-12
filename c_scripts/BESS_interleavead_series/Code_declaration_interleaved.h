@@ -125,8 +125,12 @@ void Ramp(sRamp *rmp, float sample)
 {
   if(rmp->uin != rmp->y) rmp->t1 = rmp->t1 + sample;
 
-  rmp->rate = (rmp->uin - rmp->y_ant)/(rmp->t1 - rmp->t1_ant);
-  
+  if(rmp->t1 != rmp->t1_ant)
+  {
+    rmp->rate = (rmp->uin - rmp->y_ant)/(rmp->t1 - rmp->t1_ant);
+  }
+  else rmp->rate = 0;
+
   if(rmp->rate > rmp->rising) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->rising + rmp->y_ant;
   else if(rmp->rate < rmp->falling) rmp->y = (rmp->t1 - rmp->t1_ant)*rmp->falling + rmp->y_ant;
   else rmp->y = rmp->uin;

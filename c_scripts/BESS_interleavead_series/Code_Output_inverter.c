@@ -311,5 +311,5 @@ Output(16) = Vpwm_norm_a;
 Output(17) = Vpwm_norm_b;
 Output(18) = Vpwm_norm_c;
 Output(19) = PIp.Xref;
-Output(20) = flag_vdc_control;
-Output(21) = flag_p_control;
+Output(20) = QRamp.rate;
+Output(21) = 0;
