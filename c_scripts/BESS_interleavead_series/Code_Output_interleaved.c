@@ -221,6 +221,7 @@ if(control_enable == 1)
 else
 {
   VoutRamp.uin = Vdc;
+  VoutRamp.y = Vdc;
 }
 
 Output(0) = PIbt_vout.Xref;

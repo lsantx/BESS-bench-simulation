@@ -3,7 +3,7 @@ Plecs {
   Version       "4.5"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
-  TimeSpan      "10"
+  TimeSpan      "20"
   Timeout       ""
   Solver        "FixedStepDiscrete"
   MaxStep       "passo"
@@ -8322,7 +8322,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.5"
+        Value         "0.4"
         Show          on
       }
       Parameter {
@@ -10508,7 +10508,7 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
 "AAZAAAAAMAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -10521,186 +10521,67 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    ""
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Scope2"
-      Show          off
-      Position      [55, 1005]
-      Direction     down
-      Flipped       on
-      Location      [0, 55; 1366, 748]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
-"AAZAAAAAMAAABkAAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAZAAAAAQAAAAAAAAPoAAAAABk="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
-"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-"=="
-      Axes          "3"
-      TimeRange     "0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
       Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
       ShowLegend    "1"
       Axis {
-        Name          ""
+        Name          "Ialfa"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "A"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          "Ibeta"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "A"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          "Dc-link Voltage"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "V"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Reactive Power"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "VAr"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Active Power"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "W"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -10711,6 +10592,26 @@ Plecs {
         Scaling           0
         PhaseDisplay      0
         ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
         Axis {
           Name          ""
           AutoScale     1
@@ -10759,7 +10660,7 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
 "AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -10777,34 +10678,37 @@ Plecs {
       XAxisLabel    ""
       ShowLegend    "1"
       Axis {
-        Name          ""
+        Name          "SOC"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "%"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          "Battery Current"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "A"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          "Battery Voltage"
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
+        AxisLabel     "V"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -15116,8 +15020,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
-"AAZAAAAAMAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADBAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -15175,9 +15079,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAIAAABkAAAAAwAAAGQAAAABAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -15958,7 +15862,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.9"
+        Value         "1.6"
         Show          on
       }
       Parameter {
@@ -16058,7 +15962,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.8"
+        Value         "1.5"
         Show          on
       }
       Parameter {
@@ -16118,24 +16022,6 @@ Plecs {
       Name          "Goto16"
       Show          off
       Position      [940, 100]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Tag"
-        Value         "ce"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          From
-      Name          "From25"
-      Show          off
-      Position      [1345, 470]
       Direction     right
       Flipped       off
       Parameter {
@@ -16597,8 +16483,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAACAAAAGQAAAABAA"
-"AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -16606,6 +16492,94 @@ Plecs {
 "AAAAAAAAAEC//9PsP////8AAAAAAAMAAAABAAAAAAEBAAAAAQAAAAADAAAAAQAAAAEAAAABAAAAAQ"
 "AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
 "BQAAAAAAAAAAAAAADAAAAAQAAAAABAAAAAAEA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "1"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step2"
+      Show          off
+      Position      [1335, 470]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Time"
+        Value         "0.2"
+        Show          on
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope16"
+      Show          off
+      Position      [985, 530]
+      Direction     up
+      Flipped       off
+      Location      [0, 55; 1366, 748]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
@@ -16632,6 +16606,113 @@ Plecs {
         Scaling           0
         PhaseDisplay      0
         ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope17"
+      Show          off
+      Position      [55, 1005]
+      Direction     down
+      Flipped       on
+      Location      [0, 55; 1366, 748]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAVWAAAAlfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAABVYAAABEAP///wAABVYAAAKWAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAAJAAAAZAAAAAgAAABkAAAABQAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAA"
+"AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"=="
+      Axes          "3"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          "SOC"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "%"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Battery Current"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "A"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Battery Voltage"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "V"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
         Axis {
           Name          ""
           AutoScale     1
@@ -17158,13 +17239,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Vm1"
-      SrcTerminal   3
-      DstComponent  "Goto7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "From17"
       SrcTerminal   1
       Points        [1045, 35; 1045, 60]
@@ -17458,14 +17532,14 @@ Plecs {
       Type          Signal
       SrcComponent  "Demux9"
       SrcTerminal   3
-      DstComponent  "Scope2"
+      DstComponent  "Scope17"
       DstTerminal   2
     }
     Connection {
       Type          Signal
       SrcComponent  "Demux9"
       SrcTerminal   4
-      DstComponent  "Scope2"
+      DstComponent  "Scope17"
       DstTerminal   3
     }
     Connection {
@@ -17560,7 +17634,7 @@ Plecs {
       SrcTerminal   2
       Points        [90, 995]
       Branch {
-        DstComponent  "Scope2"
+        DstComponent  "Scope17"
         DstTerminal   1
       }
       Branch {
@@ -18333,7 +18407,7 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "From25"
+      SrcComponent  "Step2"
       SrcTerminal   1
       Points        [1360, 470; 1360, 445]
       DstComponent  "Pre-charge"
@@ -18453,6 +18527,21 @@ Plecs {
       Points        [1205, 140; 1205, 175]
       DstComponent  "Scope15"
       DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm1"
+      SrcTerminal   3
+      Points        [950, 425]
+      Branch {
+        DstComponent  "Goto7"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [950, 530]
+        DstComponent  "Scope16"
+        DstTerminal   1
+      }
     }
     Annotation {
       Name          "Active Power [W]"

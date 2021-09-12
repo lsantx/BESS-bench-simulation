@@ -90,6 +90,8 @@ if(count == PRD)
   fil2nVdc.x = Vdc;
   Second_order_filter(&fil2nVdc);
 
+  Ramp(&VRamp, Ts);
+
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
   if(control_enable == 1)
   {
@@ -107,13 +109,19 @@ if(count == PRD)
 
     if(flag_vdc_control == 1)
     {
+      VRamp.uin = Vdc_ref;
+
       //Controle
-      PIvdc.Xref = Vdc_ref*Vdc_ref;
+      PIvdc.Xref = VRamp.y*VRamp.y;
       PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
       
       Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
 
       P_control = PIvdc.piout_sat;
+    }
+    else
+    {
+      VRamp.uin = fil2nVdc.y;
     }
 
     /////////////////////Controle do Ativo/////////////////////////////////////////  
@@ -131,6 +139,7 @@ if(count == PRD)
     else
     {
       PRamp.uin = fil2nPot.y;
+      PRamp.y = fil2nPot.y;
     }
 
     Ramp(&PRamp, Ts);
@@ -242,6 +251,11 @@ if(count == PRD)
     dutyc = PRD_div2 + 2/sqrt(3)*vsc_svpwm*PRD_div2;
 
   }// Fecha o control_enable
+  else
+  {
+    VRamp.y = fil2nVdc.y;
+    VRamp.uin = fil2nVdc.y;
+  }
 
 } // fecha a interrupção
 
@@ -301,8 +315,8 @@ Output(6) = PRf_alfa.Xm;
 Output(7) = PRf_alfa.Xref;
 Output(8) = PRf_beta.Xm;
 Output(9) = PRf_beta.Xref;
-Output(10) = Vdc_ref;
-Output(11) = fil2nVdc.y;
+Output(10) = sqrt(PIvdc.Xref);
+Output(11) = sqrt(PIvdc.Xm);
 Output(12) = PIq.Xref;
 Output(13) = PIq.Xm;
 Output(14) = PIp.Xref;
@@ -311,5 +325,5 @@ Output(16) = Vpwm_norm_a;
 Output(17) = Vpwm_norm_b;
 Output(18) = Vpwm_norm_c;
 Output(19) = PIp.Xref;
-Output(20) = QRamp.rate;
-Output(21) = 0;
+Output(20) = VRamp.y;
+Output(21) = VRamp.uin;

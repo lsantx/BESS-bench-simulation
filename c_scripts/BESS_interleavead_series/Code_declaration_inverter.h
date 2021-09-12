@@ -215,8 +215,10 @@ typedef struct{
 	float falling;
 } sRamp;
 #define PRamp_default {0,0,0,0,0,0,(6e3),(-6e3)} 
+#define VRamp_default {0,0,0,0,0,0,(250),(-250)} 
 sRamp QRamp = PRamp_default;
 sRamp PRamp = PRamp_default;
+sRamp VRamp = VRamp_default;
 
 //................Parametros do PWM
 int count = 0;
