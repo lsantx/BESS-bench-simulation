@@ -125,9 +125,9 @@ if(count == PRD)
   fil2nVdc.x = Vdc;
   Second_order_filter(&fil2nVdc);
 
-  Ramp(&VRamp, Ts);
-
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
+  Ramp(&VRamp, Ts);
+  
   if(flag_vdc_control == 1)
   {
     VRamp.uin = Vdc_ref;
@@ -141,10 +141,11 @@ if(count == PRD)
     P_control = PIvdc.piout_sat;
 
     PRamp.uin = fil2nPot.y;
-    PRamp.y = fil2nPot.y;
   }
 
   /////////////////////Controle do Ativo/////////////////////////////////////////  
+  Ramp(&PRamp, Ts);
+
   if(flag_p_control == 1)
   {
     PRamp.uin = Pref;
@@ -157,10 +158,7 @@ if(count == PRD)
     P_control = PIp.piout_sat + PIp.Xref;
 
     VRamp.uin = fil2nVdc.y;
-    VRamp.y = fil2nVdc.y;
   }
-
-  Ramp(&PRamp, Ts);
 
   /////////////////////Controle do Reativo/////////////////////////////////////////
   QRamp.uin = Qref;
