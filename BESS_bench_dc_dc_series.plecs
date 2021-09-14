@@ -123,7 +123,7 @@ Plecs {
   Schematic {
     Location      [0, 55; 1366, 719]
     ZoomFactor    0.873846
-    SliderPosition [0, 0]
+    SliderPosition [0, 288]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -16341,7 +16341,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Tag"
-        Value         "Pc"
+        Value         "PIp.Xref"
         Show          off
       }
       Parameter {
@@ -16359,7 +16359,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Tag"
-        Value         "Pc"
+        Value         "PIp.Xref"
         Show          off
       }
       Parameter {
@@ -16377,7 +16377,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "Tag"
-        Value         "Pc"
+        Value         "PIp.Xref"
         Show          off
       }
       Parameter {
@@ -16390,7 +16390,7 @@ Plecs {
       Type          Scope
       Name          "Scope14"
       Show          off
-      Position      [1305, 150]
+      Position      [1335, 150]
       Direction     up
       Flipped       off
       Location      [0, 55; 1366, 748]

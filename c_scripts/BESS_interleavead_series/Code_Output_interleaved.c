@@ -62,6 +62,12 @@ if(count_0 == CMPB)
     flag.CM = 1;               //Aciona o modo de carga
   }
 
+  else if(Pref == 0)
+  {
+    flag.DM = 0;
+    flag.CM = 0;               
+  }
+
   ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
   if(flag.DM == 1)
   {
