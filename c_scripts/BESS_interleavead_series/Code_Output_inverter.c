@@ -7,7 +7,7 @@ if(count == 0) inc = 1;
 //............................................................Interrupção........................................................................................................
 if(count == PRD)
 {
-
+  PIpll.enab = 1;
   ////////////////////////////////////////////////////////Transformada abc para alfa-beta da tensão da rede/////////////////////////////////////
   Vabc.a = Vga;
   Vabc.b = Vgb;
@@ -73,6 +73,41 @@ if(count == PRD)
   if(PLL.angle < 0.0)  PLL.angle += 6.283185307179586;
   PLL.angle_ant = PLL.angle;
 
+  if(pulse_on == 1)
+  {
+    if(PRamp.y == 0 && Pref == 0)
+    {
+      flag_vdc_control = 1;
+      flag_p_control = 0;
+    }
+
+    if(Pref != 0)
+    {
+      flag_vdc_control = 0;
+      flag_p_control = 1;
+    }
+
+    //Habilita Controladores
+    PIvdc.enab = 1;
+    PIq.enab = 1;
+    PIp.enab = 1;
+    PRf_alfa.enab = 1;
+    PRf_beta.enab = 1;
+
+  } // Fecha o pulse on
+  else
+  {
+    VRamp.y = fil2nVdc.y;
+    VRamp.uin = fil2nVdc.y;
+
+    //Desabilita Controladores
+    PIvdc.enab = 0;
+    PIq.enab = 0;
+    PIp.enab = 0;
+    PRf_alfa.enab = 0;
+    PRf_beta.enab = 0;
+  }
+
   //Medição pot ativa Injetada
   Pc = 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.alfa + 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.beta;
   fil2nPot.x  = Pc;
@@ -93,175 +128,150 @@ if(count == PRD)
   Ramp(&VRamp, Ts);
 
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
-  if(control_enable == 1)
+  if(flag_vdc_control == 1)
   {
-    if(abs(fil2nPot.y) <= 0.1 && Pref == 0)
-    {
-      flag_vdc_control = 1;
-      flag_p_control = 0;
-    }
+    VRamp.uin = Vdc_ref;
 
-    if(Pref != 0)
-    {
-      flag_vdc_control = 0;
-      flag_p_control = 1;
-    }
+    //Controle
+    PIvdc.Xref = VRamp.y*VRamp.y;
+    PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
+    
+    Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
 
-    if(flag_vdc_control == 1)
-    {
-      VRamp.uin = Vdc_ref;
+    P_control = PIvdc.piout_sat;
 
-      //Controle
-      PIvdc.Xref = VRamp.y*VRamp.y;
-      PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
-      
-      Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
-
-      P_control = PIvdc.piout_sat;
-    }
-    else
-    {
-      VRamp.uin = fil2nVdc.y;
-      VRamp.y = fil2nVdc.y;
-    }
-
-    /////////////////////Controle do Ativo/////////////////////////////////////////  
-    if(flag_p_control == 1)
-    {
-      PRamp.uin = Pref;
-
-      PIp.Xref = PRamp.y;
-      PIp.Xm   = fil2nPot.y; 
-
-      Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
-
-      P_control = PIp.piout_sat + PIp.Xref;
-    }
-    else
-    {
-      PRamp.uin = fil2nPot.y;
-      PRamp.y = fil2nPot.y;
-    }
-
-    Ramp(&PRamp, Ts);
-
-    /////////////////////Controle do Reativo/////////////////////////////////////////
-    QRamp.uin = Qref;
-    Ramp(&QRamp, Ts);
-        
-    PIq.Xref = QRamp.y;
-    PIq.Xm   = fil2nQ.y; 
-
-    Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
-
-    Q_control = PIq.piout_sat + PIq.Xref;
-    /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
-    Ialfabeta.alfa = (PLL.Valfa_in*(P_control) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-    Ialfabeta.beta = (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-
-    // saturação da corrente
-    if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
-    if(Ialfabeta.alfa<-Ir) Ialfabeta.alfa = -Ir;
-    if(Ialfabeta.beta>Ir) Ialfabeta.beta = Ir;
-    if(Ialfabeta.beta<-Ir) Ialfabeta.beta = -Ir;
-
-    /////////////////////////////////////////////////////////Controladores ressonantes////////////////////////////////////////////////////////////
-
-    // Componente Alfa
-    PRf_alfa.Xref = Ialfabeta.alfa;
-    PRf_alfa.Xm = Isalfabeta.alfa;
-
-    PRf_alfa.erro = PRf_alfa.Xref - PRf_alfa.Xm;
-
-    Resfunc(&PRf_alfa, Kp_res, Ki_res);
-
-    // Componente Beta
-    PRf_beta.Xref = Ialfabeta.beta;
-    PRf_beta.Xm = Isalfabeta.beta;
-
-    PRf_beta.erro = PRf_beta.Xref - PRf_beta.Xm;
-
-    Resfunc(&PRf_beta, Kp_res, Ki_res);
-
-    ///////////////////////////////////////////////Transformada abc para alfabeta da tensão de referência////////////////////////////////////
-    Vpwm_alfabeta.alfa = PRf_alfa.pr_out + PLL.Valfa_in;
-    Vpwm_alfabeta.beta = PRf_beta.pr_out + PLL.Vbeta_in;
-
-    // Malha aberta
-    //Vpwm_alfabeta.alfa = 50*cos(PLL.angle);
-    //Vpwm_alfabeta.beta = 50*sin(PLL.angle);
-
-    //Vpwm_abc.a = 0.816496580927726*Vpwm_alfabeta.alfa;
-    //Vpwm_abc.b = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta);
-    //Vpwm_abc.c = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta);
-
-    Vpwm_abc.a = Vpwm_alfabeta.alfa;
-    Vpwm_abc.b = -0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta;
-    Vpwm_abc.c = -0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta;
-
-    ////////////////////////////////////////////////Normalização pela tensão do barramento cc////////////////////////////////////
-    Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/fil2nVdc.y;
-    Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/fil2nVdc.y;
-    Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/fil2nVdc.y;
-
-    if(Vpwm_norm_a > 1) Vpwm_norm_a = 1;
-    if(Vpwm_norm_a < -1) Vpwm_norm_a = -1;
-    if(Vpwm_norm_b > 1) Vpwm_norm_b = 1;
-    if(Vpwm_norm_b < -1) Vpwm_norm_b = -1;
-    if(Vpwm_norm_c > 1) Vpwm_norm_c = 1;
-    if(Vpwm_norm_c < -1) Vpwm_norm_c = -1;
-
-    //Cálculo da seq zero para o SVPWM
-    if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_b>Vpwm_norm_c) 
-    {
-      vmin = Vpwm_norm_a;
-      vmax = Vpwm_norm_b;
-    }  
-    else if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_b) 
-    {
-      vmin = Vpwm_norm_a;
-      vmax = Vpwm_norm_c;
-    }  
-    else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_a>Vpwm_norm_c) 
-    {
-      vmin = Vpwm_norm_b;
-      vmax = Vpwm_norm_a;
-    }  
-    else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_a) 
-    {
-      vmin = Vpwm_norm_b;
-      vmax = Vpwm_norm_c;
-    } 
-    else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_a>Vpwm_norm_b) 
-    {
-      vmin = Vpwm_norm_c;
-      vmax = Vpwm_norm_a;
-    } 
-    else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_b>Vpwm_norm_a) 
-    {
-      vmin = Vpwm_norm_c;
-      vmax = Vpwm_norm_b;
-    } 
-
-    vsa_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_a;
-    vsb_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_b;
-    vsc_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_c;
-
-    dutya = PRD_div2 + 2/sqrt(3)*vsa_svpwm*PRD_div2;
-    dutyb = PRD_div2 + 2/sqrt(3)*vsb_svpwm*PRD_div2;
-    dutyc = PRD_div2 + 2/sqrt(3)*vsc_svpwm*PRD_div2;
-
-  }// Fecha o control_enable
-  else
-  {
-    VRamp.y = fil2nVdc.y;
-    VRamp.uin = fil2nVdc.y;
+    PRamp.uin = fil2nPot.y;
+    PRamp.y = fil2nPot.y;
   }
+
+  /////////////////////Controle do Ativo/////////////////////////////////////////  
+  if(flag_p_control == 1)
+  {
+    PRamp.uin = Pref;
+
+    PIp.Xref = PRamp.y;
+    PIp.Xm   = fil2nPot.y; 
+
+    Pifunc(&PIp, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar 
+
+    P_control = PIp.piout_sat + PIp.Xref;
+
+    VRamp.uin = fil2nVdc.y;
+    VRamp.y = fil2nVdc.y;
+  }
+
+  Ramp(&PRamp, Ts);
+
+  /////////////////////Controle do Reativo/////////////////////////////////////////
+  QRamp.uin = Qref;
+  Ramp(&QRamp, Ts);
+      
+  PIq.Xref = QRamp.y;
+  PIq.Xm   = fil2nQ.y; 
+
+  Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
+
+  Q_control = PIq.piout_sat + PIq.Xref;
+  /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
+  Ialfabeta.alfa = (PLL.Valfa_in*(P_control) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+  Ialfabeta.beta = (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+
+  // saturação da corrente
+  if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
+  if(Ialfabeta.alfa<-Ir) Ialfabeta.alfa = -Ir;
+  if(Ialfabeta.beta>Ir) Ialfabeta.beta = Ir;
+  if(Ialfabeta.beta<-Ir) Ialfabeta.beta = -Ir;
+
+  /////////////////////////////////////////////////////////Controladores ressonantes////////////////////////////////////////////////////////////
+
+  // Componente Alfa
+  PRf_alfa.Xref = Ialfabeta.alfa;
+  PRf_alfa.Xm = Isalfabeta.alfa;
+
+  PRf_alfa.erro = PRf_alfa.Xref - PRf_alfa.Xm;
+
+  Resfunc(&PRf_alfa, Kp_res, Ki_res);
+
+  // Componente Beta
+  PRf_beta.Xref = Ialfabeta.beta;
+  PRf_beta.Xm = Isalfabeta.beta;
+
+  PRf_beta.erro = PRf_beta.Xref - PRf_beta.Xm;
+
+  Resfunc(&PRf_beta, Kp_res, Ki_res);
+
+  ///////////////////////////////////////////////Transformada abc para alfabeta da tensão de referência////////////////////////////////////
+  Vpwm_alfabeta.alfa = PRf_alfa.pr_out + PLL.Valfa_in;
+  Vpwm_alfabeta.beta = PRf_beta.pr_out + PLL.Vbeta_in;
+
+  // Malha aberta
+  //Vpwm_alfabeta.alfa = 50*cos(PLL.angle);
+  //Vpwm_alfabeta.beta = 50*sin(PLL.angle);
+
+  //Vpwm_abc.a = 0.816496580927726*Vpwm_alfabeta.alfa;
+  //Vpwm_abc.b = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta);
+  //Vpwm_abc.c = 0.816496580927726*(-0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta);
+
+  Vpwm_abc.a = Vpwm_alfabeta.alfa;
+  Vpwm_abc.b = -0.5*Vpwm_alfabeta.alfa + 0.866025403784439*Vpwm_alfabeta.beta;
+  Vpwm_abc.c = -0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta;
+
+  ////////////////////////////////////////////////Normalização pela tensão do barramento cc////////////////////////////////////
+  Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/fil2nVdc.y;
+  Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/fil2nVdc.y;
+  Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/fil2nVdc.y;
+
+  if(Vpwm_norm_a > 1) Vpwm_norm_a = 1;
+  if(Vpwm_norm_a < -1) Vpwm_norm_a = -1;
+  if(Vpwm_norm_b > 1) Vpwm_norm_b = 1;
+  if(Vpwm_norm_b < -1) Vpwm_norm_b = -1;
+  if(Vpwm_norm_c > 1) Vpwm_norm_c = 1;
+  if(Vpwm_norm_c < -1) Vpwm_norm_c = -1;
+
+  //Cálculo da seq zero para o SVPWM
+  if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_b>Vpwm_norm_c) 
+  {
+    vmin = Vpwm_norm_a;
+    vmax = Vpwm_norm_b;
+  }  
+  else if(Vpwm_norm_a<Vpwm_norm_b && Vpwm_norm_a<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_b) 
+  {
+    vmin = Vpwm_norm_a;
+    vmax = Vpwm_norm_c;
+  }  
+  else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_a>Vpwm_norm_c) 
+  {
+    vmin = Vpwm_norm_b;
+    vmax = Vpwm_norm_a;
+  }  
+  else if(Vpwm_norm_b<Vpwm_norm_a && Vpwm_norm_b<Vpwm_norm_c && Vpwm_norm_c>Vpwm_norm_a) 
+  {
+    vmin = Vpwm_norm_b;
+    vmax = Vpwm_norm_c;
+  } 
+  else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_a>Vpwm_norm_b) 
+  {
+    vmin = Vpwm_norm_c;
+    vmax = Vpwm_norm_a;
+  } 
+  else if(Vpwm_norm_c<Vpwm_norm_a && Vpwm_norm_c<Vpwm_norm_b && Vpwm_norm_b>Vpwm_norm_a) 
+  {
+    vmin = Vpwm_norm_c;
+    vmax = Vpwm_norm_b;
+  } 
+
+  vsa_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_a;
+  vsb_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_b;
+  vsc_svpwm = -0.5*(vmin+vmax)+Vpwm_norm_c;
+
+  dutya = PRD_div2 + 2/sqrt(3)*vsa_svpwm*PRD_div2;
+  dutyb = PRD_div2 + 2/sqrt(3)*vsb_svpwm*PRD_div2;
+  dutyc = PRD_div2 + 2/sqrt(3)*vsc_svpwm*PRD_div2;
 
 } // fecha a interrupção
 
 ///////////////////////////////PWM//////////////////////////////////////////////
-if(control_enable == 1)
+if(pulse_on == 1)
 {
   if(dutya>=count)
   {

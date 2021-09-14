@@ -7,7 +7,7 @@
 #define Isa Input (4)
 #define Isb Input (5)
 #define Isc Input (6)
-#define control_enable Input (7)
+#define pulse_on Input (7)
 #define Vdc_ref Input (8)
 #define Qref Input (9)
 #define Pref Input (10)
@@ -55,6 +55,7 @@ int flag_p_control = 0;
 //
 
 typedef struct {
+  int enab;
 	float Xref;
 	float Xm;
 	float erro;
@@ -70,7 +71,7 @@ typedef struct {
 	float dif;
 } sPI;
 
-#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0}
+#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
 sPI PIvdc = PI_default;
 sPI PIpll = PI_default;
@@ -78,6 +79,7 @@ sPI PIq   = PI_default;
 sPI PIp   = PI_default;
 
 typedef struct {
+int enab;
 float Xref;
 float Xm;
 float erro;
@@ -93,7 +95,7 @@ double c3;
 double c4;
 } sPR;
 
-#define PR_default  {0,0,0,0,0,0,0,0,0,0.00005553931071838902,-0.00005553931071838902,-1.99824566019771654446,0.99999999999999977796}
+#define PR_default  {0,0,0,0,0,0,0,0,0,0,0.00005553931071838902,-0.00005553931071838902,-1.99824566019771654446,0.99999999999999977796}
 
 sPR PRf_alfa = PR_default;
 sPR PRf_beta = PR_default;
@@ -245,6 +247,8 @@ void Second_order_filter(sFilter2nd *filt)
 // Controlador PI
 void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdown)
 {
+  if (reg->enab == 1)
+  {
     reg->erro = reg->Xref  - reg->Xm;
 
     reg->erropi = reg->erro - (1/Kp)*reg->dif;
@@ -252,14 +256,20 @@ void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdo
     reg->inte = reg->inte_ant + T_div2 * (reg->erropi  + reg->erropi_ant);
     reg->inte_ant = reg->inte;
     reg->erropi_ant = reg->erropi;
+  }
+  else
+  {
+    reg->erro = 0;
+    reg->inte = 0;
+  }
 
-    reg->piout = (Kp*reg->erro + Ki*reg->inte); 
+  reg->piout = (Kp*reg->erro + Ki*reg->inte); 
 
-    reg->piout_sat = reg->piout;
-    if(reg->piout>satup) reg->piout_sat = satup;
-    if(reg->piout<satdown) reg->piout_sat= satdown;
+  reg->piout_sat = reg->piout;
+  if(reg->piout>satup) reg->piout_sat = satup;
+  if(reg->piout<satdown) reg->piout_sat= satdown;
 
-    reg->dif = reg->piout - reg->piout_sat;
+  reg->dif = reg->piout - reg->piout_sat;
 }
 
 // SOGI
@@ -314,11 +324,19 @@ void Ramp(sRamp *rmp, float sample)
 // Ressonante
 void Resfunc(sPR *point_res, float Kp, float Kr)
 {
- 	point_res->res = point_res->c1*point_res->erro + point_res->c2*point_res->erro_ant2 - point_res->c3*point_res->res_ant - point_res->c4*point_res->res_ant2;
+  if (point_res->enab == 1)
+  {
+    point_res->res = point_res->c1*point_res->erro + point_res->c2*point_res->erro_ant2 - point_res->c3*point_res->res_ant - point_res->c4*point_res->res_ant2;
     point_res->res_ant2 = point_res->res_ant;
     point_res->res_ant = point_res->res;
     point_res->erro_ant2 = point_res->erro_ant;
     point_res->erro_ant = point_res->erro;
+  }
+  else
+  {
+    point_res->erro = 0;
+    point_res->res = 0;
+  }
 
-    point_res->pr_out = Kp*point_res->erro + Kr*point_res->res;
+  point_res->pr_out = Kp*point_res->erro + Kr*point_res->res;
 }    

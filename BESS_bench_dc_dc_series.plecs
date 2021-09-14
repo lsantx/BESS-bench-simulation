@@ -6874,9 +6874,9 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 27; 1366, 691]
+        Location      [0, 55; 1366, 719]
         ZoomFactor    1
-        SliderPosition [0, 22]
+        SliderPosition [0, 21]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -8322,7 +8322,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.4"
+        Value         "0.5"
         Show          on
       }
       Parameter {
@@ -10507,9 +10507,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10521,7 +10521,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -10659,9 +10659,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -10766,8 +10766,8 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
 "AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -15019,9 +15019,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADBAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADBAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -15079,9 +15079,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAArQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -15368,7 +15368,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 55; 1366, 719]
+        Location      [170, 55; 1194, 718]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -15460,7 +15460,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "R"
-            Value         "1.8"
+            Value         "5"
             Show          off
           }
         }
@@ -15473,7 +15473,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "R"
-            Value         "1.8"
+            Value         "5"
             Show          off
           }
         }
@@ -15486,7 +15486,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "R"
-            Value         "1.8"
+            Value         "5"
             Show          off
           }
         }
@@ -15789,34 +15789,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Logical\nOperator"
-          SrcTerminal   1
-          Points        [650, 195]
-          Branch {
-            DstComponent  "S20"
-            DstTerminal   3
-          }
-          Branch {
-            Points        [680, 195]
-            Branch {
-              DstComponent  "S19"
-              DstTerminal   3
-            }
-            Branch {
-              Points        [715, 195]
-              Branch {
-                DstComponent  "S18"
-                DstTerminal   3
-              }
-              Branch {
-                DstComponent  "Display8"
-                DstTerminal   1
-              }
-            }
-          }
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "In1"
           SrcTerminal   1
           Points        [595, 195]
@@ -15848,6 +15820,34 @@ Plecs {
             Branch {
               DstComponent  "Display9"
               DstTerminal   1
+            }
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Logical\nOperator"
+          SrcTerminal   1
+          Points        [650, 195]
+          Branch {
+            DstComponent  "S20"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [680, 195]
+            Branch {
+              DstComponent  "S19"
+              DstTerminal   3
+            }
+            Branch {
+              Points        [715, 195]
+              Branch {
+                DstComponent  "S18"
+                DstTerminal   3
+              }
+              Branch {
+                DstComponent  "Display8"
+                DstTerminal   1
+              }
             }
           }
         }
@@ -15890,7 +15890,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "Tag"
-        Value         "dc_contron_enab"
+        Value         "pulse_on"
         Show          off
       }
       Parameter {
@@ -15908,7 +15908,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Tag"
-        Value         "dc_contron_enab"
+        Value         "pulse_on"
         Show          off
       }
       Parameter {
@@ -15926,7 +15926,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Tag"
-        Value         "dc_contron_enab"
+        Value         "pulse_on"
         Show          off
       }
       Parameter {
@@ -16014,24 +16014,6 @@ Plecs {
       Parameter {
         Variable      "Visibility"
         Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Goto
-      Name          "Goto16"
-      Show          off
-      Position      [940, 100]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Tag"
-        Value         "ce"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "1"
         Show          off
       }
     }
@@ -16539,7 +16521,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.2"
+        Value         "0.4"
         Show          on
       }
       Parameter {
@@ -16565,17 +16547,17 @@ Plecs {
       Position      [985, 530]
       Direction     up
       Flipped       off
-      Location      [0, 55; 1366, 748]
+      Location      [170, 116; 1194, 623]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABAAAAAHcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADBAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -16633,9 +16615,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAGQAAAAEAAAAZAAAAAcAAABkAAAABgAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACFAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -18364,56 +18346,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   4
-      DstComponent  "3ph Meter"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   5
-      DstComponent  "3ph Meter"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   6
-      DstComponent  "3ph Meter"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   1
-      DstComponent  "LCL"
-      DstTerminal   6
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   2
-      DstComponent  "LCL"
-      DstTerminal   5
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Pre-charge"
-      SrcTerminal   3
-      DstComponent  "LCL"
-      DstTerminal   4
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Step2"
-      SrcTerminal   1
-      Points        [1360, 470; 1360, 445]
-      DstComponent  "Pre-charge"
-      DstTerminal   7
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Step6"
       SrcTerminal   1
@@ -18433,21 +18365,6 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Goto15"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Step1"
-      SrcTerminal   1
-      Points        [920, 85]
-      Branch {
-        Points        [1000, 85; 1000, 90]
-        DstComponent  "Mux16"
-        DstTerminal   5
-      }
-      Branch {
-        DstComponent  "Goto16"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -18543,13 +18460,71 @@ Plecs {
         DstTerminal   1
       }
     }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   3
+      DstComponent  "LCL"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   6
+      DstComponent  "3ph Meter"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   2
+      DstComponent  "LCL"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   5
+      DstComponent  "3ph Meter"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   1
+      DstComponent  "LCL"
+      DstTerminal   6
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Pre-charge"
+      SrcTerminal   4
+      DstComponent  "3ph Meter"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step2"
+      SrcTerminal   1
+      Points        [1360, 470; 1360, 445]
+      DstComponent  "Pre-charge"
+      DstTerminal   7
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step1"
+      SrcTerminal   1
+      Points        [1000, 85; 1000, 90]
+      DstComponent  "Mux16"
+      DstTerminal   5
+    }
     Annotation {
       Name          "Active Power [W]"
       Position      [1650, 285]
     } 
     Annotation {
-      Name          "Control enab"
-      Position      [840, 85]
+      Name          "pulse_on"
+      Position      [850, 85]
     } 
     Annotation {
       Name          "Vdc_ref"

@@ -3,7 +3,7 @@
 #define Ibat Input (0)
 #define Ibat2 Input (1)
 #define Ibat3 Input (2)
-#define control_enable Input (3)
+#define pulse_on Input (3)
 #define Vref_ch Input (4)
 #define Vref_dis Input (5)
 #define Vbat Input (6)
@@ -43,6 +43,7 @@ float Vref = 0;
 
 //...............Parametros do Controle do DC/dc
 typedef struct {
+    int enab;
     float Xref;
     float Xm;
     float erro;
@@ -60,7 +61,7 @@ typedef struct {
     float Ki;
 } sPI;
 
-#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+#define PI_default {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
 sPI PIbt = PI_default;
 sPI PIbt2 = PI_default;
@@ -142,6 +143,8 @@ void Ramp(sRamp *rmp, float sample)
 // Controlador PI
 void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdown)
 {
+  if (reg->enab == 1)
+  {
     reg->erro = reg->Xref  - reg->Xm;
 
     reg->erropi = reg->erro - (1/Kp)*reg->dif;
@@ -149,12 +152,18 @@ void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdo
     reg->inte = reg->inte_ant + T_div2 * (reg->erropi  + reg->erropi_ant);
     reg->inte_ant = reg->inte;
     reg->erropi_ant = reg->erropi;
+  }
+  else
+  {
+    reg->erro = 0;
+    reg->inte = 0;
+  }
 
-    reg->piout = (Kp*reg->erro + Ki*reg->inte); 
+  reg->piout = (Kp*reg->erro + Ki*reg->inte); 
 
-    reg->piout_sat = reg->piout;
-    if(reg->piout>satup) reg->piout_sat = satup;
-    if(reg->piout<satdown) reg->piout_sat= satdown;
+  reg->piout_sat = reg->piout;
+  if(reg->piout>satup) reg->piout_sat = satup;
+  if(reg->piout<satdown) reg->piout_sat= satdown;
 
-    reg->dif = reg->piout - reg->piout_sat;
+  reg->dif = reg->piout - reg->piout_sat;
 }
