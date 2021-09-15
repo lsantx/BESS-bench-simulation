@@ -39,8 +39,8 @@ else
   PIbt_vout.enab = 0;
   PIbu_vout.enab = 0;
 
-  VoutRamp.uin = Vdc;
-  VoutRamp.y = Vdc;
+  VoutRamp.uin = Filt_freq_Vdc.Yn;
+  VoutRamp.y = Filt_freq_Vdc.Yn;
 }
 
 //Rampa da referência
@@ -68,13 +68,17 @@ if(count_0 == CMPB)
     flag.CM = 0;               
   }
 
+  //Filtragem do Vdc medido
+  Filt_freq_Vdc.Un = Vdc;
+  First_order_signals_filter(&Filt_freq_Vdc);
+
   ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
   if(flag.DM == 1)
   {
     VoutRamp.uin = Vref_dis;
 
     PIbt_vout.Xref = VoutRamp.y;
-    PIbt_vout.Xm = Vdc;
+    PIbt_vout.Xm = Filt_freq_Vdc.Yn;
 
     Pifunc(&PIbt_vout, Ts/2, Kp_vout, Ki_vout, 18, -18);                   // Controle 
 
@@ -96,7 +100,7 @@ if(count_0 == CMPB)
     ///////////////////Malha externa de controle da tensão
     ///controle
     PIbu_vout.Xref = VoutRamp.y;
-    PIbu_vout.Xm = Vdc;
+    PIbu_vout.Xm = Filt_freq_Vdc.Yn;
 
     Pifunc(&PIbu_vout, Ts/2, -Kp_vout, -Ki_vout, 5, -5);                   // 
 

@@ -97,8 +97,8 @@ if(count == PRD)
   } // Fecha o pulse on
   else
   {
-    VRamp.y = fil2nVdc.y;
-    VRamp.uin = fil2nVdc.y;
+    VRamp.y = Filt_freq_Vdc.Yn;
+    VRamp.uin = Filt_freq_Vdc.Yn;
 
     //Desabilita Controladores
     PIvdc.enab = 0;
@@ -122,8 +122,8 @@ if(count == PRD)
   Second_order_filter(&fil2nQ);
 
   //Filtragem do Vdc medido
-  fil2nVdc.x = Vdc;
-  Second_order_filter(&fil2nVdc);
+  Filt_freq_Vdc.Un = Vdc;
+  First_order_signals_filter(&Filt_freq_Vdc);
 
   //////////////////////////////////////////////////////////Controle de tensão do link cc///////////////////////////////////////////////////////////////////////
   Ramp(&VRamp, Ts);
@@ -134,7 +134,7 @@ if(count == PRD)
 
     //Controle
     PIvdc.Xref = VRamp.y*VRamp.y;
-    PIvdc.Xm   = fil2nVdc.y*fil2nVdc.y;                                               //Corrente medida para o modo boost (Descarga)
+    PIvdc.Xm   = Filt_freq_Vdc.Yn*Filt_freq_Vdc.Yn;                                               //Corrente medida para o modo boost (Descarga)
     
     Pifunc(&PIvdc, Ts/2, -Kpouter, -Kiouter, psat, -psat);              // Controle PI
 
@@ -157,7 +157,7 @@ if(count == PRD)
 
     P_control = PIp.piout_sat + PIp.Xref;
 
-    VRamp.uin = fil2nVdc.y;
+    VRamp.uin = Filt_freq_Vdc.Yn;
   }
 
   /////////////////////Controle do Reativo/////////////////////////////////////////
@@ -215,9 +215,9 @@ if(count == PRD)
   Vpwm_abc.c = -0.5*Vpwm_alfabeta.alfa - 0.866025403784439*Vpwm_alfabeta.beta;
 
   ////////////////////////////////////////////////Normalização pela tensão do barramento cc////////////////////////////////////
-  Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/fil2nVdc.y;
-  Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/fil2nVdc.y;
-  Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/fil2nVdc.y;
+  Vpwm_norm_a = Vpwm_abc.a*1.732050807568877/Filt_freq_Vdc.Yn;
+  Vpwm_norm_b = Vpwm_abc.b*1.732050807568877/Filt_freq_Vdc.Yn;
+  Vpwm_norm_c = Vpwm_abc.c*1.732050807568877/Filt_freq_Vdc.Yn;
 
   if(Vpwm_norm_a > 1) Vpwm_norm_a = 1;
   if(Vpwm_norm_a < -1) Vpwm_norm_a = -1;

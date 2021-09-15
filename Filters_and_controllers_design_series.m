@@ -25,11 +25,11 @@ display(num2str(Cf2,'Cf2 = %.20f'));
 %% Coeficientes do filtro de Primeira ordem
 
 % Frequencia de amostragem:
-fsample = 18000;
+fsample = 9000;
 Ts = 1/fsample;
 format long
 
-fso = 20;                                                                  % frequência do filtro [Hz]
+fso = 1;                                                                  % frequência do filtro [Hz]
 
 Cf0 = Ts/(1/(2*pi*fso));
 Cf1 = Ts/(1/(2*pi*fso));
@@ -97,8 +97,8 @@ display(num2str(c4,'c4 = %.20f'));
 clear; close all; clc;
 
 s = tf('s');
-Cdc = (2/3)*(4.7e-3);
-fc = 20;
+Cdc = (3/2)*(4.7e-3);
+fc = 0.5;
 wc = 2*pi*fc;
 MF = 60;
 %Código

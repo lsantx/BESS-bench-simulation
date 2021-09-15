@@ -94,6 +94,18 @@ sRamp IRamp3_bt = IRamp_default;
 sRamp VRamp     = VRamp_default;
 sRamp VoutRamp  = VRamp_default;
 
+//First order LPF
+typedef struct {
+  float Un;
+  float Un_1;
+  float Yn_1;
+  float Yn;
+  float c0;
+  float c1;
+} sFilter1st;
+#define FILTER_DEFAULTS_1_HZ {0,0,0,0,0.00069813170079773186,0.00069813170079773186}
+sFilter1st Filt_freq_Vdc = FILTER_DEFAULTS_1_HZ;
+
 typedef struct{
 int CM;      //Charge mode
 int BVCM;    // Boost Charge mode
@@ -166,4 +178,12 @@ void Pifunc(sPI *reg, float T_div2, float Kp, float Ki, float satup, float satdo
   if(reg->piout<satdown) reg->piout_sat= satdown;
 
   reg->dif = reg->piout - reg->piout_sat;
+}
+
+// Low pass filter
+void First_order_signals_filter(sFilter1st *x)
+{
+  x->Yn= (x->c0* x->Un) + (1-x->c1)*(x->Yn_1);
+  x->Un_1= x->Un;
+  x->Yn_1= x->Yn;
 }

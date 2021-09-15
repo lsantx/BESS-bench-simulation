@@ -202,9 +202,20 @@ double c4;
 } sFilter2nd;
  
 #define  FILTER2ND_DEFAULTS {0,0,0,0,0,0,0.00042585082119787660,0.00085170164239575319,0.00042585082119787660,-1.94079521500497276243,0.94249861828976422284} //60Hz         
-sFilter2nd fil2nVdc = FILTER2ND_DEFAULTS;
 sFilter2nd fil2nPot = FILTER2ND_DEFAULTS;
 sFilter2nd fil2nQ   = FILTER2ND_DEFAULTS;
+
+//First order LPF
+typedef struct {
+  float Un;
+  float Un_1;
+  float Yn_1;
+  float Yn;
+  float c0;
+  float c1;
+} sFilter1st;
+#define FILTER_DEFAULTS_1_HZ {0,0,0,0,0.00069813170079773186,0.00069813170079773186}
+sFilter1st Filt_freq_Vdc = FILTER_DEFAULTS_1_HZ;
 
 typedef struct{
 	float t1;
@@ -232,9 +243,16 @@ int S4 = 0;
 int S5 = 0;
 int S6 = 0;
 
-//funções
-//Filtro segunda ordem
+//Funções
+// Low pass filter
+void First_order_signals_filter(sFilter1st *x)
+{
+  x->Yn= (x->c0* x->Un) + (1-x->c1)*(x->Yn_1);
+  x->Un_1= x->Un;
+  x->Yn_1= x->Yn;
+}
 
+//Filtro segunda ordem
 void Second_order_filter(sFilter2nd *filt)
 {
 	filt->y = filt->x*filt->c0 + filt->x_ant*filt->c1 + filt->x_ant2*filt->c2 - filt->y_ant*filt->c3 - filt->y_ant2*filt->c4;
