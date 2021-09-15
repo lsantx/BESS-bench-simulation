@@ -4,7 +4,42 @@ count = count + inc;
 if(count == PRD) inc = -1;
 if(count == 0) inc = 1;
 
-//............................................................Interrupção........................................................................................................
+//............................................................Interrupção.......................................................................................................
+if(pulse_on == 1)
+{
+  if(PRamp.y == 0 && Pref == 0)
+  {
+    flag_vdc_control = 1;
+    flag_p_control = 0;
+  }
+
+  if(Pref != 0)
+  {
+    flag_vdc_control = 0;
+    flag_p_control = 1;
+  }
+
+  //Habilita Controladores
+  PIvdc.enab = 1;
+  PIq.enab = 1;
+  PIp.enab = 1;
+  PRf_alfa.enab = 1;
+  PRf_beta.enab = 1;
+
+} // Fecha o pulse on
+else
+{
+  VRamp.y = Filt_freq_Vdc.Yn;
+  VRamp.uin = Filt_freq_Vdc.Yn;
+
+  //Desabilita Controladores
+  PIvdc.enab = 0;
+  PIq.enab = 0;
+  PIp.enab = 0;
+  PRf_alfa.enab = 0;
+  PRf_beta.enab = 0;
+}
+
 if(count == PRD)
 {
   PIpll.enab = 1;
@@ -72,41 +107,6 @@ if(count == PRD)
   if(PLL.angle > 6.283185307179586)  PLL.angle -= 6.283185307179586;
   if(PLL.angle < 0.0)  PLL.angle += 6.283185307179586;
   PLL.angle_ant = PLL.angle;
-
-  if(pulse_on == 1)
-  {
-    if(PRamp.y == 0 && Pref == 0)
-    {
-      flag_vdc_control = 1;
-      flag_p_control = 0;
-    }
-
-    if(Pref != 0)
-    {
-      flag_vdc_control = 0;
-      flag_p_control = 1;
-    }
-
-    //Habilita Controladores
-    PIvdc.enab = 1;
-    PIq.enab = 1;
-    PIp.enab = 1;
-    PRf_alfa.enab = 1;
-    PRf_beta.enab = 1;
-
-  } // Fecha o pulse on
-  else
-  {
-    VRamp.y = Filt_freq_Vdc.Yn;
-    VRamp.uin = Filt_freq_Vdc.Yn;
-
-    //Desabilita Controladores
-    PIvdc.enab = 0;
-    PIq.enab = 0;
-    PIp.enab = 0;
-    PRf_alfa.enab = 0;
-    PRf_beta.enab = 0;
-  }
 
   //Medição pot ativa Injetada
   Pc = 1.224744871391589*PLL.Valfa_in*1.224744871391589*Isalfabeta.alfa + 1.224744871391589*PLL.Vbeta_in*1.224744871391589*Isalfabeta.beta;

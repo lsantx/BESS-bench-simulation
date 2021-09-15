@@ -26,6 +26,27 @@ if(pulse_on == 1)
   PIbu3.enab = 1;
   PIbt_vout.enab = 1;
   PIbu_vout.enab = 1;
+
+  //////////////////////////////////////////////////////////////////////Mudança do modo de operação pelas flags/////////////////////////////////////  
+  //Reseta para Descarga (1) e Carga (2)
+  if(Pref > 0)
+  {
+    flag.DM = 1;               //Habilita Descarga
+    flag.CM = 0;               //Desabilita Carga
+  }
+
+  else if(Pref < 0)
+  {
+    flag.DM = 0;               //Desabilita Descarga
+    flag.CM = 1;               //Aciona o modo de carga
+  }
+
+  else if(Pref == 0)
+  {
+    flag.DM = 0;
+    flag.CM = 0;               
+  }
+
 }
 
 else
@@ -48,26 +69,6 @@ Ramp(&VoutRamp, Ts);
 ///////////////////////////////////////////////////Interrupção 1
 if(count_0 == CMPB)
 {
-  //////////////////////////////////////////////////////////////////////Mudança do modo de operação pelas flags/////////////////////////////////////  
-  //Reseta para Descarga (1) e Carga (2)
-  if(Pref > 0)
-  {
-    flag.DM = 1;               //Habilita Descarga
-    flag.CM = 0;               //Desabilita Carga
-  }
-
-  else if(Pref < 0)
-  {
-    flag.DM = 0;               //Desabilita Descarga
-    flag.CM = 1;               //Aciona o modo de carga
-  }
-
-  else if(Pref == 0)
-  {
-    flag.DM = 0;
-    flag.CM = 0;               
-  }
-
   //Filtragem do Vdc medido
   Filt_freq_Vdc.Un = Vdc;
   First_order_signals_filter(&Filt_freq_Vdc);
