@@ -104,9 +104,9 @@ if(count_0 == CMPB)
     PIbu_vout.Xref = VoutRamp.y;
     PIbu_vout.Xm = Filt_freq_Vdc.Yn;
 
-    Pifunc(&PIbu_vout, Ts/2, -Kp_vout, -Ki_vout, 5, -5);                   // 
+    Pifunc(&PIbu_vout, Ts/2, Kp_vout, Ki_vout, 7, -7);                   // 
 
-    PIbu.Xref = PIbu_vout.piout_sat / 3;
+    PIbu.Xref = - PIbu_vout.piout_sat / 3;
 
     PIbu.Xm   = -Ibat;                                
 
