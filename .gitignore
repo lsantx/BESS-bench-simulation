@@ -1,3 +1,18 @@
+*.insyncdl
+.git
+.project
+.pydevproject
+.txt
+*.pyc
+*.log
+*.exe
+/secrets/instalacoes.pkl_backup
+/secrets/chromedriver_85
+download_backup.py
+/__pycache__/
+/downloads/
+/venv/
+
 Anotações/
 calculo das perdas/
 Projeto_classes_chaves/
@@ -12,3 +27,5 @@ perdas/venv/
 */*.insyncdl
 */*/*.insyncdl
 *.insyncdl
+venv/
+*.mat
