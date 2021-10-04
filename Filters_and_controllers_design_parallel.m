@@ -97,7 +97,7 @@ clear; close all; clc;
 
 s = tf('s');
 Cdc = 3*(4.7e-3);
-fc = 0.5;
+fc = 10;
 wc = 2*pi*fc;
 MF = 60;
 %Código

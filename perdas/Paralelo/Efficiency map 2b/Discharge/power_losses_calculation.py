@@ -6,8 +6,6 @@ from scipy.optimize import curve_fit
 import numpy as np
 import json
 
-# import matplotlib.pyplot as plt
-
 # Carrega os arquivos .m
 eng = matlab.engine.start_matlab()
 
@@ -21,8 +19,7 @@ pswitches_inv_cond = np.array(
 pswitches_inv_sw = np.array(
     scipy.io.loadmat("Pchaves_inv_sw.mat").get("Pchaves_inv_sw")
 )
-# i_cap = np.array(scipy.io.loadmat("I_cap.mat").get("I_cap"))
-pbat = np.array(scipy.io.loadmat("Pot_bat.mat").get("Pot_bat"))
+i_cap = np.array(scipy.io.loadmat("I_cap.mat").get("I_cap"))
 pswitches_conv_cc_cond = np.array(
     scipy.io.loadmat("Pchaves_conv_cc_cond.mat").get("Pchaves_conv_cc_cond")
 )
@@ -31,7 +28,6 @@ pswitches_conv_cc_sw = np.array(
 )
 Pcp_inter1 = np.array(scipy.io.loadmat("Pcp_ind_bt.mat").get("Pcp_ind_bt"))
 binter1 = np.array(scipy.io.loadmat("Bind1.mat").get("Bind1"))
-pbat2 = np.array(scipy.io.loadmat("Pot_bat2.mat").get("Pot_bat2"))
 pswitches_conv_cc_cond2 = np.array(
     scipy.io.loadmat("Pchaves_conv_cc_cond2.mat").get("Pchaves_conv_cc_cond2")
 )
@@ -40,9 +36,8 @@ pswitches_conv_cc_sw2 = np.array(
 )
 Pcp_inter2 = np.array(scipy.io.loadmat("Pcp_ind_bt2.mat").get("Pcp_ind_bt2"))
 binter2 = np.array(scipy.io.loadmat("Bind2.mat").get("Bind2"))
-Pgrid = np.array(scipy.io.loadmat("Pot_grid.mat").get("Pot_grid"))
 
-# Perdas totais nos capacitores do dc-link em relação ao SOC
+# # Perdas totais nos capacitores do dc-link em relação ao SOC
 # print("Dc-link loss calculation...")
 # plosses_dc_link = []
 # plosses_calc = []
@@ -51,7 +46,7 @@ Pgrid = np.array(scipy.io.loadmat("Pot_grid.mat").get("Pot_grid"))
 #     ic = matlab.double(list(i_cap[i]))
 
 #     amplitude, frequency = eng.THD(
-#         ic, float(1), float(3000), float(0), float(param.ts), float(param.fn)
+#         ic, float(2), float(200), float(0), float(param.ts), float(param.fn)
 #     )
 
 #     # plt.bar(frequency[0], amplitude[0])
@@ -81,7 +76,9 @@ Pgrid = np.array(scipy.io.loadmat("Pot_grid.mat").get("Pot_grid"))
 
 #     plosses_calc.append(sum(plosses_freq))
 
-# plosses_dc_link = np.array(plosses_calc)
+# plosses_calc = np.array(plosses_calc)
+# index = int(np.sqrt(plosses_calc.shape[0]))
+# plosses_dc_link = np.reshape(plosses_calc, (index, index))
 
 # Cálculo das perdas magnéticas nos indutores do filtro LCL
 print("Core loss calculation: inverter side inductor of the LCL filter...")
@@ -99,23 +96,26 @@ def core_loss_func(mag_flux_dens, count):
 
 bg_ac = np.array(
     [
-        binv[i][int(len(binv[i]) - ((1 / 60) / (1 / (9000 * 120))) + 1) :]
+        binv[i][int(len(binv[i]) - ((1 / 60) / param.ts) + 1) :]
         for i in range(0, len(binv))
     ]
 )
-
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(binv))])
-plosses_core_linv_lcl = 3 * core_loss * param.vn * 1e-9  # Perdas em W
+index = int(np.sqrt(core_loss.shape[0]))
+plosses_core_linv_lcl = 3 * np.reshape(
+    core_loss * param.vn * 1e-9, (index, index)
+)  # Perdas em W
 
 print("\nCore loss calculation: grid side inductor of the LCL filter...")
 bg_ac = np.array(
-    [
-        bg[i][int(len(bg[i]) - ((1 / 60) / (1 / (9000 * 120))) + 1) :]
-        for i in range(0, len(bg))
-    ]
+    [bg[i][int(len(bg[i]) - ((1 / 60) / param.ts) + 1) :] for i in range(0, len(bg))]
 )
+
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(bg))])
-plosses_core_lg_lcl = 3 * core_loss * param.vn * 1e-9  # Perdas em W
+index = int(np.sqrt(core_loss.shape[0]))
+plosses_core_lg_lcl = 3 * np.reshape(
+    core_loss * param.vn * 1e-9, (index, index)
+)  # Perdas em W
 
 print("\nCore loss calculation: interleaved inductor of the dc/dc converter 1...")
 bg_ac = np.array(
@@ -125,17 +125,23 @@ bg_ac = np.array(
     ]
 )
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(binter1))])
-plosses_core_inter1 = 3 * core_loss * param.vn_inter * 1e-9  # Perdas em W
+index = int(np.sqrt(core_loss.shape[0]))
+plosses_core_inter1 = 3 * np.reshape(
+    core_loss * param.vn * 1e-9, (index, index)
+)  # Perdas em W
 
 print("\nCore loss calculation: interleaved inductor of the dc/dc converter 2...")
 bg_ac = np.array(
     [
-        binter1[i][int(len(binter1[i]) - ((1 / param.fswb) / param.ts) + 1) :]
-        for i in range(0, len(binter1))
+        binter2[i][int(len(binter2[i]) - ((1 / param.fswb) / param.ts) + 1) :]
+        for i in range(0, len(binter2))
     ]
 )
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(binter2))])
-plosses_core_inter2 = 3 * core_loss * param.vn_inter * 1e-9  # Perdas em W
+index = int(np.sqrt(core_loss.shape[0]))
+plosses_core_inter2 = 3 * np.reshape(
+    core_loss * param.vn * 1e-9, (index, index)
+)  # Perdas em W
 
 print("\nCopper loss calculation: resistors of the LCL filter...")
 plosses_copper_lcl = pcp_ind_lcl
@@ -170,7 +176,7 @@ plosses_switch_inter2 = pswitches_conv_cc_sw2
 print("Total power losses calculation...")
 total_power_losses = (
     # plosses_dc_link
-    +plosses_core_linv_lcl
+    plosses_core_linv_lcl
     + plosses_core_lg_lcl
     + plosses_copper_lcl
     + plosses_esr_lcl
@@ -186,25 +192,10 @@ total_power_losses = (
     + plosses_switch_inter2
 )
 
-print("Efficiency calculation...")
-# efficiency = ((1 - total_power_losses / (pbat + pbat2)) * 100)[0]    # Discharge
-# Pin = (pbat + pbat2)[0]    # Discharge
-
-efficiency = ((1 - total_power_losses / abs(Pgrid)) * 100)[0]  # Charge
-Pin = abs(Pgrid)[0]
-
 print("Save json file...")
-with open("efficiency_bess.json", "w") as arquivo:
-    efficiency_list = efficiency.tolist()
-    json.dump(efficiency_list, arquivo)
-
-with open("total_power_losses_bess.json", "w") as arquivo:
+with open("total_losses.json", "w") as arquivo:
     total_power_losses_list = total_power_losses.tolist()
-    json.dump(total_power_losses_list[0], arquivo)
-
-with open("pin.json", "w") as arquivo:
-    Pin_list = Pin.tolist()
-    json.dump(Pin_list, arquivo)
+    json.dump(total_power_losses_list, arquivo)
 
 print("Complete")
 # %%

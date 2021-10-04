@@ -63,7 +63,7 @@ if(control_enable == 1)
     if(flag.DM == 1)
     {
       // Controle de potência
-      PIp.Xref = Pref;
+      PIp.Xref = PRamp.atual;
       PIp.Xm = Vbat*(Ibat+Ibat2+Ibat3);
 
       Pifunc(&PIp, Ts/2, Kpp, Kip, 250, -250);                   // Controle 
@@ -86,14 +86,13 @@ if(control_enable == 1)
     //Carga
     if(flag.CM == 1)
     {        
-      /////////////////////Malha externa de controle da tensão
-      ///controle
-      PIbuv.Xref = VRamp.atual;
-      PIbuv.Xm   = Vbat;                                     //Tensão medida para o modo buck (carga)           
-      
-      Pifunc(&PIbuv, Ts/2, Kpvbu, Kivbu, Iref_ch/N_br, -10);   // Controle PI
+      // Controle de potência
+      PIp.Xref = Pref;
+      PIp.Xm = -Vbat*(Ibat+Ibat2+Ibat3);
+
+      Pifunc(&PIp, Ts/2, Kpp, Kip, 250, -250);                   // Controle 
   
-      PIbu.Xref = PIbuv.piout_sat;
+      PIbu.Xref = PIp.piout_sat/N_br;
 
       PIbu.Xm   = -Ibat;                                   //Corrente medida para o modo boost (Descarga)
 
@@ -101,11 +100,6 @@ if(control_enable == 1)
 
       PIbu.duty = PIbu.piout_sat*PRD;                    // Saída do controlador -> duty
     }// fecha CCM
-
-    else
-    {
-      VRamp.final = 0;
-    }
   } //Fecha interrupção1
 
   ///////////////////////////////////////////////////Interrupção 2
@@ -131,7 +125,7 @@ if(control_enable == 1)
       
       Pifunc(&PIbu2, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
 
-      PIbu2.duty = PIbu2.piout_sat*PRD;            // Saída do controlador -> duty
+      PIbu2.duty = PIbu2.piout_sat*PRD;                    // Saída do controlador -> 
     }// fecha CCM
   }//Fecha interrupção2
 
@@ -157,7 +151,7 @@ if(control_enable == 1)
      
       Pifunc(&PIbu3, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
 
-      PIbu3.duty = PIbu3.piout_sat*PRD;                    // Saída do controlador -> duty
+      PIbu3.duty = PIbu3.piout_sat*PRD;                    // Saída do controlador -> 
     }// fecha CCM
   }//Fecha interrupção3
 
@@ -241,10 +235,10 @@ if(control_enable == 1)
 
 }//fecha control enable
 
-Output(0) = PIp.Xref;
-Output(1) = PIp.Xm;
-Output(2) = PIbt.Xref;
-Output(3) = PIbt.Xm;
+Output(0) = PIbt.Xref;
+Output(1) = PIbt.Xm;
+Output(2) = PIbt2.Xm;
+Output(3) = PIbt3.Xm;
 Output(4) = S1;
 Output(5) = S2;
 Output(6) = S3;
