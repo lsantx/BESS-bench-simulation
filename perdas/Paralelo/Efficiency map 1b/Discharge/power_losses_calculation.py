@@ -126,7 +126,7 @@ bg_ac = np.array(
 )
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(binter1))])
 index = int(np.sqrt(core_loss.shape[0]))
-plosses_core_inter1 = 2 * np.reshape(
+plosses_core_inter1 = 1 * np.reshape(
     core_loss * param.vn * 1e-9, (index, index)
 )  # Perdas em W
 
@@ -139,7 +139,7 @@ bg_ac = np.array(
 )
 core_loss = np.array([core_loss_func(bg_ac[i][:], i) for i in range(0, len(binter2))])
 index = int(np.sqrt(core_loss.shape[0]))
-plosses_core_inter2 = 2 * np.reshape(
+plosses_core_inter2 = 1 * np.reshape(
     core_loss * param.vn * 1e-9, (index, index)
 )  # Perdas em W
 

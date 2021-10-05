@@ -1,13 +1,9 @@
 //..............Contador Para a interrupção e PWM
 count_0 = count_0 + inc;
-count_180 = count_180 + inc_180;
 teste = 0;
 
 if(count_0 == PRD) inc = -1;
 if(count_0 == 0) inc = 1;
-
-if(count_180 == PRD) inc_180 = -1;
-if(count_180 == 0) inc_180 = 1;
 
 CMPB = 0;
 
@@ -104,33 +100,6 @@ if(control_enable == 1)
     }
   } //Fecha interrupção1
 
-  ///////////////////////////////////////////////////Interrupção 2
-  if(count_180 == CMPB)
-  {       
-    ////////////////////////////////////////////////////////////////Inicia Descarga(INT1)///////////////////////////////////////////////////////////////
-    if(flag.DM == 1)
-    {
-      PIbt2.Xref = PIp.piout_sat/N_br;
-      PIbt2.Xm = Ibat2;                                   //Corrente medida para o modo boost (Descarga)
-      
-      Pifunc(&PIbt2, Ts/2, Kpbt, Kibt, sat_up, sat_down);                   // Controle PI
-
-      PIbt2.duty = PIbt2.piout_sat*PRD;                   // Saída do controlador -> duty
-    } //fecha DCM
-    
-      ////////////////////////////////////////////////////////////////Inicia Carga (INT2)///////////////////////////////////////////////////////////////
-      //Carga a corrente constante
-    if(flag.CM == 1)
-    {
-      PIbu2.Xref = PIbu.Xref;
-      PIbu2.Xm = -Ibat2;                                               //Corrente medida para o modo boost (Descarga)
-      
-      Pifunc(&PIbu2, Ts/2, Kpibu, Kiibu, sat_up, sat_down);                   // Controle PI
-
-      PIbu2.duty = PIbu2.piout_sat*PRD;            // Saída do controlador -> duty
-    }// fecha CCM
-  }//Fecha interrupção2
-
   //..........PWM do conversor boost (Carga)
 
   if(flag.CM == 1)
@@ -144,17 +113,6 @@ if(control_enable == 1)
     {
       S2 = 0;
       S1 = 0;
-    }
-
-    if(PIbu2.duty >= count_180)  
-    { 
-      S4 = 0;
-      S3 = 1;
-    } 
-    else  
-    {
-      S4 = 0;
-      S3 = 0;
     }
   }
 
@@ -171,17 +129,6 @@ if(control_enable == 1)
     {
       S2 = 0;
       S1 = 0;
-    }
-
-    if(PIbt2.duty >= count_180)  
-    { 
-      S4 = 1;
-      S3 = 0;
-    } 
-    else  
-    {
-      S4 = 0;
-      S3 = 0;
     }
   }
 

@@ -1,7 +1,8 @@
 # %%
-import numpy as np
 import json
+
 import matplotlib.pyplot as plt
+import numpy as np
 import scipy.io
 
 pnom = 6e3
@@ -35,11 +36,12 @@ levels = np.unique(np.round(np.linspace(85, 93.6, num=N, endpoint=True), decimal
 count1 = ax1.contourf(soc, pref / pnom, efficiency, levels, extend="min", cmap="jet")
 ax1.set_xlabel("Soc [%]", fontsize=18)
 ax1.set_ylabel("Power [pu]", fontsize=18)
-plt.title("3b")
+plt.title("1b")
 plt.yticks(fontsize=18)
 plt.xticks(fontsize=18)
 plt.gca().invert_xaxis()
 cbar = fig.colorbar(count1, ax=ax1)
 cbar.set_label("Efficiency [%]", fontsize=18)
 cbar.ax.tick_params(labelsize=18)  # set your label size here
+
 # %%
