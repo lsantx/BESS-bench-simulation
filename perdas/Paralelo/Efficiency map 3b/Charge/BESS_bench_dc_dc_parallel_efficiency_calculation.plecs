@@ -3,7 +3,7 @@ Plecs {
   Version       "4.5"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1"
+  TimeSpan      "1.8"
   Timeout       ""
   Solver        "FixedStepDiscrete"
   MaxStep       "passo"
@@ -23,58 +23,57 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands base64 "U29jSW5pdCA9IDEwMDsKUHJlZiA9IDIyMDA7ClZkY19iY"
-"XQxID0gMTkyOwpWZGNfYmF0MiA9IDE5MjsKJSUgUGFyw6JtZXRyb3MgZGEgcmVkZSBlIGRhIGNhcm"
-"dhClZybXMgPSAyMjA7ICAgICAgICAlIFRlbnPDo28gZGUgbGluaGEgZWZpY2F6IGRhIHJlZGUKJVZ"
-"ybXMgPSAgMTcwOyAgICAgICAgJSBUZW5zw6NvIGRlIGxpbmhhIGVmaWNheiBkYSByZWRlClZwaWNv"
-"ID0gVnJtcypzcXJ0KDAuNjY2NjY2NjY2NjY2NjY3KTsKZm4gPSA2MDsKd24gPSAyKnBpKmZuOwoKV"
-"mRjID0gNTAwOyAgJSUgRGMtbGluayB2b2x0YWdlCgolJSBUZW1wZXJhdHVyYSBpbmljaWFsIGRvcy"
-"BkaXNwb3NpdGl2b3MKVGVtcF9pbmljaWFsX0lHQlQgPSAxNTAwOwpUZW1wX2luaWNpYWxfZGlvZG8"
-"gPSAxMDAwOwoKVGVtcF9pbmljaWFsX0lHQlRfaW52ID0gNTA7ClRlbXBfaW5pY2lhbF9kaW9kb19p"
-"bnYgPSA1MDsKCiUlIHBhcsOibWV0cm9zIGRhIHNpbXVsYcOnw6NvCmZzdyA9IDkwMDA7ICAgICAgI"
-"CAgICAgIAkJCQkgICAgJSUgZnJlcXXDqm5jaWEgZGUgY2hhdmVhbWVudG8gZG8gY29udmVyc29yCm"
-"ZzYW1wbGUgPSBmc3c7ICAgICAgICAgICAgICAgICAgICAgICV1dGlsaXphZG8gbm9zIHBhcsOibWV"
-"0cm9zIGRvIGNvbnRyb2xlKHRyYW5zZm9ybWHDp8OjbyBlIGNvbnRyb2xlKQpUc2FtcGxlID0gMS9m"
-"c2FtcGxlOwpmZHNwID0gZnNhbXBsZSoxMjA7CnBhc3NvID0gMS8oZmRzcCk7IAkJCQkgIAkgJSUga"
-"W5jcmVtZW50byBkZSBzaW11bGHDp8OjbwoKJSBSRURFClNjYyA9IDIwMGU2OwpYX1IgPSAwLjM7Cl"
-"ZybXNfZiA9IFZybXMvc3FydCgzKTsKdGhldGEgPSBhdGFuKFhfUik7Clptb2QgPSBWcm1zX2ZeMi8"
-"oU2NjLzMpOwpSc291cmNlID0gMC4wMDA1OwpMc291cmNlID0gMC4wNWUtNjsKCiUlIFBhcmFtZXRy"
-"b3MgRmlsdHJvCkxmID0gMWUtMzsKQ2YgPSAyNWUtMDY7CiVSZCA9IDEuNTsKTGcgPSBMZjsKTCA9I"
-"ExnK0xmClJmID0gMTAuMDVlLTM7ClJnID0gMTAuMDVlLTM7ClJkID0gMS44OwpSID0gUmcrUmY7Ck"
-"VTUl9jYXBfbGNsID0gMC4wMjsKTl9lc3BpcmFzID0gODc7CkFyZWEgPSA5ODdlLTY7CgolJSBDb25"
-"0cm9sZSByZXNzb25hbnRlCktpbiA9IDEwMDA7JS0yKnBpKmZjX2FiKlIqMjsKVD0xL2ZzdzsKcm89"
-"ZXhwKFIqVC9MKTsKS3BfZXFfMTMgPSBSKnNxcnQoMisyKnJvXi0yLSgxK3NxcnQoNSkpKnJvXi0xK"
-"S8oKDEtcm9eLTEpKnNxcnQoMikpOwoKJSUgUGFyYW1ldHJvcyBQTEwKV2luaXQgPSAyKnBpKmZuOw"
-"prc2lfc3JmID0gMS9zcXJ0KDIpOyAgICAgICAKd25fc3JmID0gMzAqMipwaTsKCktwX3BsbCA9IDI"
-"qd25fc3JmKmtzaV9zcmY7CktpX3BsbCA9ICh3bl9zcmZeMik7CgolJSBNYWxoYSBleHRlcm5hIFZk"
-"YwpDZGMgPSAzKjQuN2UtMzsgICAgICAgICAKS3BvdXRlciA9IDAuMTkxODA5MjgyNzY3NzY5OyAgI"
-"CAgICAgICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KS2lvdXRlciA9IDMuNDc5MDM1NTUxMzg0MD"
-"AwOyAgICAgICAgICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KCiUlIE1hbGhhIHJlYXRpdm8gICA"
-"gICAgICAKS2lxID0gMTIuNTY2NDsgICAgICAgICAlJU1PZGVsYWdlbSBubyBhcnF1aXZvIC5tCktw"
-"cSA9IC0wLjE2Mjk7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQoKJSUgQmF0dGVye"
-"QpOYl9zZXJpZXMgID0gMTY7Ck5iX3N0cmluZ3MgPSAxOwpSaW50ID0gTmJfc2VyaWVzKjcuMWUtMz"
-"sgICAlJVJlc2lzdMOqbmNpYSBpbnRlcm5hIGRhcyBiYXRlcmlhcwpTb2NfbWluID0gNTA7ICAgICU"
-"gU09DWyVdClNvY19tYXggPSAxMDA7ClZkY28gPSAxMy42Kk5iX3NlcmllczsgICAgICAgICAgICAg"
-"ICAgICAgICAgICAlJSB0ZW5zw6NvIGluaWNpYWwgZGMtbGluawoKJSBEYy9kYyBQYXJhbWV0ZXJzC"
-"kxiID0gNGUtMzsgICAgICAgICAgICAgICAgJUluZHV0b3IgZG8gQm9vc3QKUmIgPSAzOC41ZS0zOy"
-"AgICAgICAgICAgICAgJVJlc2lzdMOqbmNpYSBzw6lyaWUgZG8gaW5kdXRvcgpOID0gMzsgICAgICA"
-"gICAgICAgICAgICVOw7ptZXJvIGRlIGJyYcOnb3MgZG8gaW50ZXJsZWF2ZWQKTl9lc3BpcmFzX2Nj"
-"ID0gMTkxOwpBcmVhX2NjID0gOTg3ZS02OyAgICAgICAKZnN3YiA9IDkwMDA7ClRzYiA9IDEvKGZzd"
-"2IpOwoKJSVHYW5ob3MgZG8gY29udHJvbGFkb3IgZG8gZGMvZGMKJSUgZ2FuaG8gY29udHJvbGUgZG"
-"UgY29ycmVudGUgZG8gYm9vc3QgZSBidWNrCktjID0gVmRjLyhSYitOKlJpbnQpOwpUbSA9IExiLyh"
-"SYitOKlJpbnQpOwpmYyA9IGZzd2IvMjA7CktwYiA9IDIqcGkqZmMqVG0vS2M7ICAgICAgICAlJU1P"
-"ZGVsYWdlbSBubyBhcnF1aXZvIC5tCktpYiA9IDIqcGkqZmMvS2M7ICAgICAgICAgICAlJU1PZGVsY"
-"WdlbSBubyBhcnF1aXZvIC5tCiUlZ2FuaG8gY29udHJvbGUgZGUgY29ycmVudGUgZG8gYnVjayAoTW"
-"9kbyBjb3JyZW50ZSBjb25zdGFudGUpCktwaWJ1ID0gMipwaSpmYypUbS9LYzsgICAgICAlJU1PZGV"
-"sYWdlbSBubyBhcnF1aXZvIC5tCktpaWJ1ID0gMipwaSpmYy9LYzsgICAgICAgICAlJU1PZGVsYWdl"
-"bSBubyBhcnF1aXZvIC5tCiUlIGdhbmhvIGNvbnRyb2xlIGRlIHRlbnPDo28gZG8gYnVjayAoTW9kb"
-"yB0ZW5zw6NvIGNvbnN0YW50ZSkKS2UgPSBOKlJpbnQ7CmZjMSA9IDEwOwpmYzIgPSBmYzEvMjA7Ck"
-"twdmJ1ID0gMipwaSpmYzIvKDIqcGkqS2UqKGZjMS1mYzIpKTsgICAgICAlJU1PZGVsYWdlbSBubyB"
-"hcnF1aXZvIC5tCktpdmJ1ID0gMipwaSpmYzEqKEtwdmJ1KTsgICAgICAlJU1PZGVsYWdlbSBubyBh"
-"cnF1aXZvIC5tCiUlIGdhbmhvIGNvbnRyb2xlIGRlIHBvdGVuY2lhIG5vIG1vZG8gZGUgZGVzY2FyZ"
-"2EKZmNwMSA9IGZjLzEwOwpmY3AyID0gZmNwMS8xMDsKVmJhdF9ub20gPSAxMipOYl9zZXJpZXM7Ck"
-"twcCA9IGZjcDIvKE4qVmJhdF9ub20qKGZjcDEtZmNwMikpOwpLaXAgPSAyKnBpKmZjcDEqS3BwOw="
-"="
+  InitializationCommands base64 "U29jSW5pdCA9IDEwMDsKUHJlZiA9IDEqNmUzOwpWZGNfY"
+"mF0MSA9IDE5MjsKVmRjX2JhdDIgPSAxOTI7CiUlIFBhcsOibWV0cm9zIGRhIHJlZGUgZSBkYSBjYX"
+"JnYQpWcm1zID0gMjIwOyAgICAgICAgJSBUZW5zw6NvIGRlIGxpbmhhIGVmaWNheiBkYSByZWRlCiV"
+"Wcm1zID0gIDE3MDsgICAgICAgICUgVGVuc8OjbyBkZSBsaW5oYSBlZmljYXogZGEgcmVkZQpWcGlj"
+"byA9IFZybXMqc3FydCgwLjY2NjY2NjY2NjY2NjY2Nyk7CmZuID0gNjA7CnduID0gMipwaSpmbjsKC"
+"lZkYyA9IDUwMDsgICUlIERjLWxpbmsgdm9sdGFnZQoKJSUgVGVtcGVyYXR1cmEgaW5pY2lhbCBkb3"
+"MgZGlzcG9zaXRpdm9zClRlbXBfaW5pY2lhbF9JR0JUID0gMTUwMDsKVGVtcF9pbmljaWFsX2Rpb2R"
+"vID0gMTAwMDsKClRlbXBfaW5pY2lhbF9JR0JUX2ludiA9IDUwOwpUZW1wX2luaWNpYWxfZGlvZG9f"
+"aW52ID0gNTA7CgolJSBwYXLDom1ldHJvcyBkYSBzaW11bGHDp8Ojbwpmc3cgPSA5MDAwOyAgICAgI"
+"CAgICAgICAJCQkJICAgICUlIGZyZXF1w6puY2lhIGRlIGNoYXZlYW1lbnRvIGRvIGNvbnZlcnNvcg"
+"pmc2FtcGxlID0gZnN3OyAgICAgICAgICAgICAgICAgICAgICAldXRpbGl6YWRvIG5vcyBwYXLDom1"
+"ldHJvcyBkbyBjb250cm9sZSh0cmFuc2Zvcm1hw6fDo28gZSBjb250cm9sZSkKVHNhbXBsZSA9IDEv"
+"ZnNhbXBsZTsKZmRzcCA9IGZzYW1wbGUqMTIwOwpwYXNzbyA9IDEvKGZkc3ApOyAJCQkJICAJICUlI"
+"GluY3JlbWVudG8gZGUgc2ltdWxhw6fDo28KCiUgUkVERQpTY2MgPSAyMDBlNjsKWF9SID0gMC4zOw"
+"pWcm1zX2YgPSBWcm1zL3NxcnQoMyk7CnRoZXRhID0gYXRhbihYX1IpOwpabW9kID0gVnJtc19mXjI"
+"vKFNjYy8zKTsKUnNvdXJjZSA9IDAuMDAwNTsKTHNvdXJjZSA9IDAuMDVlLTY7CgolJSBQYXJhbWV0"
+"cm9zIEZpbHRybwpMZiA9IDFlLTM7CkNmID0gMjVlLTA2OwolUmQgPSAxLjU7CkxnID0gTGY7CkwgP"
+"SBMZytMZgpSZiA9IDEwLjA1ZS0zOwpSZyA9IDEwLjA1ZS0zOwpSZCA9IDEuODsKUiA9IFJnK1JmOw"
+"pFU1JfY2FwX2xjbCA9IDAuMDI7Ck5fZXNwaXJhcyA9IDg3OwpBcmVhID0gOTg3ZS02OwoKJSUgQ29"
+"udHJvbGUgcmVzc29uYW50ZQpLaW4gPSAxMDAwOyUtMipwaSpmY19hYipSKjI7ClQ9MS9mc3c7CnJv"
+"PWV4cChSKlQvTCk7CktwX2VxXzEzID0gUipzcXJ0KDIrMipyb14tMi0oMStzcXJ0KDUpKSpyb14tM"
+"SkvKCgxLXJvXi0xKSpzcXJ0KDIpKTsKCiUlIFBhcmFtZXRyb3MgUExMCldpbml0ID0gMipwaSpmbj"
+"sKa3NpX3NyZiA9IDEvc3FydCgyKTsgICAgICAgCnduX3NyZiA9IDMwKjIqcGk7CgpLcF9wbGwgPSA"
+"yKnduX3NyZiprc2lfc3JmOwpLaV9wbGwgPSAod25fc3JmXjIpOwoKJSUgTWFsaGEgZXh0ZXJuYSBW"
+"ZGMKQ2RjID0gMyo0LjdlLTM7ICAgICAgICAgCktwb3V0ZXIgPSAwLjM4MzY7ICAgICAgICAgJSVNT"
+"2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaW91dGVyID0gMTMuOTE2MTsgICAgICAgICAlJU1PZGVsYW"
+"dlbSBubyBhcnF1aXZvIC5tCgolJSBNYWxoYSByZWF0aXZvICAgICAgICAgCktpcSA9IDEyLjU2NjQ"
+"7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLcHEgPSAtMC4xNjI5OyAgICAgICAg"
+"ICUlTU9kZWxhZ2VtIG5vIGFycXVpdm8gLm0KCiUlIEJhdHRlcnkKTmJfc2VyaWVzICA9IDE2OwpOY"
+"l9zdHJpbmdzID0gMTsKUmludCA9IE5iX3Nlcmllcyo3LjFlLTM7ICAgJSVSZXNpc3TDqm5jaWEgaW"
+"50ZXJuYSBkYXMgYmF0ZXJpYXMKU29jX21pbiA9IDUwOyAgICAlIFNPQ1slXQpTb2NfbWF4ID0gMTA"
+"wOwpWZGNvID0gMTMuNipOYl9zZXJpZXM7ICAgICAgICAgICAgICAgICAgICAgICAgJSUgdGVuc8Oj"
+"byBpbmljaWFsIGRjLWxpbmsKCiUgRGMvZGMgUGFyYW1ldGVycwpMYiA9IDRlLTM7ICAgICAgICAgI"
+"CAgICAgICVJbmR1dG9yIGRvIEJvb3N0ClJiID0gMzguNWUtMzsgICAgICAgICAgICAgICVSZXNpc3"
+"TDqm5jaWEgc8OpcmllIGRvIGluZHV0b3IKTiA9IDM7ICAgICAgICAgICAgICAgICAlTsO6bWVybyB"
+"kZSBicmHDp29zIGRvIGludGVybGVhdmVkCk5fZXNwaXJhc19jYyA9IDE5MTsKQXJlYV9jYyA9IDk4"
+"N2UtNjsgICAgICAgCmZzd2IgPSA5MDAwOwpUc2IgPSAxLyhmc3diKTsKCiUlR2FuaG9zIGRvIGNvb"
+"nRyb2xhZG9yIGRvIGRjL2RjCiUlIGdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlbnRlIGRvIGJvb3N0IG"
+"UgYnVjawpLYyA9IFZkYy8oUmIrTipSaW50KTsKVG0gPSBMYi8oUmIrTipSaW50KTsKZmMgPSBmc3d"
+"iLzIwOwpLcGIgPSAyKnBpKmZjKlRtL0tjOyAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAu"
+"bQpLaWIgPSAyKnBpKmZjL0tjOyAgICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJ"
+"WdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlbnRlIGRvIGJ1Y2sgKE1vZG8gY29ycmVudGUgY29uc3Rhbn"
+"RlKQpLcGlidSA9IDIqcGkqZmMqVG0vS2M7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQp"
+"LaWlidSA9IDIqcGkqZmMvS2M7ICAgICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJSBn"
+"YW5obyBjb250cm9sZSBkZSB0ZW5zw6NvIGRvIGJ1Y2sgKE1vZG8gdGVuc8OjbyBjb25zdGFudGUpC"
+"ktlID0gTipSaW50OwpmYzEgPSAxMDsKZmMyID0gZmMxLzIwOwpLcHZidSA9IDIqcGkqZmMyLygyKn"
+"BpKktlKihmYzEtZmMyKSk7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQpLaXZidSA9IDI"
+"qcGkqZmMxKihLcHZidSk7ICAgICAgJSVNT2RlbGFnZW0gbm8gYXJxdWl2byAubQolJSBnYW5obyBj"
+"b250cm9sZSBkZSBwb3RlbmNpYSBubyBtb2RvIGRlIGRlc2NhcmdhCmZjcDEgPSBmYy8xMDsKZmNwM"
+"iA9IGZjcDEvMTA7ClZiYXRfbm9tID0gMTIqTmJfc2VyaWVzOwpLcHAgPSBmY3AyLyhOKlZiYXRfbm"
+"9tKihmY3AxLWZjcDIpKTsKS2lwID0gMipwaSpmY3AxKktwcDs="
   InitialState  "1"
   SystemState   "AAAACAAAAAADAAAAEgBUAGkAbQBlAFMAdABhAG0AcAAAABAAACWFAgOHlFj/A"
 "AAAFgBTAHQAYQB0AGUAVgBlAGMAdABvAHIAAAB/AAAAABlQbGVjc0FycmF5OjpEb3VibGVWZWN0b3"
@@ -3986,9 +3985,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAGQAAAAHAAAAZAAAAAYAAABkAAAABQAAAGQAAAAEAAAAZAAAAAkAAABkAAAACAAAAGQAAAADAA"
-"AAZAAAAAIAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACvAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -9585,7 +9584,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "Time"
-            Value         "0.15"
+            Value         "0.09"
             Show          off
           }
           Parameter {
@@ -9613,7 +9612,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "Time"
-            Value         "0.2"
+            Value         "0.1"
             Show          off
           }
           Parameter {
@@ -9749,17 +9748,17 @@ Plecs {
           Position      [35, 470]
           Direction     down
           Flipped       on
-          Location      [0, 55; 1366, 748]
+          Location      [683, 55; 1366, 748]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAAIEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKW"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAqsAAAKW"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAAAAZAAAAAEAAABkAAAACQAAAGQAAA"
-"AIAAAAZAAAAAcAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"AAACAAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAA"
+"ACAAAAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
 "FAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
@@ -9979,67 +9978,6 @@ Plecs {
             Variable      "DataType"
             Value         "10"
             Show          off
-          }
-        }
-        Component {
-          Type          Scope
-          Name          "Scope13"
-          Show          off
-          Position      [935, 640]
-          Direction     up
-          Flipped       off
-          Location      [50, 105; 400, 336]
-          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
-"wBvAG0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
-"AA/////wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAV4AAADI"
-"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
-"AAAAAAAAA=="
-          SavedViews    "AAAAAgAAAAA="
-          HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAACQAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAA"
-"ACAAAAZAAAAAEAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
-"vAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
-"AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
-"AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
-          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-          Axes          "1"
-          TimeRange     "0"
-          ScrollingMode "1"
-          SingleTimeAxis "1"
-          Open          "0"
-          Ts            "-1"
-          SampleLimit   "200"
-          XAxisLabel    ""
-          ShowLegend    "1"
-          Axis {
-            Name          "Perdas Totais nas Chaves"
-            AutoScale     1
-            MinValue      0
-            MaxValue      1
-            Signals       {}
-            SignalTypes   [ ]
-            AxisLabel     "W"
-            Untangle      0
-            KeepBaseline  off
-            BaselineValue 0
-          }
-          Fourier {
-            SingleXAxis       on
-            AxisLabel         "Frequency"
-            Scaling           0
-            PhaseDisplay      0
-            ShowFourierLegend off
-            Axis {
-              Name          ""
-              AutoScale     1
-              MinValue      0
-              MaxValue      1
-              Signals       {}
-              Untangle      0
-              KeepBaseline  off
-              BaselineValue 0
-            }
           }
         }
         Component {
@@ -12979,6 +12917,79 @@ Plecs {
             Show          off
           }
         }
+        Component {
+          Type          SignalDemux
+          Name          "Demux3"
+          Show          off
+          Position      [385, 85]
+          Direction     right
+          Flipped       on
+          Parameter {
+            Variable      "Width"
+            Value         "[2 2]"
+            Show          off
+          }
+        }
+        Component {
+          Type          Scope
+          Name          "Scope"
+          Show          off
+          Position      [440, 65]
+          Direction     up
+          Flipped       off
+          Location      [0, 55; 683, 748]
+          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
+"wBvAG0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
+"AA/////wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAqsAAAKW"
+"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
+"AAAAAAAAA=="
+          SavedViews    "AAAAAgAAAAA="
+          HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
+"AAACAAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAA"
+"ACAAAAZAAAAAMAAABkAAAAwQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"oAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
+"AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
+"AAAAAAZAAAAAQAAAAAAAAPoAAAAABk="
+          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          Axes          "1"
+          TimeRange     "0.0"
+          ScrollingMode "1"
+          SingleTimeAxis "1"
+          Open          "0"
+          Ts            "-1"
+          SampleLimit   "0"
+          XAxisLabel    ""
+          ShowLegend    "1"
+          Axis {
+            Name          ""
+            AutoScale     1
+            MinValue      0
+            MaxValue      1
+            Signals       {}
+            SignalTypes   [ ]
+            Untangle      0
+            KeepBaseline  off
+            BaselineValue 0
+          }
+          Fourier {
+            SingleXAxis       on
+            AxisLabel         "Frequency"
+            Scaling           0
+            PhaseDisplay      0
+            ShowFourierLegend off
+            Axis {
+              Name          ""
+              AutoScale     1
+              MinValue      0
+              MaxValue      1
+              Signals       {}
+              Untangle      0
+              KeepBaseline  off
+              BaselineValue 0
+            }
+          }
+        }
         Connection {
           Type          Wire
           SrcComponent  "Am3"
@@ -13463,13 +13474,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum1"
-          SrcTerminal   1
-          DstComponent  "Scope13"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Perdas semic. cc/cc2"
           SrcTerminal   2
           Points        [840, 655]
@@ -13641,6 +13645,22 @@ Plecs {
             DstComponent  "Goto16"
             DstTerminal   1
           }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux2"
+          SrcTerminal   2
+          Points        [360, 115; 360, 85]
+          DstComponent  "Demux3"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux3"
+          SrcTerminal   2
+          Points        [400, 80; 400, 65]
+          DstComponent  "Scope"
+          DstTerminal   1
         }
         Annotation {
           Name          "Iref_ch"
@@ -19142,7 +19162,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "Time"
-            Value         "0.20"
+            Value         "0.1"
             Show          off
           }
           Parameter {
@@ -19170,7 +19190,7 @@ Plecs {
           Flipped       off
           Parameter {
             Variable      "Time"
-            Value         "0.15"
+            Value         "0.09"
             Show          off
           }
           Parameter {
@@ -19491,57 +19511,6 @@ Plecs {
             Variable      "DataType"
             Value         "10"
             Show          off
-          }
-        }
-        Component {
-          Type          Scope
-          Name          "Scope13"
-          Show          off
-          Position      [825, 660]
-          Direction     up
-          Flipped       off
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
-          Axes          "1"
-          TimeRange     "0"
-          ScrollingMode "1"
-          SingleTimeAxis "1"
-          Open          "0"
-          Ts            "-1"
-          SampleLimit   "200"
-          XAxisLabel    ""
-          ShowLegend    "1"
-          Axis {
-            Name          "Perdas Totais nas Chaves"
-            AutoScale     1
-            MinValue      0
-            MaxValue      1
-            Signals       {}
-            SignalTypes   [ ]
-            AxisLabel     "W"
-            Untangle      0
-            KeepBaseline  off
-            BaselineValue 0
-          }
-          Fourier {
-            SingleXAxis       on
-            AxisLabel         "Frequency"
-            Scaling           0
-            PhaseDisplay      0
-            ShowFourierLegend off
-            Axis {
-              Name          ""
-              AutoScale     1
-              MinValue      0
-              MaxValue      1
-              Signals       {}
-              Untangle      0
-              KeepBaseline  off
-              BaselineValue 0
-            }
           }
         }
         Component {
@@ -23003,13 +22972,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Sum1"
-          SrcTerminal   1
-          DstComponent  "Scope13"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Perdas semic. cc/cc2"
           SrcTerminal   2
           Points        [730, 675]
@@ -25928,67 +25890,6 @@ Plecs {
       }
     }
     Component {
-      Type          Scope
-      Name          "Scope16"
-      Show          off
-      Position      [795, 625]
-      Direction     up
-      Flipped       off
-      Location      [0, 55; 1366, 748]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABVYAAAKWAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAGQAAAAIAAAAZAAAAAMAAABkAAAAAgAAAGQAAAABAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAA"
-"AAZAAAAAQAAABkAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACiAAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAZAAAAAQAAAAAAAAPoAAAAABk="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    ""
-      ShowLegend    "1"
-      Axis {
-        Name          "Perdas Totais nas Chaves"
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        AxisLabel     "W"
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
       Type          Goto
       Name          "Goto15"
       Show          off
@@ -27463,13 +27364,6 @@ Plecs {
       SrcTerminal   1
       Points        [565, 495]
       DstComponent  "Rth2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Sum2"
-      SrcTerminal   1
-      DstComponent  "Scope16"
       DstTerminal   1
     }
     Connection {

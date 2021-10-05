@@ -27,7 +27,7 @@
 #define Kpp ParamRealData(13,0)   
 #define Kip ParamRealData(14,0)  
 
-#define N_br  2                                        //Número de braços do interleaved
+#define N_br  1                                        //Número de braços do interleaved
 #define PRD  (fdsp/fsw)/2                                    // COntador Up e Down, PRD = (fdsp/fsw)/2 
 #define PRD_div2  PRD/2                                      // PRD_div2 = PRD/2;
 #define pi    3.141592653589793   

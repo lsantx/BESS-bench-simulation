@@ -57,7 +57,7 @@ Plecs {
 "wOwpWZGNvID0gMTMuNipOYl9zZXJpZXM7ICAgICAgICAgICAgICAgICAgICAgICAgJSUgdGVuc8Oj"
 "byBpbmljaWFsIGRjLWxpbmsKCiUgRGMvZGMgUGFyYW1ldGVycwpMYiA9IDRlLTM7ICAgICAgICAgI"
 "CAgICAgICVJbmR1dG9yIGRvIEJvb3N0ClJiID0gMzguNWUtMzsgICAgICAgICAgICAgICVSZXNpc3"
-"TDqm5jaWEgc8OpcmllIGRvIGluZHV0b3IKTiA9IDI7ICAgICAgICAgICAgICAgICAlTsO6bWVybyB"
+"TDqm5jaWEgc8OpcmllIGRvIGluZHV0b3IKTiA9IDE7ICAgICAgICAgICAgICAgICAlTsO6bWVybyB"
 "kZSBicmHDp29zIGRvIGludGVybGVhdmVkCk5fZXNwaXJhc19jYyA9IDE5MTsKQXJlYV9jYyA9IDk4"
 "N2UtNjsgICAgICAgCmZzd2IgPSA5MDAwOwpUc2IgPSAxLyhmc3diKTsKCiUlR2FuaG9zIGRvIGNvb"
 "nRyb2xhZG9yIGRvIGRjL2RjCiUlIGdhbmhvIGNvbnRyb2xlIGRlIGNvcnJlbnRlIGRvIGJvb3N0IG"
@@ -9769,7 +9769,7 @@ Plecs {
           TimeRange     "0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "1"
+          Open          "0"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    ""
@@ -12956,7 +12956,7 @@ Plecs {
           TimeRange     "0.0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "1"
+          Open          "0"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    ""
@@ -13153,14 +13153,6 @@ Plecs {
           }
         }
         Connection {
-          Type          Signal
-          SrcComponent  "Delay3"
-          SrcTerminal   1
-          Points        [625, 125]
-          DstComponent  "IGBT11"
-          DstTerminal   3
-        }
-        Connection {
           Type          Wire
           SrcComponent  "S8"
           SrcTerminal   2
@@ -13294,14 +13286,6 @@ Plecs {
           SrcTerminal   11
           Points        [775, 175; 775, 450]
           DstComponent  "IGBT19"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Delay3"
-          SrcTerminal   2
-          Points        [615, 135; 615, 450]
-          DstComponent  "IGBT20"
           DstTerminal   3
         }
         Connection {
@@ -13624,14 +13608,6 @@ Plecs {
         }
         Connection {
           Type          Signal
-          SrcComponent  "Interleaved Currents3"
-          SrcTerminal   1
-          Points        [180, 90; 180, 130]
-          DstComponent  "Mux15"
-          DstTerminal   2
-        }
-        Connection {
-          Type          Signal
           SrcComponent  "Am3"
           SrcTerminal   3
           Points        [275, 400]
@@ -13661,6 +13637,30 @@ Plecs {
           Points        [400, 80; 400, 65]
           DstComponent  "Scope"
           DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Interleaved Currents3"
+          SrcTerminal   1
+          Points        [180, 90; 180, 130]
+          DstComponent  "Mux15"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay3"
+          SrcTerminal   1
+          Points        [625, 125]
+          DstComponent  "IGBT11"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Delay3"
+          SrcTerminal   2
+          Points        [615, 135; 615, 450]
+          DstComponent  "IGBT20"
+          DstTerminal   3
         }
         Annotation {
           Name          "Iref_ch"

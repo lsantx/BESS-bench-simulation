@@ -13,9 +13,9 @@ varStructure = struct('ModelVars', loadStructure);
 %plecs('scope', scopepath, 'ClearTraces');
 
 Pnom = 6e3;
-PVals = Pnom * (0.40:-(0.40-0.05)/8:0.05);
+PVals = [Pnom*0.40 Pnom*0.30 Pnom*0.20 Pnom*0.10 Pnom*0.05]
 
-SocVals = [20 30 40 50 60 70 80 90 100];
+SocVals = [20 40 60 80 100];
 
 fs = 9000;
 

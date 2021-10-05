@@ -18,17 +18,13 @@ efficiency = (1 - total_power_losses / (-pgrid)) * 100
 pref = np.array(
     [
         pnom * 0.40,
-        pnom * 0.3563,
-        pnom * 0.3125,
-        pnom * 0.2688,
-        pnom * 0.2250,
-        pnom * 0.1813,
-        pnom * 0.1375,
-        pnom * 0.0938,
-        pnom * 0.0500,
+        pnom * 0.30,
+        pnom * 0.20,
+        pnom * 0.10,
+        pnom * 0.05
     ]
 )
-soc = np.array([20, 30, 40, 50, 60, 70, 80, 90, 100])
+soc = np.array([20, 40, 60, 80, 100])
 
 fig, ax1 = plt.subplots(1, 1)
 fig.set_size_inches(8, 6)
@@ -52,3 +48,5 @@ fig.tight_layout()
 plt.show(block=False)
 input("hit[enter] to end.")
 plt.close("all")
+
+# %%
