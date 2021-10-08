@@ -29,3 +29,4 @@ perdas/venv/
 *.insyncdl
 venv/
 *.mat
+perdas/Paralelo/surface_efficiency_map.py
