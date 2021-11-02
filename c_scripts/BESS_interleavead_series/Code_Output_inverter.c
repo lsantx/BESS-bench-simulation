@@ -169,10 +169,13 @@ if(count == PRD)
 
   Pifunc(&PIq, Ts/2, 0.001, Kiq, psat, -psat);      //Kp = 0, porém, para não dar erro no antiwindup foi colocado um valor pequeno (0.001)
 
-  Q_control = PIq.piout_sat + PIq.Xref;
+  Q_control = (PIq.piout_sat + PIq.Xref) / 1.5;
+
+  P_control = (-PIvdc.piout_sat) / 1.5; 
+
   /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
   PRf_alfa.Xref = (PLL.Valfa_in*(P_control) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-  PRf_beta.Xref= (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+  PRf_beta.Xref = (PLL.Vbeta_in*(P_control) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
 
   // saturação da corrente
   if(PRf_alfa.Xref>Ir) PRf_alfa.Xref = Ir;

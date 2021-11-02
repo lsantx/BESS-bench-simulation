@@ -35,6 +35,7 @@ float Ir = 30;
 float Pc = 0;
 float Qc = 0;
 float Q_control = 0;
+float P_control = 0;
 float Vpwm_norm_a = 0;
 float Vpwm_norm_b = 0;
 float Vpwm_norm_c = 0;
