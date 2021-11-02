@@ -113,19 +113,18 @@ if(count == PRD)
     Q_control = PIq.piout_sat + PIq.Xref; 
 
     /////////////////////////////////////////////////////////////Teoria da potência instantânea//////////////////////////////////
-    Ialfabeta.alfa = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
-    Ialfabeta.beta = (PLL.Vbeta_in*(-PIvdc.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    PRf_alfa.Xref = (PLL.Valfa_in*(-PIvdc.piout_sat) + Q_control*PLL.Vbeta_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
+    PRf_beta.Xref = (PLL.Vbeta_in*(-PIvdc.piout_sat) - Q_control*PLL.Valfa_in)/(PLL.Valfa_in*PLL.Valfa_in + PLL.Vbeta_in*PLL.Vbeta_in + 1e-2);
 
     // saturação da corrente
-    if(Ialfabeta.alfa>Ir) Ialfabeta.alfa = Ir;
-    if(Ialfabeta.alfa<-Ir) Ialfabeta.alfa = -Ir;
-    if(Ialfabeta.beta>Ir) Ialfabeta.beta = Ir;
-    if(Ialfabeta.beta<-Ir) Ialfabeta.beta = -Ir;
+    if(PRf_alfa.Xref>Ir) PRf_alfa.Xref = Ir;
+    if(PRf_alfa.Xref<-Ir) PRf_alfa.Xref = -Ir;
+    if(PRf_beta.Xref > Ir) PRf_beta.Xref = Ir;
+    if(PRf_beta.Xref <-Ir) PRf_beta.Xref = -Ir;
 
     /////////////////////////////////////////////////////////Controladores ressonantes////////////////////////////////////////////////////////////
 
     // Componente Alfa
-    PRf_alfa.Xref = Ialfabeta.alfa;
     PRf_alfa.Xm = Isalfabeta.alfa;
 
     PRf_alfa.erro = PRf_alfa.Xref - PRf_alfa.Xm;
@@ -133,7 +132,6 @@ if(count == PRD)
     Resfunc(&PRf_alfa, Kp_res, Ki_res);
 
     // Componente Beta
-    PRf_beta.Xref = Ialfabeta.beta;
     PRf_beta.Xm = Isalfabeta.beta;
 
     PRf_beta.erro = PRf_beta.Xref - PRf_beta.Xm;
