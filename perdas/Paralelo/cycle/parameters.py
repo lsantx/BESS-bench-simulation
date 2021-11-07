@@ -87,7 +87,7 @@ n_ind_series_lcl = 2  # Número de Indutores em série no filtro LCL
 # parâmetros do núcleo escolhido para os indutores do filtro LCL do
 # inversor e dos interleaved
 vn = 407000  # mm3
-vn_inter = 4 * 407000  # mm3     4 stack cores
+vn_inter = 407000  # mm3     4 stack cores
 kn = 595.864  # constante
 xn = 2.042  # expoente B
 cn = 1.052  # expoente f
