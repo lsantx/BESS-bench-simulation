@@ -238,13 +238,13 @@ MA = Tplanta*Gc;
 % bode(MA)
 
 MF = MA/(1 + MA);
-bode(MA)
+step(MF)
 
-%% Projeto do controle de tensão nos capacitores no dc-link (Versão Tese)
+%% Projeto do controle de tensão nos capacitores no dc-link (Tese)
 clear; close all; clc;
 
 s = tf('s');
-P = (10e3) / 2;
+P = 5e3;
 Vdc = 500;
 Vnom_bat = 12;
 C = 4.7e-3;
@@ -258,7 +258,7 @@ D = 1 - Vs/Vo;
 Ro = (Vo^2)/P;
 N = 3;
 
-fc = 0.02;
+fc = 3;
 wc = 2*pi*fc;
 MF = 120;
 %Código
@@ -280,5 +280,5 @@ MA = Tplanta*Gc;
 % bode(MA)
 
 MF = MA/(1 + MA);
-bode(MA)
-grid on
+step(MF)
+
