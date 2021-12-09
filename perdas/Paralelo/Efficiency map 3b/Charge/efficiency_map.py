@@ -4,6 +4,8 @@ import json
 import matplotlib.pyplot as plt
 import scipy.io
 
+plt.rcParams["font.family"] = "Nimbus Roman"
+
 pnom = 6e3
 
 pgrid = np.array(scipy.io.loadmat("Pot_grid.mat").get("Pot_grid"))
@@ -26,14 +28,22 @@ pref = np.array(
 )
 soc = np.array([20, 40, 60, 80, 100])
 
+%matplotlib
 fig, ax1 = plt.subplots(1, 1)
 fig.set_size_inches(8, 6)
 
-efficiency = np.round(efficiency, decimals=2)
+efficiency = np.round(efficiency, decimals=2) * 0.984
 
 N = 1000  # Number of levels
 levels = np.unique(np.round(np.linspace(85, 93, num=N, endpoint=True), decimals=2))
 count1 = ax1.contourf(soc, pref / pnom, efficiency, levels, extend="min", cmap="jet")
+
+plt.plot(77.5, 2360 / 6000, color='black', marker='x', linestyle='dashed', linewidth=2, markersize=12)
+plt.text(77.5, (2360 / 6000) - 0.02, '1', fontsize=18)
+
+plt.plot(93, 2470 / 6000, color='black', marker='x', linestyle='dashed', linewidth=2, markersize=12)
+plt.text(77.5, (2470 / 6000) - 0.02, '1', fontsize=18)
+
 ax1.set_xlabel("Soc [%]", fontsize=18)
 ax1.set_ylabel("Power [pu]", fontsize=18)
 plt.yticks(fontsize=18)
@@ -45,8 +55,6 @@ cbar.ax.tick_params(labelsize=18)  # set your label size here
 for c in count1.collections:
     c.set_edgecolor("face")
 fig.tight_layout()
-plt.show(block=False)
-input("hit[enter] to end.")
-plt.close("all")
+plt.show()
 
 # %%

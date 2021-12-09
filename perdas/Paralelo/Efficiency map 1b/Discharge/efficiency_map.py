@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io
 
+plt.rcParams["font.family"] = "Nimbus Roman"
+
 pnom = 6e3
 
 pbat = np.array(scipy.io.loadmat("Pot_bat.mat").get("Pot_bat"))
@@ -26,14 +28,26 @@ pref = np.array(
 )
 soc = np.array([100, 80, 60, 40, 20])
 
+%matplotlib
 fig, ax1 = plt.subplots(1, 1)
 fig.set_size_inches(8, 6)
 
-efficiency = np.round(efficiency, decimals=2)
+efficiency = np.round(efficiency, decimals=2) * 0.984
 
 N = 1000  # Number of levels
-levels = np.unique(np.round(np.linspace(85, 93.6, num=N, endpoint=True), decimals=2))
+levels = np.unique(np.round(np.linspace(85, 92, num=N, endpoint=True), decimals=2))
 count1 = ax1.contourf(soc, pref / pnom, efficiency, levels, extend="min", cmap="jet")
+
+plt.plot(95, 3900 / 6000, color='black', marker='x', linestyle='dashed', linewidth=2, markersize=12)
+plt.text(95, 0.02 + 3900 / 6000, '1', fontsize=18)
+
+plt.plot(90, 3000 / 6000, color='black', marker='x', linestyle='dashed', linewidth=2, markersize=12)
+plt.text(90, 0.02 + 3000 / 6000, '2', fontsize=18)
+
+plt.plot(87, 2300 / 6000, color='black', marker='x', linestyle='dashed', linewidth=2, markersize=12)
+plt.text(87, 0.02 + 2300 / 6000, '3', fontsize=18)
+
+ax1.set_ylim(0.2, 0.7)
 ax1.set_xlabel("Soc [%]", fontsize=18)
 ax1.set_ylabel("Power [pu]", fontsize=18)
 plt.title("1b")
